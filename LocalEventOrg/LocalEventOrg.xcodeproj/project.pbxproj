@@ -18,6 +18,7 @@
 		579686862CF47BE300495313 /* LocalEventOrgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686852CF47BE300495313 /* LocalEventOrgTests.swift */; };
 		579686902CF47BE300495313 /* LocalEventOrgUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */; };
 		579686922CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */; };
+		C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5434B2CF879A6003007CF /* Mohammed.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5796868B2CF47BE300495313 /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITests.swift; sourceTree = "<group>"; };
 		579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C3C5434B2CF879A6003007CF /* Mohammed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */,
 				3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */,
 				5796867C2CF47BE200495313 /* Info.plist */,
+				C3C5434B2CF879A6003007CF /* Mohammed.storyboard */,
 			);
 			path = LocalEventOrg;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
