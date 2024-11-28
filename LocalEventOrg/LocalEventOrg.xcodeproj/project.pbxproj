@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */; };
 		5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796866E2CF47BE000495313 /* AppDelegate.swift */; };
 		579686712CF47BE000495313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686702CF47BE000495313 /* SceneDelegate.swift */; };
 		579686732CF47BE000495313 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686722CF47BE000495313 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Alhasan - Account.storyboard"; sourceTree = "<group>"; };
 		5796866B2CF47BE000495313 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796866E2CF47BE000495313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		579686702CF47BE000495313 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				579686742CF47BE000495313 /* Main.storyboard */,
 				579686772CF47BE200495313 /* Assets.xcassets */,
 				579686792CF47BE200495313 /* LaunchScreen.storyboard */,
+				3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */,
 				5796867C2CF47BE200495313 /* Info.plist */,
 			);
 			path = LocalEventOrg;
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
+				3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 			);
