@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */; };
+		3F67A2FC2CF879CE00A7F8D6 /* LogInTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */; };
 		5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796866E2CF47BE000495313 /* AppDelegate.swift */; };
 		579686712CF47BE000495313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686702CF47BE000495313 /* SceneDelegate.swift */; };
 		579686732CF47BE000495313 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686722CF47BE000495313 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Alhasan - Account.storyboard"; sourceTree = "<group>"; };
+		3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTableViewController.swift; sourceTree = "<group>"; };
 		5796866B2CF47BE000495313 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796866E2CF47BE000495313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		579686702CF47BE000495313 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				579686772CF47BE200495313 /* Assets.xcassets */,
 				579686792CF47BE200495313 /* LaunchScreen.storyboard */,
 				3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */,
+				3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */,
 				5796867C2CF47BE200495313 /* Info.plist */,
 			);
 			path = LocalEventOrg;
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				579686732CF47BE000495313 /* ViewController.swift in Sources */,
+				3F67A2FC2CF879CE00A7F8D6 /* LogInTableViewController.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 			);
