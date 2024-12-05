@@ -18,6 +18,7 @@
 		579686862CF47BE300495313 /* LocalEventOrgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686852CF47BE300495313 /* LocalEventOrgTests.swift */; };
 		579686902CF47BE300495313 /* LocalEventOrgUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */; };
 		579686922CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */; };
+		57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */; };
 		C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5434B2CF879A6003007CF /* Mohammed.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		5796868B2CF47BE300495313 /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITests.swift; sourceTree = "<group>"; };
 		579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Home.storyboard"; sourceTree = "<group>"; };
 		C3C5434B2CF879A6003007CF /* Mohammed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */,
 				5796867C2CF47BE200495313 /* Info.plist */,
 				C3C5434B2CF879A6003007CF /* Mohammed.storyboard */,
+				57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */,
 			);
 			path = LocalEventOrg;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
+				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
