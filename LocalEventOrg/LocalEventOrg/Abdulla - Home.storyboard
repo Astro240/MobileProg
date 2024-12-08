@@ -48,7 +48,7 @@
         <!--Games-->
         <scene sceneID="Epu-ZU-IGy">
             <objects>
-                <viewController id="hjQ-Ns-cJ6" customClass="ViewController" customModule="AppStoreLayout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hjQ-Ns-cJ6" customClass="HomeViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8VB-PR-Iza">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +77,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Cuh-iH-48f"/>
                     <navigationItem key="navigationItem" title="Games" largeTitleDisplayMode="always" id="twJ-VT-phg"/>
                     <connections>
-                        <outlet property="collectionView" destination="fiL-aS-8M8" id="ui3-H4-o7A"/>
+                        <outlet property="collectionView" destination="fiL-aS-8M8" id="75C-Sg-lbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jor-ar-Efx" sceneMemberID="firstResponder"/>

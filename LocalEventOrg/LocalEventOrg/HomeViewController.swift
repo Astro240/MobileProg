@@ -22,7 +22,8 @@ class HomeViewController: UIViewController {
         static let bottomLine = "bottomLine"
     }
 
-    @IBOutlet var collectionView: UICollectionView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var dataSource: UICollectionViewDiffableDataSource<Section, Item.ID>!
     
