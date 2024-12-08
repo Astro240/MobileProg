@@ -40,6 +40,11 @@ class HomeViewController: UIViewController {
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             
+            // Ensure we have a valid section index
+            guard sectionIndex < self.sections.count else {
+                return nil
+            }
+
             let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(44))
             let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: SupplementaryViewKind.header, alignment: .top)
             
@@ -47,7 +52,6 @@ class HomeViewController: UIViewController {
             let lineItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(lineItemHeight))
             
             let topLineItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: lineItemSize, elementKind: SupplementaryViewKind.topLine, alignment: .top)
-
             let bottomLineItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: lineItemSize, elementKind: SupplementaryViewKind.bottomLine, alignment: .bottom)
 
             let supplementaryItemContentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
@@ -58,7 +62,7 @@ class HomeViewController: UIViewController {
             let section = self.sections[sectionIndex]
             switch section {
             case .promoted:
-                // MARK: Promoted Section Layout
+                // Promoted Section Layout
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
@@ -75,7 +79,7 @@ class HomeViewController: UIViewController {
                 return section
                 
             case .standard:
-                // MARK: Standard Section Layout
+                // Standard Section Layout
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
@@ -92,7 +96,7 @@ class HomeViewController: UIViewController {
                 return section
                 
             case .categories:
-                // MARK: Categories Section Layout
+                // Categories Section Layout
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
@@ -116,7 +120,7 @@ class HomeViewController: UIViewController {
         
         return layout
     }
-    
+
     func configureDataSource() {
         // MARK: Data Source Initialization
         let promotedAppCellRegistration = UICollectionView.CellRegistration<PromotedAppCollectionViewCell, Item.ID> { cell, indexPath, itemIdentifier in
