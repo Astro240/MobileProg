@@ -1,10 +1,3 @@
-//
-//  HomeViewController.swift
-//  LocalEventOrg
-//
-//  Created by Asto240 on 08/12/2024.
-//
-
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -22,7 +15,6 @@ class HomeViewController: UIViewController {
         static let bottomLine = "bottomLine"
     }
 
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataSource: UICollectionViewDiffableDataSource<Section, Item.ID>!
@@ -59,14 +51,15 @@ class HomeViewController: UIViewController {
             let section = self.sections[sectionIndex]
             switch section {
             case .promoted:
-                // MARK: Promoted Section Layout
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
+                // MARK: Promoted Section Layout - Adjusting the item size to make it shorter
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))  // Change the height to make items shorter
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(300))
+                // Adjust the group size to make the section fit the shorter items
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(200))  // Shorter height for group
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                                
+                
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.boundarySupplementaryItems = [topLineItem, bottomLineItem]
@@ -202,4 +195,3 @@ class HomeViewController: UIViewController {
         dataSource.apply(snapshot)
     }
 }
-

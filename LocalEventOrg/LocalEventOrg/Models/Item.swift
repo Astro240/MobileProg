@@ -26,10 +26,10 @@ enum Item: Identifiable {
     }
     
     static let promotedApps: [Item] = [
-        .app(App(promotedHeadline: "Now Trending", title: "Game Title", subtitle: "Game Description", price: 3.99)),
-        .app(App(promotedHeadline: "Limited Time", title: "Game Title", subtitle: "Game Description", price: nil)),
-        .app(App(promotedHeadline: "New Update", title: "Game Title", subtitle: "Game Description", price: nil)),
-        .app(App(promotedHeadline: "Just Released", title: "Game Title", subtitle: "Game Description", price: nil))
+        .app(App(promotedHeadline: "Recommended For You", title: "Comic Con", subtitle: "", price: 3.99)),
+        .app(App(promotedHeadline: "Recommended For You", title: "Formula 1", subtitle: "", price: nil)),
+        .app(App(promotedHeadline: "Recommended For You", title: "Youth City", subtitle: "", price: nil)),
+        .app(App(promotedHeadline: "Recommended For You", title: "Comfest", subtitle: "", price: nil))
     ]
     
     static let popularApps: [Item] = [
