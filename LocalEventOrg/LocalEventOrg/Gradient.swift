@@ -1,10 +1,3 @@
-//
-//  Gradient.swift
-//  LocalEventOrg
-//
-//  Created by BP-36-201-05 on 05/12/2024.
-//
-
 import UIKit
 
 class Gradient: UIViewController {
@@ -14,7 +7,14 @@ class Gradient: UIViewController {
 
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.systemCyan.cgColor]
-        view.layer.addSublayer(gradientLayer)
+        
+        // Define the colors for the gradient: cyan to white
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.systemCyan.cgColor ]
+
+        // Optionally, you can set the locations and direction of the gradient
+        gradientLayer.locations = [0.5, 1.1]  // Default (left to right)
+
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
     }
 }
