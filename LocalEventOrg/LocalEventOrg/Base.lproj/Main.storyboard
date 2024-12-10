@@ -22,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Go To Page"/>
                                 <connections>
-                                    <segue destination="Tk2-fd-CJW" kind="show" id="E0i-In-JjJ"/>
+                                    <segue destination="Tk2-fd-CJW" kind="presentation" modalPresentationStyle="fullScreen" id="E0i-In-JjJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-42"/>
         </scene>
-        <!--Alhasan - Account-->
+        <!--Hasan-->
         <scene sceneID="uo8-ae-ySY">
             <objects>
-                <viewControllerPlaceholder storyboardName="Alhasan - Account" id="Tk2-fd-CJW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Hasan" id="Tk2-fd-CJW" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="L40-7J-k72"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgn-Fh-sCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

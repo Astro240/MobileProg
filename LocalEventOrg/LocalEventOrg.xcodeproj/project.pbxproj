@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F2F194F2D01A7E1009D33C0 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F194E2D01A7E1009D33C0 /* Gradient.swift */; };
-		3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */; };
 		3F67A2FC2CF879CE00A7F8D6 /* LogInTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */; };
 		5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796866E2CF47BE000495313 /* AppDelegate.swift */; };
 		579686712CF47BE000495313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686702CF47BE000495313 /* SceneDelegate.swift */; };
@@ -20,6 +19,7 @@
 		579686902CF47BE300495313 /* LocalEventOrgUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */; };
 		579686922CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */; };
 		C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5434B2CF879A6003007CF /* Mohammed.storyboard */; };
+		D413E28E2D083E9E00962CA8 /* Hasan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D413E28D2D083E9E00962CA8 /* Hasan.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		3F2F194E2D01A7E1009D33C0 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Alhasan - Account.storyboard"; sourceTree = "<group>"; };
 		3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTableViewController.swift; sourceTree = "<group>"; };
 		5796866B2CF47BE000495313 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796866E2CF47BE000495313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITests.swift; sourceTree = "<group>"; };
 		579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C3C5434B2CF879A6003007CF /* Mohammed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
+		D413E28D2D083E9E00962CA8 /* Hasan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hasan.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +107,13 @@
 		5796866D2CF47BE000495313 /* LocalEventOrg */ = {
 			isa = PBXGroup;
 			children = (
+				D413E28D2D083E9E00962CA8 /* Hasan.storyboard */,
 				5796866E2CF47BE000495313 /* AppDelegate.swift */,
 				579686702CF47BE000495313 /* SceneDelegate.swift */,
 				579686722CF47BE000495313 /* ViewController.swift */,
 				579686742CF47BE000495313 /* Main.storyboard */,
 				579686772CF47BE200495313 /* Assets.xcassets */,
 				579686792CF47BE200495313 /* LaunchScreen.storyboard */,
-				3F67A2F92CF875E700A7F8D6 /* Alhasan - Account.storyboard */,
 				3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */,
 				5796867C2CF47BE200495313 /* Info.plist */,
 				C3C5434B2CF879A6003007CF /* Mohammed.storyboard */,
@@ -245,7 +245,7 @@
 			files = (
 				C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
-				3F67A2FA2CF875E700A7F8D6 /* Alhasan - Account.storyboard in Resources */,
+				D413E28E2D083E9E00962CA8 /* Hasan.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 			);
