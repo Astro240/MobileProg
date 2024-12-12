@@ -8,6 +8,7 @@ struct App: Identifiable {
     let title: String
     let subtitle: String
     let price: Double?
+    let color: UIImage?
     var formattedPrice: String {
         if let price = price {
             guard let localCurrencyCode = Locale.autoupdatingCurrent.currency?.identifier else {
@@ -20,6 +21,5 @@ struct App: Identifiable {
     }
     
     let id = UUID()
-    let color = UIColor.random
 }
 
