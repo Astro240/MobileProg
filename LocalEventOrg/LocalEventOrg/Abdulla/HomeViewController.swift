@@ -20,10 +20,16 @@ class HomeViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Item.ID>!
     
     var sections = [Section]()
-    
+    var searchController: UISearchController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for Apps"
+                
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
         
