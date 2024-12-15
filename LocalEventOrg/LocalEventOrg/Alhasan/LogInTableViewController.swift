@@ -11,6 +11,9 @@ class LogInTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
     }
 
 
@@ -24,5 +27,4 @@ class LogInTableViewController: UITableViewController {
         return 0
     }
 
-    
 }

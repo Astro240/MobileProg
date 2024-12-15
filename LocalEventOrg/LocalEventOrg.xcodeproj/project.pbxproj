@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F67A2FC2CF879CE00A7F8D6 /* LogInTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */; };
 		5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796866E2CF47BE000495313 /* AppDelegate.swift */; };
 		579686712CF47BE000495313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686702CF47BE000495313 /* SceneDelegate.swift */; };
 		579686732CF47BE000495313 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686722CF47BE000495313 /* ViewController.swift */; };
@@ -29,7 +28,15 @@
 		C31B51D92D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51D62D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift */; };
 		C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51DB2D0F0EC200DD4B82 /* LineView.swift */; };
 		C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51DC2D0F0EC200DD4B82 /* SectionHeaderView.swift */; };
-		C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C5434B2CF879A6003007CF /* Mohammed.storyboard */; };
+		C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51E22D0F124900DD4B82 /* Badge.swift */; };
+		C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51E42D0F125100DD4B82 /* BadgeCollectionViewCell.swift */; };
+		C31B51E72D0F125E00DD4B82 /* Hussain-Almu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31B51E62D0F125E00DD4B82 /* Hussain-Almu.storyboard */; };
+		C31B51E92D0F126B00DD4B82 /* ViewControllerBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51E82D0F126B00DD4B82 /* ViewControllerBadge.swift */; };
+		C31B51EC2D0F13B200DD4B82 /* Hasan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31B51EB2D0F13B200DD4B82 /* Hasan.storyboard */; };
+		C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31B51ED2D0F147700DD4B82 /* Alhasan - Login.storyboard */; };
+		C31B51F02D0F148300DD4B82 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51EF2D0F148300DD4B82 /* Gradient.swift */; };
+		C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51F12D0F148900DD4B82 /* LogInTableViewController.swift */; };
+		C31B51F52D0F14D400DD4B82 /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTableViewController.swift; sourceTree = "<group>"; };
 		5796866B2CF47BE000495313 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796866E2CF47BE000495313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		579686702CF47BE000495313 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +82,15 @@
 		C31B51D62D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		C31B51DB2D0F0EC200DD4B82 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		C31B51DC2D0F0EC200DD4B82 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
-		C3C5434B2CF879A6003007CF /* Mohammed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
+		C31B51E22D0F124900DD4B82 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		C31B51E42D0F125100DD4B82 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C31B51E62D0F125E00DD4B82 /* Hussain-Almu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Hussain-Almu.storyboard"; sourceTree = "<group>"; };
+		C31B51E82D0F126B00DD4B82 /* ViewControllerBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerBadge.swift; sourceTree = "<group>"; };
+		C31B51EB2D0F13B200DD4B82 /* Hasan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hasan.storyboard; sourceTree = "<group>"; };
+		C31B51ED2D0F147700DD4B82 /* Alhasan - Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Alhasan - Login.storyboard"; sourceTree = "<group>"; };
+		C31B51EF2D0F148300DD4B82 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		C31B51F12D0F148900DD4B82 /* LogInTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInTableViewController.swift; sourceTree = "<group>"; };
+		C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,22 +141,18 @@
 		5796866D2CF47BE000495313 /* LocalEventOrg */ = {
 			isa = PBXGroup;
 			children = (
-				C31B51DA2D0F0EC200DD4B82 /* Supplementary Views */,
-				C31B51D32D0F0E3200DD4B82 /* Cells */,
-				7214FA052D05F3AD00C1A5AA /* Models */,
+				C31B51F32D0F14AA00DD4B82 /* Mohammed */,
+				C31B51EA2D0F129700DD4B82 /* Alhasan */,
+				C31B51E12D0F123500DD4B82 /* HusainAlmu */,
+				C31B51E02D0F122C00DD4B82 /* Hasan */,
+				C31B51DF2D0F11BD00DD4B82 /* Abdulla */,
 				5796866E2CF47BE000495313 /* AppDelegate.swift */,
-				57CDC9892D06EC3500BD3444 /* UIColor+.swift */,
 				579686702CF47BE000495313 /* SceneDelegate.swift */,
 				579686722CF47BE000495313 /* ViewController.swift */,
 				579686742CF47BE000495313 /* Main.storyboard */,
 				579686772CF47BE200495313 /* Assets.xcassets */,
 				579686792CF47BE200495313 /* LaunchScreen.storyboard */,
-				3F67A2FB2CF879CE00A7F8D6 /* LogInTableViewController.swift */,
 				5796867C2CF47BE200495313 /* Info.plist */,
-				C3C5434B2CF879A6003007CF /* Mohammed.storyboard */,
-				57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */,
-				7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */,
-				57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */,
 			);
 			path = LocalEventOrg;
 			sourceTree = "<group>";
@@ -191,6 +201,57 @@
 				C31B51DC2D0F0EC200DD4B82 /* SectionHeaderView.swift */,
 			);
 			path = "Supplementary Views";
+			sourceTree = "<group>";
+		};
+		C31B51DF2D0F11BD00DD4B82 /* Abdulla */ = {
+			isa = PBXGroup;
+			children = (
+				57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */,
+				7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */,
+				57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */,
+				57CDC9892D06EC3500BD3444 /* UIColor+.swift */,
+				7214FA052D05F3AD00C1A5AA /* Models */,
+				C31B51D32D0F0E3200DD4B82 /* Cells */,
+				C31B51DA2D0F0EC200DD4B82 /* Supplementary Views */,
+			);
+			path = Abdulla;
+			sourceTree = "<group>";
+		};
+		C31B51E02D0F122C00DD4B82 /* Hasan */ = {
+			isa = PBXGroup;
+			children = (
+				C31B51EB2D0F13B200DD4B82 /* Hasan.storyboard */,
+			);
+			path = Hasan;
+			sourceTree = "<group>";
+		};
+		C31B51E12D0F123500DD4B82 /* HusainAlmu */ = {
+			isa = PBXGroup;
+			children = (
+				C31B51E62D0F125E00DD4B82 /* Hussain-Almu.storyboard */,
+				C31B51E82D0F126B00DD4B82 /* ViewControllerBadge.swift */,
+				C31B51E42D0F125100DD4B82 /* BadgeCollectionViewCell.swift */,
+				C31B51E22D0F124900DD4B82 /* Badge.swift */,
+			);
+			path = HusainAlmu;
+			sourceTree = "<group>";
+		};
+		C31B51EA2D0F129700DD4B82 /* Alhasan */ = {
+			isa = PBXGroup;
+			children = (
+				C31B51ED2D0F147700DD4B82 /* Alhasan - Login.storyboard */,
+				C31B51EF2D0F148300DD4B82 /* Gradient.swift */,
+				C31B51F12D0F148900DD4B82 /* LogInTableViewController.swift */,
+			);
+			path = Alhasan;
+			sourceTree = "<group>";
+		};
+		C31B51F32D0F14AA00DD4B82 /* Mohammed */ = {
+			isa = PBXGroup;
+			children = (
+				C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */,
+			);
+			path = Mohammed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +334,7 @@
 				};
 			};
 			buildConfigurationList = 579686662CF47BE000495313 /* Build configuration list for PBXProject "LocalEventOrg" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -297,11 +358,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C5434C2CF879A6003007CF /* Mohammed.storyboard in Resources */,
+				C31B51E72D0F125E00DD4B82 /* Hussain-Almu.storyboard in Resources */,
+				C31B51EC2D0F13B200DD4B82 /* Hasan.storyboard in Resources */,
+				C31B51F52D0F14D400DD4B82 /* Mohammed.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
+				C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,15 +390,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C31B51E92D0F126B00DD4B82 /* ViewControllerBadge.swift in Sources */,
+				C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */,
 				7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */,
 				7214FA0B2D05F3AE00C1A5AA /* StoreCategory.swift in Sources */,
 				579686732CF47BE000495313 /* ViewController.swift in Sources */,
 				7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */,
+				C31B51F02D0F148300DD4B82 /* Gradient.swift in Sources */,
 				C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */,
-				3F67A2FC2CF879CE00A7F8D6 /* LogInTableViewController.swift in Sources */,
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
+				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
+				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
