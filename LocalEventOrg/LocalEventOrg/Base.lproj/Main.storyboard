@@ -16,18 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfD-j6-LPa">
-                                <rect key="frame" x="141" y="471" width="112" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfD-j6-LPa">
+                                <rect key="frame" x="140" y="409" width="112" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Go To Page"/>
                                 <connections>
-                                    <segue destination="Tk2-fd-CJW" kind="show" id="E0i-In-JjJ"/>
+                                    <segue destination="Tk2-fd-CJW" kind="presentation" modalPresentationStyle="fullScreen" id="E0i-In-JjJ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ctm-D0-838"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ctm-D0-838" firstAttribute="bottom" secondItem="QfD-j6-LPa" secondAttribute="bottom" constant="374" id="9FK-By-OiF"/>
+                            <constraint firstItem="QfD-j6-LPa" firstAttribute="leading" secondItem="ctm-D0-838" secondAttribute="leading" constant="140" id="F64-0A-u5c"/>
+                            <constraint firstItem="ctm-D0-838" firstAttribute="trailing" secondItem="QfD-j6-LPa" secondAttribute="trailing" constant="141" id="Npg-Vw-rys"/>
+                            <constraint firstItem="QfD-j6-LPa" firstAttribute="top" secondItem="ctm-D0-838" secondAttribute="top" constant="350" id="uMl-cs-IVD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LWz-US-S5u"/>
                 </viewController>
@@ -35,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-42"/>
         </scene>
-        <!--Alhasan - Account-->
+        <!--Alhasan - profile-->
         <scene sceneID="uo8-ae-ySY">
             <objects>
-                <viewControllerPlaceholder storyboardName="Alhasan - Account" id="Tk2-fd-CJW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Alhasan - profile" id="Tk2-fd-CJW" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="L40-7J-k72"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgn-Fh-sCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
