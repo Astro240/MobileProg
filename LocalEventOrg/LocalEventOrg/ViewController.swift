@@ -9,13 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var SecondView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        SecondView.setTwoGradient(colorOne: UIColor.white, colorTwo: UIColor.systemCyan);
         // Do any additional setup after loading the view.
     }
-    //hi
-    //test
-    //yt
-    //uhun
+    
+   
 }
 

@@ -1,29 +1,14 @@
-//
-//  Gradientimage.swift
-//  LocalEventOrg
-//
-//  Created by BP-36-201-23 on 15/12/2024.
-//
-
+import Foundation
 import UIKit
 
-class Gradientimage: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+extension UIView {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    public func setTwoGradient(colorOne: UIColor, colorTwo: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.5, 1.1]
+        
+        layer.insertSublayer(gradientLayer, at: 0)
     }
-    */
-
 }
