@@ -1,5 +1,6 @@
 import UIKit
 
+
 class HomeViewController: UIViewController {
     
     // MARK: Section Definitions
@@ -32,7 +33,8 @@ class HomeViewController: UIViewController {
         definesPresentationContext = true
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
-        
+        uploadImage(image: UIImage(named: "ComicCon")!)
+        populateEvents()
         configureDataSource()
     }
     

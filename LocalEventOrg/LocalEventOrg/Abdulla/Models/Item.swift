@@ -25,7 +25,6 @@ enum Item: Identifiable {
             return nil
         }
     }
-    
     static let promotedApps: [Item] = [
         .app(App(promotedHeadline: "Recommended For You", title: "Comic Con", subtitle: "", price: 3.99,color:UIImage(named: "ComicCon"))),
         .app(App(promotedHeadline: "Recommended For You", title: "Formula 1", subtitle: "", price: nil,color:nil)),

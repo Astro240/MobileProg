@@ -19,7 +19,7 @@ struct App: Identifiable {
             return "GET"
         }
     }
-    
+
     let id = UUID()
 }
 
