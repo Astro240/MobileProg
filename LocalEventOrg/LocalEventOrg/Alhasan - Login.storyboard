@@ -279,7 +279,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Sports">
+                                    <backgroundConfiguration key="background" image="Sports" imageContentMode="scaleAspectFill">
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
@@ -309,7 +309,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="pop">
+                                    <backgroundConfiguration key="background" image="pop" imageContentMode="scaleAspectFill">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
@@ -319,7 +319,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Cars">
+                                    <backgroundConfiguration key="background" image="Cars" imageContentMode="scaleAspectFill">
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>

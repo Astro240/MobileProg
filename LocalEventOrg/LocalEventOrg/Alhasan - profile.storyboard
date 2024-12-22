@@ -399,11 +399,25 @@
         <!--Interests-->
         <scene sceneID="STP-nX-Ega">
             <objects>
-                <viewController id="lwo-UN-TXl" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPI-Vq-rUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="lwo-UN-TXl" customClass="shadowViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="05G-BL-VYn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-Fh-p4W">
+                                <rect key="frame" x="273" y="500" width="105" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="Cars" imageContentMode="scaleAspectFill">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button9Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="PIM-ug-kS5"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-bq-H87">
                                 <rect key="frame" x="16" y="250" width="105" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -413,6 +427,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button1Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="0Uk-NN-nZ6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fho-cT-3D0">
                                 <rect key="frame" x="144" y="250" width="105" height="102"/>
@@ -423,8 +440,11 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button2Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="3zr-99-h35"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qc6-re-NdS">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qc6-re-NdS">
                                 <rect key="frame" x="272" y="250" width="105" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -433,16 +453,22 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button3Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="Ga8-bj-Ne5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-zu-idj">
                                 <rect key="frame" x="17" y="375" width="105" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Sports">
+                                    <backgroundConfiguration key="background" image="Sports" imageContentMode="scaleAspectFill">
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button4Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="NVr-j0-UfI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKO-Ri-sUc">
                                 <rect key="frame" x="145" y="375" width="105" height="102"/>
@@ -453,6 +479,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button5Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="UKe-aD-QFU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGr-el-biE">
                                 <rect key="frame" x="273" y="375" width="105" height="102"/>
@@ -463,6 +492,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button6Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="lWx-Ei-BpO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H66-S3-BlS">
                                 <rect key="frame" x="17" y="500" width="105" height="102"/>
@@ -473,26 +505,22 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button7Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="DOD-Sb-tTH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsU-FQ-s7c">
                                 <rect key="frame" x="145" y="500" width="105" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="pop">
+                                    <backgroundConfiguration key="background" image="pop" imageContentMode="scaleAspectFill">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-Fh-p4W">
-                                <rect key="frame" x="273" y="500" width="105" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="Cars">
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button8Click:" destination="lwo-UN-TXl" eventType="touchUpInside" id="43B-vB-uxd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LsK-DF-FMM"/>
@@ -508,8 +536,18 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="Button1" destination="2Q2-bq-H87" id="OV3-jc-43Q"/>
+                        <outlet property="Button2" destination="Fho-cT-3D0" id="suS-vq-iwh"/>
+                        <outlet property="Button3" destination="qc6-re-NdS" id="j96-wC-oup"/>
+                        <outlet property="Button4" destination="kKb-zu-idj" id="OSM-BH-fme"/>
+                        <outlet property="Button5" destination="eKO-Ri-sUc" id="apI-w8-BwA"/>
+                        <outlet property="Button6" destination="LGr-el-biE" id="izO-FQ-Xzi"/>
+                        <outlet property="Button7" destination="H66-S3-BlS" id="Qlh-Ft-gtk"/>
+                        <outlet property="Button8" destination="qsU-FQ-s7c" id="Koc-TF-P7M"/>
+                        <outlet property="Button9" destination="F8W-Fh-p4W" id="8iX-As-EKu"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VPI-Vq-rUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9355" y="1765"/>
         </scene>
@@ -521,11 +559,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PQ1-UA-EHB">
-                                <rect key="frame" x="46" y="156" width="300" height="604"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ1-UA-EHB">
+                                <rect key="frame" x="36" y="156" width="320" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">You're curious about our application I see, well I'd love to share our thoughts behind it. First we have created this page to better help connect the people of bahrain, by providing easy access to events, we also made a recommendation system, to better help and push people who were interested in events but never found one that they were interested in by looking through social media, this app was also made with the gathering of communities in mind, so they can find like minded people.</string>
+                                <string key="text">You're curious about our application I see, well I'd love to share our thoughts behind it. First we have created this page to better help connect the people of bahrain, by providing easy access to events, we also made a recommendation system, to better help and push people who were interested in events but never found one that they were interested in by looking through social media, this app was also made with the gathering of communities in mind, so they can find like minded people.  </string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="*This application was made as a small project by Polytechnic students :)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wld-VG-saV">
+                                <rect key="frame" x="36" y="659" width="320" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -543,23 +589,11 @@
         <!--Help and support-->
         <scene sceneID="L92-IY-geC">
             <objects>
-                <viewController id="A5d-OZ-yhQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DropDownViewController" id="A5d-OZ-yhQ" customClass="DropDownViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qzr-n7-dID">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Drop Down" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nS-oS-vld">
-                                <rect key="frame" x="46" y="187" width="301" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTs-wD-eOd">
-                                <rect key="frame" x="46" y="251" width="301" height="350"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNu-ge-FUU">
                                 <rect key="frame" x="82" y="688" width="229" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -568,6 +602,20 @@
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
                             </button>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTs-wD-eOd">
+                                <rect key="frame" x="46" y="251" width="301" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GE4-vd-oZ3">
+                                <rect key="frame" x="51" y="257" width="291" height="339"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QBG-zl-hJU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -576,7 +624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp8-nU-CVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11735" y="1032"/>
+            <point key="canvasLocation" x="11732.061068702289" y="1031.6901408450706"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="g3Y-QM-jyF">
