@@ -19,6 +19,8 @@ class shadowViewController: UIViewController {
     @IBOutlet weak var Button8: UIButton!
     @IBOutlet weak var Button9: UIButton!
     
+    @IBOutlet weak var SaveButton: UIButton!
+    
     var Button1isActive:Bool = false
     var Button2isActive:Bool = false
     var Button3isActive:Bool = false
@@ -31,6 +33,20 @@ class shadowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SaveButton?.addTarget(self, action: #selector(showSaveAlert), for: .touchUpInside)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        
+        // Define the colors for the gradient: cyan to white
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.systemCyan.cgColor ]
+
+        // Optionally, you can set the locations and direction of the gradient
+        gradientLayer.locations = [0.5, 1.1]  // Default (left to right)
+
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
         Button1.applyDesign()
         Button2.applyDesign()
         Button3.applyDesign()
@@ -139,6 +155,18 @@ class shadowViewController: UIViewController {
             Button9.applyDesign()
             Button9isActive = false
         }
+    }
+    
+    
+    @objc func showSaveAlert() {
+        let saveConfirmAlert = UIAlertController(title: "Save", message: "Would you like to save the changes made?", preferredStyle: .alert)
+        saveConfirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        saveConfirmAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            //Write code to save here
+            print("Changes saved!")
+        }))
+        
+        self.present(saveConfirmAlert, animated: true, completion: nil)//the nil can be replaced by code
     }
     
     

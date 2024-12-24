@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="8614.5038167938928" y="1031.6901408450706"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Log Out Table View Controller-->
         <scene sceneID="hSk-nm-Pi2">
             <objects>
-                <tableViewController id="x1K-2W-zA5" sceneMemberID="viewController">
+                <tableViewController id="x1K-2W-zA5" customClass="LogOutTableViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1kt-jt-vc3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,6 +344,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button" backgroundImage="arrow.forward" catalog="system"/>
                                                     <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                    <connections>
+                                                        <action selector="Logoutpressed:" destination="qtr-6G-ygI" eventType="touchUpInside" id="C2E-my-Adq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -391,15 +394,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Uk5-oQ-wCH"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="nZM-SL-yzb" id="fiR-uS-foT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tj2-DR-JT5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qtr-6G-ygI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="10241.984732824427" y="1031.6901408450706"/>
         </scene>
         <!--Interests-->
         <scene sceneID="STP-nX-Ega">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VPI-Vq-rUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="lwo-UN-TXl" customClass="shadowViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="05G-BL-VYn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -534,6 +540,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                             </button>
+                            <connections>
+                                <action selector="Saveinterests:" destination="Np9-Za-f1q" eventType="valueChanged" id="MRB-8F-Edl"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -546,8 +555,11 @@
                         <outlet property="Button7" destination="H66-S3-BlS" id="Qlh-Ft-gtk"/>
                         <outlet property="Button8" destination="qsU-FQ-s7c" id="Koc-TF-P7M"/>
                         <outlet property="Button9" destination="F8W-Fh-p4W" id="8iX-As-EKu"/>
+                        <outlet property="SaveButton" destination="ckW-sI-VxD" id="qsG-3X-z2Z"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPI-Vq-rUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Np9-Za-f1q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="9355" y="1765"/>
         </scene>
@@ -601,6 +613,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Next">
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="HelpSupportmessage:" destination="lNr-QU-9mp" eventType="touchUpInside" id="uw2-eu-5yp"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTs-wD-eOd">
                                 <rect key="frame" x="46" y="251" width="301" height="350"/>
@@ -621,8 +636,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help and support" id="wkj-7x-la9"/>
+                    <connections>
+                        <outlet property="SendtoHnSButton" destination="WNu-ge-FUU" id="x2o-nS-0WE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp8-nU-CVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lNr-QU-9mp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="11732.061068702289" y="1031.6901408450706"/>
         </scene>
@@ -786,7 +805,7 @@
         <!--Account-->
         <scene sceneID="mRi-1P-ntg">
             <objects>
-                <tableViewController title="Account" id="fjf-EN-cTe" sceneMemberID="viewController">
+                <tableViewController title="Account" id="fjf-EN-cTe" customClass="SaveAccountTableViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="8Dq-SU-cyu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -879,10 +898,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                             </button>
+                            <connections>
+                                <action selector="SaveUserSettings:" destination="SDZ-dx-Ibi" eventType="valueChanged" id="BaH-pg-s70"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="SaveButton" destination="Lh1-at-0D9" id="EIX-HT-2yr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYa-G7-jVI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="SDZ-dx-Ibi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="10998" y="339"/>
         </scene>

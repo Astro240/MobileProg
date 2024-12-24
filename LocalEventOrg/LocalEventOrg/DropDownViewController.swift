@@ -9,6 +9,8 @@ import UIKit
 
 class DropDownViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var SendtoHnSButton: UIButton!
+    
     var problemList = ["Report bug", "Inappropriete reviews", "problems found in the app", "Other"]
     
     var picker:UIPickerView!
@@ -17,6 +19,8 @@ class DropDownViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        SendtoHnSButton.addTarget(self, action: #selector(showSaveAlert), for: .touchUpInside)
+        
         let textfield = UITextField(frame: CGRect(x: 46, y: 150, width: 301, height: 50))
         textfield.placeholder = "Pick a problem"
         textfield.borderStyle = .roundedRect
@@ -42,5 +46,16 @@ class DropDownViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         textfield.text = problemList[row]
+    }
+    
+    @objc func showSaveAlert() {
+        let saveConfirmAlert = UIAlertController(title: "Send Message", message: "Do you want to send this message?", preferredStyle: .alert)
+        saveConfirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        saveConfirmAlert.addAction(UIAlertAction(title: "Send", style: .default, handler: { (_) in
+            //Write code to save here
+            print("Message sent!")
+        }))
+        
+        self.present(saveConfirmAlert, animated: true, completion: nil)
     }
 }

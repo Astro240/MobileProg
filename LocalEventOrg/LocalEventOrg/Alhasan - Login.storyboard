@@ -261,7 +261,7 @@
         <!--Title-->
         <scene sceneID="mN1-0G-hRG">
             <objects>
-                <viewController id="w3E-cM-Xfe" customClass="Gradient" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="w3E-cM-Xfe" customClass="shadowViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1xB-CM-pzu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,6 +283,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button4Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="pa3-3u-BL8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hC4-Xh-UAj">
                                 <rect key="frame" x="145" y="243" width="105" height="101"/>
@@ -293,6 +296,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button2Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="p0w-RT-AmB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6K-Dk-mMn">
                                 <rect key="frame" x="16" y="493" width="105" height="101"/>
@@ -303,6 +309,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button7Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="QtF-sH-qew"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JxO-rl-vGb">
                                 <rect key="frame" x="145" y="493" width="105" height="102"/>
@@ -313,6 +322,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button8Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="dks-TZ-2LY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcr-RE-p7F">
                                 <rect key="frame" x="273" y="493" width="105" height="102"/>
@@ -323,6 +335,9 @@
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button9Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="eta-Ar-BG4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick your Interest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ek-1b-NW4">
                                 <rect key="frame" x="76" y="155" width="244" height="36"/>
@@ -344,6 +359,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button5Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="Phg-y3-16w"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDP-Yo-zne">
                                 <rect key="frame" x="272" y="243" width="105" height="102"/>
@@ -354,6 +372,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button3Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="8s1-6d-g7H"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NET-CR-Fka">
                                 <rect key="frame" x="273" y="368" width="105" height="102"/>
@@ -364,6 +385,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button6Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="eNJ-yQ-H3l"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pko-l6-E9n">
                                 <rect key="frame" x="16" y="243" width="105" height="100"/>
@@ -375,6 +399,9 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="Button1Click:" destination="w3E-cM-Xfe" eventType="touchUpInside" id="ky9-Ll-kai"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="bbs-n1-zFu">
                                 <rect key="frame" x="160" y="85" width="75" height="75"/>
@@ -385,6 +412,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="h6i-Tw-X7U"/>
+                    <connections>
+                        <outlet property="Button1" destination="pko-l6-E9n" id="Bsk-vK-nTm"/>
+                        <outlet property="Button2" destination="hC4-Xh-UAj" id="0yb-QX-Kk2"/>
+                        <outlet property="Button3" destination="nDP-Yo-zne" id="Cdd-hY-lPY"/>
+                        <outlet property="Button4" destination="h7p-fq-cz6" id="Qp8-OY-Ddv"/>
+                        <outlet property="Button5" destination="bq1-Ei-isT" id="w2a-R0-3iL"/>
+                        <outlet property="Button6" destination="NET-CR-Fka" id="Otr-7f-8cF"/>
+                        <outlet property="Button7" destination="P6K-Dk-mMn" id="wSW-0Z-Kp3"/>
+                        <outlet property="Button8" destination="JxO-rl-vGb" id="aa3-9f-Car"/>
+                        <outlet property="Button9" destination="Xcr-RE-p7F" id="z1e-4Q-a0a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ku-hu-aaL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
