@@ -1,5 +1,5 @@
 import UIKit
-
+import FirebaseDatabaseInternal
 
 class HomeViewController: UIViewController {
     
@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateEvents()
         searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Apps"
@@ -186,6 +185,11 @@ class HomeViewController: UIViewController {
         // MARK: Snapshot Definition
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
         snapshot.appendSections([.promoted])
+        
+        // Populate events (i.e., add more items to Item.promotedApps)
+        populateEvents()
+
+        // After populating, append the new items to the snapshot
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
         let popularSection = Section.standard("Popular this week")
@@ -201,4 +205,57 @@ class HomeViewController: UIViewController {
         sections = snapshot.sectionIdentifiers
         dataSource.apply(snapshot)
     }
+    func updateSnapshot(){
+        
+        // MARK: Snapshot Definition
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
+        snapshot.appendSections([.promoted])
+        
+        // Populate events (i.e., add more items to Item.promotedApps)
+        populateEvents()
+
+        // After populating, append the new items to the snapshot
+        snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
+        
+        let popularSection = Section.standard("Popular this week")
+        let essentialSection = Section.standard("Essential picks")
+        
+        snapshot.appendSections([popularSection, essentialSection])
+        snapshot.appendItems(Item.popularApps.map(\.id), toSection: popularSection)
+        snapshot.appendItems(Item.essentialApps.map(\.id), toSection: essentialSection)
+        
+        snapshot.appendSections([.categories])
+        snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
+        
+        sections = snapshot.sectionIdentifiers
+        dataSource.apply(snapshot)
+    }
+    func populateEvents() {
+        let ref = Database.database().reference()
+        ref.child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let eventsDict = snapshot.value as? [String: Any] {
+                for (eventID, eventData) in eventsDict {
+                    if let eventDetails = eventData as? [String: Any],
+                       let eventName = eventDetails["Name"] as? String,
+                       let eventDate = eventDetails["Date"] as? String,
+                       let eventLocation = eventDetails["Location"] as? String,
+                       let eventCategories = eventDetails["Categories"] as? [String] {
+                        Item.promotedApps.append(.app(App(promotedHeadline: "Recommended For You", title: eventName, subtitle: "", price: 3.99,color:UIImage(named: "ComicCon"))))
+                        print("Event ID: \(eventID)")
+                        print("Event Name: \(eventName)")
+                        print("Date: \(eventDate)")
+                        print("Location: \(eventLocation)")
+                        print("Categories: \(eventCategories.joined(separator: ", "))")
+                        print("\n") // New line for better readability
+                    }
+                }
+                self.updateSnapshot();
+            } else {
+                print("No data found")
+            }
+        }, withCancel: { error in
+            print("Error fetching data: (error.localizedDescription)")
+        })
+    }
+
 }
