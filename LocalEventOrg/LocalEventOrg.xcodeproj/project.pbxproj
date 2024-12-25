@@ -82,10 +82,10 @@
 		7214FA062D05F3AD00C1A5AA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7214FA072D05F3AD00C1A5AA /* StoreCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
 		7214FA082D05F3AD00C1A5AA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		7298CD1D2D1C4E5300274E9A /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = LocalEventOrg.app; path = "/Users/asto240/Desktop/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrg.app"; sourceTree = "<absolute>"; };
+		7298CD1E2D1C4E5300274E9A /* LocalEventOrgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LocalEventOrgTests.xctest; path = "/Users/asto240/Desktop/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrg.app/PlugIns/LocalEventOrgTests.xctest"; sourceTree = "<absolute>"; };
+		7298CD1F2D1C4E5300274E9A /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LocalEventOrgUITests.xctest; path = "/Users/asto240/Desktop/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrgUITests-Runner.app/PlugIns/LocalEventOrgUITests.xctest"; sourceTree = "<absolute>"; };
 		72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		72D133E52D1C39A100F39F31 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = LocalEventOrg.app; path = "/Users/asto240/Desktop/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrg.app"; sourceTree = "<absolute>"; };
-		72D133E62D1C39A100F39F31 /* LocalEventOrgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LocalEventOrgTests.xctest; path = "/Users/asto240/Desktop/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrg.app/PlugIns/LocalEventOrgTests.xctest"; sourceTree = "<absolute>"; };
-		72D133E72D1C39A100F39F31 /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LocalEventOrgUITests.xctest; path = "/Users/asto240/Desktop/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrgUITests-Runner.app/PlugIns/LocalEventOrgUITests.xctest"; sourceTree = "<absolute>"; };
 		9C187F362D16F1E9008D4C32 /* Cloudinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudinary.swift; sourceTree = "<group>"; };
 		9C187F3B2D17034E008D4C32 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		C31B51D42D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotedAppCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 				723C88F72D1C30780058F5BF /* Cloudinary */,
 			);
 			productName = LocalEventOrg;
-			productReference = 72D133E52D1C39A100F39F31 /* LocalEventOrg.app */;
+			productReference = 7298CD1D2D1C4E5300274E9A /* LocalEventOrg.app */;
 			productType = "com.apple.product-type.application";
 		};
 		579686802CF47BE300495313 /* LocalEventOrgTests */ = {
@@ -312,7 +312,7 @@
 			);
 			name = LocalEventOrgTests;
 			productName = LocalEventOrgTests;
-			productReference = 72D133E62D1C39A100F39F31 /* LocalEventOrgTests.xctest */;
+			productReference = 7298CD1E2D1C4E5300274E9A /* LocalEventOrgTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5796868A2CF47BE300495313 /* LocalEventOrgUITests */ = {
@@ -330,7 +330,7 @@
 			);
 			name = LocalEventOrgUITests;
 			productName = LocalEventOrgUITests;
-			productReference = 72D133E72D1C39A100F39F31 /* LocalEventOrgUITests.xctest */;
+			productReference = 7298CD1F2D1C4E5300274E9A /* LocalEventOrgUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */

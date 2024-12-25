@@ -17,11 +17,10 @@ func populateDatabase(){
     })
 }
 
-func populateEvents() -> [Item] {
-    var items: [Item] = []
+func populateEvents() {
     let ref = Database.database().reference()
+
     ref.child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
-        
         if let eventsDict = snapshot.value as? [String: Any] {
             for (eventID, eventData) in eventsDict {
                 if let eventDetails = eventData as? [String: Any],
@@ -32,9 +31,8 @@ func populateEvents() -> [Item] {
                     print("Event ID: \(eventID)")
                     print("Event Name: \(eventName)")
                     print("Description: \(eventDescription)")
-                    let appitem = App(promotedHeadline: "Recommended For You", title: eventName, subtitle: "", price: 3.99,color:UIImage(named: "ComicCon"))
-                    items.append(.app(appitem))
-                    // Loop through tickets
+                    Item.promotedApps.append(.app(App(promotedHeadline: "Recommended For You", title: eventName, subtitle: "", price: 3.99,color:UIImage(named: "ComicCon"))))
+                    // Loop through tickets and print ticket details
                     for (ticketID, ticketData) in ticketsDict {
                         if let ticketDetails = ticketData as? [String: Any],
                            let ticketName = ticketDetails["Name"] as? String,
@@ -49,9 +47,10 @@ func populateEvents() -> [Item] {
                     print("\n") // New line for better readability
                 }
             }
+            // Return the populated items after the database fetch is complete
         } else {
             print("No data found")
         }
     })
-    return items
 }
+
