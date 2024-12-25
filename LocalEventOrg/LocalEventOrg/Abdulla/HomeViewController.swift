@@ -212,8 +212,6 @@ class HomeViewController: UIViewController {
         snapshot.appendSections([.promoted])
         
         // Populate events (i.e., add more items to Item.promotedApps)
-        populateEvents()
-
         // After populating, append the new items to the snapshot
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
