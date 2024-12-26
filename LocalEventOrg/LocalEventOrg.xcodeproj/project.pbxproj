@@ -16,9 +16,13 @@
 		579686862CF47BE300495313 /* LocalEventOrgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686852CF47BE300495313 /* LocalEventOrgTests.swift */; };
 		579686902CF47BE300495313 /* LocalEventOrgUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */; };
 		579686922CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */; };
+		57B265662D1D9DF3009B3FD9 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B265652D1D9DF3009B3FD9 /* ActivityTableViewCell.swift */; };
 		57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC9892D06EC3500BD3444 /* UIColor+.swift */; };
 		57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */; };
 		57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */; };
+		57D9954E2D1C4D1200977804 /* HusainAlj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D9954D2D1C4D1200977804 /* HusainAlj.storyboard */; };
+		57D995502D1C4E7E00977804 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D9954F2D1C4E7E00977804 /* TableViewController.swift */; };
+		57D995522D1C605E00977804 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D995512D1C605E00977804 /* DetailViewController.swift */; };
 		7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */; };
 		7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214FA062D05F3AD00C1A5AA /* Item.swift */; };
 		7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214FA082D05F3AD00C1A5AA /* App.swift */; };
@@ -77,9 +81,13 @@
 		5796868B2CF47BE300495313 /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796868F2CF47BE300495313 /* LocalEventOrgUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITests.swift; sourceTree = "<group>"; };
 		579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventOrgUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57B265652D1D9DF3009B3FD9 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		57CDC9892D06EC3500BD3444 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageStructs.swift; sourceTree = "<group>"; };
 		57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Home.storyboard"; sourceTree = "<group>"; };
+		57D9954D2D1C4D1200977804 /* HusainAlj.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HusainAlj.storyboard; sourceTree = "<group>"; };
+		57D9954F2D1C4E7E00977804 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		57D995512D1C605E00977804 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7214FA062D05F3AD00C1A5AA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7214FA072D05F3AD00C1A5AA /* StoreCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
@@ -156,6 +164,7 @@
 		5796866D2CF47BE000495313 /* LocalEventOrg */ = {
 			isa = PBXGroup;
 			children = (
+				57D9954B2D1C4CD900977804 /* HusainAlj */,
 				C31B51F32D0F14AA00DD4B82 /* Mohammed */,
 				C31B51EA2D0F129700DD4B82 /* Alhasan */,
 				C31B51E12D0F123500DD4B82 /* HusainAlmu */,
@@ -190,6 +199,17 @@
 				579686912CF47BE300495313 /* LocalEventOrgUITestsLaunchTests.swift */,
 			);
 			path = LocalEventOrgUITests;
+			sourceTree = "<group>";
+		};
+		57D9954B2D1C4CD900977804 /* HusainAlj */ = {
+			isa = PBXGroup;
+			children = (
+				57D9954D2D1C4D1200977804 /* HusainAlj.storyboard */,
+				57D9954F2D1C4E7E00977804 /* TableViewController.swift */,
+				57D995512D1C605E00977804 /* DetailViewController.swift */,
+				57B265652D1D9DF3009B3FD9 /* ActivityTableViewCell.swift */,
+			);
+			path = HusainAlj;
 			sourceTree = "<group>";
 		};
 		7214FA052D05F3AD00C1A5AA /* Models */ = {
@@ -399,6 +419,7 @@
 				C31B51F52D0F14D400DD4B82 /* Mohammed.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
+				57D9954E2D1C4D1200977804 /* HusainAlj.storyboard in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
 				C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */,
@@ -428,6 +449,7 @@
 			files = (
 				C31B51E92D0F126B00DD4B82 /* ViewControllerBadge.swift in Sources */,
 				9C187F372D16F1E9008D4C32 /* Cloudinary.swift in Sources */,
+				57D995522D1C605E00977804 /* DetailViewController.swift in Sources */,
 				C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */,
 				7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */,
 				7214FA0B2D05F3AE00C1A5AA /* StoreCategory.swift in Sources */,
@@ -439,10 +461,12 @@
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
 				9C187F3C2D17034E008D4C32 /* Database.swift in Sources */,
+				57B265662D1D9DF3009B3FD9 /* ActivityTableViewCell.swift in Sources */,
 				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
+				57D995502D1C4E7E00977804 /* TableViewController.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
