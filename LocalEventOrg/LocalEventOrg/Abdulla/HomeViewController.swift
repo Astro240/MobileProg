@@ -31,7 +31,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                 
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
+        populateEvents { categoryEvents in
+                    // Handle UI updates after events are populated
+                }
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
@@ -125,7 +127,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             cell.configureCell(item.app!)
         }
         let standardAppCellRegistration = UICollectionView.CellRegistration<StandardAppCollectionViewCell, Item.ID> { cell, indexPath, itemIdentifier in
-            let possibleApps = Item.essentialApps + Item.popularApps
+            var possibleApps = Item.essentialApps + Item.popularApps
+            for item in Item.categoryEvents {
+                possibleApps += item.value
+            }
             guard let item = possibleApps.first(where: { $0.id == itemIdentifier }) else { return }
             cell.configureCell(item.app!)
         }
@@ -175,7 +180,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
-            for (category, items) in categoryEvents {
+            for (category, items) in Item.categoryEvents {
                 print("Category: \(category)")
                 let popularSection = Section.standard(category)
                 snapshot.appendSections([popularSection]) // Append the section first
@@ -200,6 +205,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             self.sections = snapshot.sectionIdentifiers
             self.dataSource.apply(snapshot)
         }
+        self.updateSnapshot() // Update the collection view
     }
     
     func updateSnapshot() {
@@ -216,24 +222,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         snapshot.appendSections([.categories])
         snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
-        
+        populateEvents { categoryEvents in
+            // Loop through the category events and append them to the snapshot
+            for (category, items) in Item.categoryEvents {
+                print("Category: \(category)")
+                let popularSection = Section.standard(category)
+                snapshot.appendSections([popularSection]) // Append the section first
+                snapshot.appendItems(items.map(\.id), toSection: popularSection)
+            }
+        }
         sections = snapshot.sectionIdentifiers
         dataSource.apply(snapshot)
     }
-    
+
     func populateEvents(completion: @escaping ([String: [Item]]) -> Void) {
-        var categoryEvents: [String: [Item]] = [
-            "Comic": [],
-            "Food": [],
-            "Gaming": [],
-            "Motor Sport": [],
-            "Pop Culture": [],
-            "Music": [],
-            "Festival": [],
-            "Sports": [],
-            "Social": []
-        ]
-        
         let ref = Database.database().reference()
         ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
             if let eventsDict = snapshot.value as? [String: Any] {
@@ -241,16 +243,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     if let eventDetails = eventData as? [String: Any],
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
-                       let categories = eventDetails["Categories"] as? [String],
-                       let firstCategory = categories.first { // Check the first category
+                       let categories = eventDetails["Categories"] as? [String] {
 
                         // Fetch and process image
-                        let img: UIImage? = GetImage(string: eventImageURL)
+                        guard let img: UIImage = GetImage(string: eventImageURL) else {
+                            print("Failed to load image for event: \(eventName)")
+                            continue
+                        }
+
                         let appItem: Item = .app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img))
 
-                        // Add the item to the corresponding category if it matches
-                        if categoryEvents.keys.contains(firstCategory) {
-                            categoryEvents[firstCategory]?.append(appItem)
+                        for category in categories {
+                            // Ensure you're appending to the correct category
+                            if Item.categoryEvents.keys.contains(category) {
+                                Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
+                            }
                         }
 
                         // Add to promoted, popular, and essential apps
@@ -259,15 +266,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                         Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
                     }
                 }
-                completion(categoryEvents) // Return the populated category events
-                self.updateSnapshot() // Update the collection view
+                completion(Item.categoryEvents) // Return the populated category events
             } else {
                 print("No data found")
-                completion(categoryEvents) // Return empty events if no data found
+                completion(Item.categoryEvents) // Return empty events if no data found
             }
         }, withCancel: { error in
             print("Error fetching data: \(error.localizedDescription)")
-            completion(categoryEvents) // Return empty events on error
+            completion(Item.categoryEvents) // Return empty events on error
         })
     }
 

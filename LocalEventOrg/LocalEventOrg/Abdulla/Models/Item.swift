@@ -38,7 +38,17 @@ enum Item: Identifiable {
     
     static var essentialApps: [Item] = [
     ]
-    
+    static var categoryEvents: [String: [Item]] = [
+        "Comic": [],
+        "Food": [],
+        "Gaming": [],
+        "Motor Sport": [],
+        "Pop Culture": [],
+        "Music": [],
+        "Festival": [],
+        "Sports": [],
+        "Social": []
+    ]
     static let categories: [Item] = [
         .category(StoreCategory(name: "Comic",color:    UIImage(named: "Comic"))),
         .category(StoreCategory(name: "Music",color:    UIImage(named: "Music"))),
