@@ -90,7 +90,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
             case .categories:
                 // Adjust the item size for a larger image with label below
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3), heightDimension: .absolute(160)) // Adjust the height to fit both the image and label
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .absolute(160)) // Adjust the height to fit both the image and label
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8)
                 
@@ -168,14 +168,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             }
             return nil
         }
-        
         // MARK: Snapshot Definition
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
         snapshot.appendSections([.promoted])
-        
-        // Populate events
-        populateEvents()
-        
+         
+        populateEvents { categoryEvents in
+            
+            print(categoryEvents)
+        }
         // After populating, append the new items to the snapshot
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
@@ -212,25 +212,55 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         dataSource.apply(snapshot)
     }
     
-    func populateEvents() {
+    func populateEvents(completion: @escaping ([String: [Item]]) -> Void) {
+        var categoryEvents: [String: [Item]] = [
+            "Comic": [],
+            "Food": [],
+            "Gaming": [],
+            "Motor Sport": [],
+            "Pop Culture": [],
+            "Music": [],
+            "Festival": [],
+            "Sports": [],
+            "Social": []
+        ]
+        
         let ref = Database.database().reference()
-        ref.child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
             if let eventsDict = snapshot.value as? [String: Any] {
                 for (_, eventData) in eventsDict {
                     if let eventDetails = eventData as? [String: Any],
-                       let eventName = eventDetails["Name"] as? String, let eventimage = eventDetails["Image"] as? String {
-                        let img : UIImage? = GetImage(string:eventimage)
+                       let eventName = eventDetails["Name"] as? String,
+                       let eventImageURL = eventDetails["Image"] as? String,
+                       let categories = eventDetails["Categories"] as? [String],
+                       let firstCategory = categories.first { // Check the first category
+
+                        // Fetch and process image
+                        let img: UIImage? = GetImage(string: eventImageURL)
+                        let appItem: Item = .app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img))
+
+                        // Add the item to the corresponding category if it matches
+                        if categoryEvents.keys.contains(firstCategory) {
+                            categoryEvents[firstCategory]?.append(appItem)
+                        }
+
+                        // Add to promoted, popular, and essential apps
                         Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
                         Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
                         Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
                     }
                 }
-                self.updateSnapshot()
+                completion(categoryEvents) // Return the populated category events
+                self.updateSnapshot() // Update the collection view
             } else {
                 print("No data found")
+                completion(categoryEvents) // Return empty events if no data found
             }
         }, withCancel: { error in
             print("Error fetching data: \(error.localizedDescription)")
+            completion(categoryEvents) // Return empty events on error
         })
     }
+
+
 }

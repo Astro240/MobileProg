@@ -8,7 +8,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 6
-        imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         
         return imageView

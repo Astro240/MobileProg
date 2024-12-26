@@ -2,6 +2,11 @@
 import Foundation
 import UIKit
 
+struct allEventCategory {
+    let name : String
+    let apps : [Item]
+}
+
 enum Item: Identifiable {
     case app(App)
     case category(StoreCategory)
@@ -29,7 +34,6 @@ enum Item: Identifiable {
     ]
     
     static var popularApps: [Item] = [
-        
     ]
     
     static var essentialApps: [Item] = [
