@@ -29,6 +29,8 @@
 		7FF35F932D1C69E200783714 /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35F922D1C69DA00783714 /* ViewControllerCalendar.swift */; };
 		7FF35F952D1C6FAF00783714 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35F942D1C6FAB00783714 /* CalendarHelper.swift */; };
 		7FF35F992D1D186200783714 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35F982D1D184100783714 /* CalendarCell.swift */; };
+		7FF35FA72D1D6F9500783714 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35FA62D1D6F9500783714 /* Database.swift */; };
+		7FF35FA92D1D6FD300783714 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7FF35FA82D1D6FD300783714 /* FirebaseDatabase */; };
 		C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51D42D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift */; };
 		C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51D52D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift */; };
 		C31B51D92D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51D62D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift */; };
@@ -87,6 +89,7 @@
 		7FF35F922D1C69DA00783714 /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 		7FF35F942D1C6FAB00783714 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		7FF35F982D1D184100783714 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		7FF35FA62D1D6F9500783714 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		C31B51D42D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotedAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		C31B51D52D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C31B51D62D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardAppCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF35FA92D1D6FD300783714 /* FirebaseDatabase in Frameworks */,
 				72AA37B52D13031A00B73B10 /* FirebaseAnalytics in Frameworks */,
 				72AA37B82D13094F00B73B10 /* FirebaseAuth in Frameworks */,
 			);
@@ -274,6 +278,7 @@
 				C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */,
 				7FF35F922D1C69DA00783714 /* ViewControllerCalendar.swift */,
 				7FF35F942D1C6FAB00783714 /* CalendarHelper.swift */,
+				7FF35FA62D1D6F9500783714 /* Database.swift */,
 			);
 			path = Mohammed;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			packageProductDependencies = (
 				72AA37B42D13031A00B73B10 /* FirebaseAnalytics */,
 				72AA37B72D13094F00B73B10 /* FirebaseAuth */,
+				7FF35FA82D1D6FD300783714 /* FirebaseDatabase */,
 			);
 			productName = LocalEventOrg;
 			productReference = 5796866B2CF47BE000495313 /* LocalEventOrg.app */;
@@ -444,6 +450,7 @@
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
 				C31B51D92D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift in Sources */,
+				7FF35FA72D1D6F9500783714 /* Database.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +813,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 72AA37B32D1301ED00B73B10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		7FF35FA82D1D6FD300783714 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72AA37B32D1301ED00B73B10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
