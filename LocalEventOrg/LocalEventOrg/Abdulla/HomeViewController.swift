@@ -169,28 +169,37 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             return nil
         }
         // MARK: Snapshot Definition
+         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
         snapshot.appendSections([.promoted])
-         
+
         populateEvents { categoryEvents in
-            
-            print(categoryEvents)
+            // Loop through the category events and append them to the snapshot
+            for (category, items) in categoryEvents {
+                print("Category: \(category)")
+                let popularSection = Section.standard(category)
+                snapshot.appendSections([popularSection]) // Append the section first
+                snapshot.appendItems(items.map(\.id), toSection: popularSection)
+            }
+
+            // After populating, append the promoted apps to the snapshot
+            snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
+
+            let popularSection = Section.standard("Popular this week")
+            let essentialSection = Section.standard("Essential picks")
+
+            snapshot.appendSections([popularSection, essentialSection])
+            snapshot.appendItems(Item.popularApps.map(\.id), toSection: popularSection)
+            snapshot.appendItems(Item.essentialApps.map(\.id), toSection: essentialSection)
+
+            // Append categories section
+            snapshot.appendSections([.categories])
+            snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
+
+            // Update the sections and apply the snapshot
+            self.sections = snapshot.sectionIdentifiers
+            self.dataSource.apply(snapshot)
         }
-        // After populating, append the new items to the snapshot
-        snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
-        
-        let popularSection = Section.standard("Popular this week")
-        let essentialSection = Section.standard("Essential picks")
-        
-        snapshot.appendSections([popularSection, essentialSection])
-        snapshot.appendItems(Item.popularApps.map(\.id), toSection: popularSection)
-        snapshot.appendItems(Item.essentialApps.map(\.id), toSection: essentialSection)
-        
-        snapshot.appendSections([.categories])
-        snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
-        
-        sections = snapshot.sectionIdentifiers
-        dataSource.apply(snapshot)
     }
     
     func updateSnapshot() {
