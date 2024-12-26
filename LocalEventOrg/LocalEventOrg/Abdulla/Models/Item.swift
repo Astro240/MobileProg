@@ -32,23 +32,17 @@ enum Item: Identifiable {
         
     ]
     
-    static let essentialApps: [Item] = [
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 0.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: nil,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 3.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 0.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 4.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 0.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 0.99,color: nil)),
+    static var essentialApps: [Item] = [
     ]
     
     static let categories: [Item] = [
-        .category(StoreCategory(name: "AR Games")),
-        .category(StoreCategory(name: "Indie")),
-        .category(StoreCategory(name: "Strategy")),
-        .category(StoreCategory(name: "Racing")),
-        .category(StoreCategory(name: "Puzzle")),
-        .category(StoreCategory(name: "Board")),
-        .category(StoreCategory(name: "Family")),
-    ]
+        .category(StoreCategory(name: "Comic")),
+        .category(StoreCategory(name: "Music")),
+        .category(StoreCategory(name: "Social")),
+        .category(StoreCategory(name: "Sports")),
+        .category(StoreCategory(name: "Gaming")),
+        .category(StoreCategory(name: "Festival")),
+        .category(StoreCategory(name: "Food")),
+        .category(StoreCategory(name: "Pop Culture")),
+        .category(StoreCategory(name: "Motor Sports")),    ]
 }

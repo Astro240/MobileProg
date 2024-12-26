@@ -84,9 +84,9 @@
 		72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C187F362D16F1E9008D4C32 /* Cloudinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudinary.swift; sourceTree = "<group>"; };
 		9C187F3B2D17034E008D4C32 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		C311E62B2D1D57C900D5FE4E /* LocalEventOrgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LocalEventOrgTests.xctest; path = "/Users/administrator/Desktop/Abdulla/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrgTests.xctest"; sourceTree = "<absolute>"; };
-		C311E62C2D1D57C900D5FE4E /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LocalEventOrgUITests.xctest; path = "/Users/administrator/Desktop/Abdulla/MobileProg/LocalEventOrg/build/Debug-iphoneos/LocalEventOrgUITests.xctest"; sourceTree = "<absolute>"; };
 		C311E6372D1D87B800D5FE4E /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C311E6382D1D905700D5FE4E /* LocalEventOrgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C311E6392D1D905700D5FE4E /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31B51D42D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotedAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		C31B51D52D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C31B51D62D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardAppCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +139,8 @@
 				579686842CF47BE300495313 /* LocalEventOrgTests */,
 				5796868E2CF47BE300495313 /* LocalEventOrgUITests */,
 				C311E6372D1D87B800D5FE4E /* LocalEventOrg.app */,
+				C311E6382D1D905700D5FE4E /* LocalEventOrgTests.xctest */,
+				C311E6392D1D905700D5FE4E /* LocalEventOrgUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,7 +304,7 @@
 			);
 			name = LocalEventOrgTests;
 			productName = LocalEventOrgTests;
-			productReference = C311E62B2D1D57C900D5FE4E /* LocalEventOrgTests.xctest */;
+			productReference = C311E6382D1D905700D5FE4E /* LocalEventOrgTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5796868A2CF47BE300495313 /* LocalEventOrgUITests */ = {
@@ -320,7 +322,7 @@
 			);
 			name = LocalEventOrgUITests;
 			productName = LocalEventOrgUITests;
-			productReference = C311E62C2D1D57C900D5FE4E /* LocalEventOrgUITests.xctest */;
+			productReference = C311E6392D1D905700D5FE4E /* LocalEventOrgUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */

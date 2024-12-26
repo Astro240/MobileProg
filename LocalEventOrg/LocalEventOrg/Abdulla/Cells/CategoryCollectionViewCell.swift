@@ -65,7 +65,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(_ category: StoreCategory, hideBottomLine: Bool) {
-        titleLabel.text = category.name
+//        titleLabel.text = category.name
         imageView.image = category.color
         lineView.isHidden = hideBottomLine
     }

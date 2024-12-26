@@ -75,5 +75,7 @@ class PromotedAppCollectionViewCell: UICollectionViewCell {
         titleLabel.text = app.title
         subTitleLabel.text = app.subtitle
         imageView.image = app.color
+        imageView.layer.cornerRadius = 35
+        imageView.layer.masksToBounds = true
     }
 }
