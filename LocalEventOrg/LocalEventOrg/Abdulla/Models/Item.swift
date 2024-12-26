@@ -26,21 +26,10 @@ enum Item: Identifiable {
         }
     }
     static var promotedApps: [Item] = [
-        .app(App(promotedHeadline: "Recommended For You", title: "Comic Con", subtitle: "", price: 3.99,color:UIImage(named: "ComicCon"))),
-        .app(App(promotedHeadline: "Recommended For You", title: "Formula 1", subtitle: "", price: nil,color:nil)),
-        .app(App(promotedHeadline: "Recommended For You", title: "Youth City", subtitle: "", price: nil,color:nil)),
-        .app(App(promotedHeadline: "Recommended For You", title: "Comfest", subtitle: "", price: nil,color:nil))
     ]
     
-    static let popularApps: [Item] = [
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: nil,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 2.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: nil,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 9.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: nil,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: nil,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: 6.99,color: nil)),
-        .app(App(promotedHeadline: nil, title: "Game Title", subtitle: "Game Description", price: nil,color: nil)),
+    static var popularApps: [Item] = [
+        
     ]
     
     static let essentialApps: [Item] = [

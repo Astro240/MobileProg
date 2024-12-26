@@ -25,3 +25,27 @@ func uploadImage(image: UIImage) {
         }
     })
 }
+
+func GetImage(string: String) -> UIImage? {
+    guard let url = URL(string: string) else {
+        print("Invalid URL")
+        return nil
+    }
+    
+    var downloadedImage: UIImage?
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        if let error = error {
+            print("Error downloading image: \(error.localizedDescription)")
+        } else if let data = data, let image = UIImage(data: data) {
+            downloadedImage = image
+        }
+        semaphore.signal()
+    }
+    
+    task.resume()
+    semaphore.wait() // Wait for the network call to complete
+    
+    return downloadedImage
+}

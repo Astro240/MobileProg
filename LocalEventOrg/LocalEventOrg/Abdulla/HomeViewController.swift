@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseDatabaseInternal
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: Section Definitions
     enum Section: Hashable {
@@ -27,93 +27,64 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Apps"
+        searchController.searchBar.placeholder = "Search for Events"
                 
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
+        collectionView.delegate = self
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let section = sections[indexPath.section]
+            let itemID = dataSource.itemIdentifier(for: indexPath)
+            
+            switch section {
+            case .promoted:
+                if let app = Item.promotedApps.first(where: { $0.id == itemID })?.app {
+                    handleItemTap(app)
+                }
+            case .standard:
+                let apps = Item.essentialApps + Item.popularApps
+                if let app = apps.first(where: { $0.id == itemID })?.app {
+                    handleItemTap(app)
+                }
+            case .categories:
+                if let category = Item.categories.first(where: { $0.id == itemID })?.category {
+                    handleCategoryTap(category)
+                }
+            }
+        }
+    func handleItemTap(_ app: App) {
+        // Present a detailed view of the app
+        print(app.title)
+    }
+    func handleCategoryTap(_ category: StoreCategory) {
+        print(category.name)
+    }
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            // Shared layout items for all sections
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(200))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(44))
             let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: SupplementaryViewKind.header, alignment: .top)
             
-            let lineItemHeight = 1 / layoutEnvironment.traitCollection.displayScale
-            let lineItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(lineItemHeight))
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .groupPagingCentered
+            section.boundarySupplementaryItems = [headerItem]
+            section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 20, trailing: 0)
             
-            let topLineItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: lineItemSize, elementKind: SupplementaryViewKind.topLine, alignment: .top)
-
-            let bottomLineItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: lineItemSize, elementKind: SupplementaryViewKind.bottomLine, alignment: .bottom)
-
-            let supplementaryItemContentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
-            headerItem.contentInsets = supplementaryItemContentInsets
-            topLineItem.contentInsets = supplementaryItemContentInsets
-            bottomLineItem.contentInsets = supplementaryItemContentInsets
-            
-            let section = self.sections[sectionIndex]
-            switch section {
-            case .promoted:
-                // MARK: Promoted Section Layout - Adjusting the item size to make it shorter
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.6))  // Change the height to make items shorter
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
-                
-                // Adjust the group size to make the section fit the shorter items
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(200))  // Shorter height for group
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.boundarySupplementaryItems = [topLineItem, bottomLineItem]
-                
-                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 20, trailing: 0)
-                
-                return section
-                
-            case .standard:
-                // MARK: Standard Section Layout
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .estimated(250))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 3)
-
-                let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.boundarySupplementaryItems = [headerItem, bottomLineItem]
-                
-                section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 20, trailing: 0)
-                
-                return section
-                
-            case .categories:
-                // MARK: Categories Section Layout
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let availableLayoutWidth = layoutEnvironment.container.effectiveContentSize.width
-                let groupWidth = availableLayoutWidth * 0.92
-                let remainingWidth = availableLayoutWidth - groupWidth
-                let halfOfRemainingWidth = remainingWidth / 2.0
-                let nonCategorySectionItemInset = CGFloat(4)
-                let itemLeadingAndTrailingInset = halfOfRemainingWidth + nonCategorySectionItemInset
-                
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: itemLeadingAndTrailingInset, bottom: 0, trailing: itemLeadingAndTrailingInset)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                let section = NSCollectionLayoutSection(group: group)
-                section.boundarySupplementaryItems = [headerItem]
-                
-                return section
-            }
+            return section
         }
-        
         return layout
     }
     
@@ -126,15 +97,12 @@ class HomeViewController: UIViewController {
         let standardAppCellRegistration = UICollectionView.CellRegistration<StandardAppCollectionViewCell, Item.ID> { cell, indexPath, itemIdentifier in
             let possibleApps = Item.essentialApps + Item.popularApps
             guard let item = possibleApps.first(where: { $0.id == itemIdentifier }) else { return }
-            
-            let isThirdItem = (indexPath.row + 1).isMultiple(of: 3)
-            cell.configureCell(item.app!, hideBottomLine: isThirdItem)
+            cell.configureCell(item.app!)
         }
         let categoryCellRegistration = UICollectionView.CellRegistration<CategoryCollectionViewCell, Item.ID> { [weak self] cell, indexPath, itemIdentifier in
             guard let self,
                   let item = Item.categories.first(where: { $0.id == itemIdentifier }) else { return }
-            let isLastItem = collectionView.numberOfItems(inSection: indexPath.section) == indexPath.row + 1
-            cell.configureCell(item.category!, hideBottomLine: isLastItem)
+            cell.configureCell(item.category!, hideBottomLine: false)
         }
         dataSource = .init(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier -> UICollectionViewCell? in
             let section = self.sections[indexPath.section]
@@ -155,40 +123,29 @@ class HomeViewController: UIViewController {
             let sectionName: String
             switch section {
             case .promoted:
-                sectionName = ""
+                sectionName = "Recommended"
             case .standard(let name):
                 sectionName = name
             case .categories:
                 sectionName = "Top Categories"
             }
-            
             headerView.setTitle(sectionName)
         }
-        let lineRegistration: UICollectionView.SupplementaryRegistration<LineView>.Handler = { _, _, _ in }
-        let topLineRegistration = UICollectionView.SupplementaryRegistration<LineView>(elementKind: SupplementaryViewKind.topLine, handler: lineRegistration)
-        let bottomLineRegistration = UICollectionView.SupplementaryRegistration<LineView>(elementKind: SupplementaryViewKind.bottomLine, handler: lineRegistration)
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath -> UICollectionReusableView? in
-            guard let self else { return nil }
-            switch kind {
-            case SupplementaryViewKind.header:
-                guard sections[indexPath.section] != .promoted else { return nil }
+            guard self != nil else { return nil }
+            if kind == SupplementaryViewKind.header {
                 return collectionView.dequeueConfiguredReusableSupplementary(using: sectionHeaderRegistration, for: indexPath)
-            case SupplementaryViewKind.topLine:
-                return collectionView.dequeueConfiguredReusableSupplementary(using: topLineRegistration, for: indexPath)
-            case SupplementaryViewKind.bottomLine:
-                return collectionView.dequeueConfiguredReusableSupplementary(using: bottomLineRegistration, for: indexPath)
-            default:
-                return nil
             }
+            return nil
         }
         
         // MARK: Snapshot Definition
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
         snapshot.appendSections([.promoted])
         
-        // Populate events (i.e., add more items to Item.promotedApps)
+        // Populate events
         populateEvents()
-
+        
         // After populating, append the new items to the snapshot
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
@@ -205,14 +162,10 @@ class HomeViewController: UIViewController {
         sections = snapshot.sectionIdentifiers
         dataSource.apply(snapshot)
     }
-    func updateSnapshot(){
-        
-        // MARK: Snapshot Definition
+    
+    func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
         snapshot.appendSections([.promoted])
-        
-        // Populate events (i.e., add more items to Item.promotedApps)
-        // After populating, append the new items to the snapshot
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
         let popularSection = Section.standard("Popular this week")
@@ -228,32 +181,25 @@ class HomeViewController: UIViewController {
         sections = snapshot.sectionIdentifiers
         dataSource.apply(snapshot)
     }
+    
     func populateEvents() {
         let ref = Database.database().reference()
         ref.child("Events").observeSingleEvent(of: .value, with: { (snapshot) in
             if let eventsDict = snapshot.value as? [String: Any] {
-                for (eventID, eventData) in eventsDict {
+                for (_, eventData) in eventsDict {
                     if let eventDetails = eventData as? [String: Any],
-                       let eventName = eventDetails["Name"] as? String,
-                       let eventDate = eventDetails["Date"] as? String,
-                       let eventLocation = eventDetails["Location"] as? String,
-                       let eventCategories = eventDetails["Categories"] as? [String] {
-                        Item.promotedApps.append(.app(App(promotedHeadline: "Recommended For You", title: eventName, subtitle: "", price: 3.99,color:UIImage(named: "ComicCon"))))
-                        print("Event ID: \(eventID)")
-                        print("Event Name: \(eventName)")
-                        print("Date: \(eventDate)")
-                        print("Location: \(eventLocation)")
-                        print("Categories: \(eventCategories.joined(separator: ", "))")
-                        print("\n") // New line for better readability
+                       let eventName = eventDetails["Name"] as? String, let eventimage = eventDetails["Image"] as? String {
+                        let img : UIImage? = GetImage(string:eventimage)
+                        Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
+                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
                     }
                 }
-                self.updateSnapshot();
+                self.updateSnapshot()
             } else {
                 print("No data found")
             }
         }, withCancel: { error in
-            print("Error fetching data: (error.localizedDescription)")
+            print("Error fetching data: \(error.localizedDescription)")
         })
     }
-
 }

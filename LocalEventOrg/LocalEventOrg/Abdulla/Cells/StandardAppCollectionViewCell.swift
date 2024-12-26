@@ -3,95 +3,66 @@ import UIKit
 
 class StandardAppCollectionViewCell: UICollectionViewCell {
     
-    static let reuseIdentifier = "StandardAppCollectionViewCell"
+    static let reuseIdentifier = "PromotedAppCollectionViewCell"
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
+        stackView.spacing = 0
         stackView.distribution = .fill
-        stackView.alignment = .center
-        stackView.spacing = 8
+        stackView.alignment = .fill
         
         return stackView
     }()
     
-    let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 15
-        imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+    let headlineLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        label.textColor = UIColor.systemBlue
+        label.setContentHuggingPriority(.required, for: .vertical)
         
-        
-        return imageView
+        return label
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = .label
-        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        label.textColor = UIColor.label
+        label.setContentHuggingPriority(.required, for: .vertical)
         
         return label
     }()
     
-    let subtitleLabel: UILabel = {
+    let subTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .secondaryLabel
+        label.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        label.textColor = UIColor.secondaryLabel
+        label.setContentHuggingPriority(.required, for: .vertical)
         
         return label
     }()
     
-    let labelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 4
-        stackView.distribution = .equalSpacing
-        
-        return stackView
-    }()
-    
-    let installButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        button.layer.cornerRadius = 12
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.setContentHuggingPriority(.required, for: .horizontal)
-        button.widthAnchor.constraint(equalToConstant: 65).isActive = true
-        
-        return button
-    }()
-    
-    let lineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        
-        return view
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 5.0
+        return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        stackView.addArrangedSubview(headlineLabel)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(subTitleLabel)
+        stackView.setCustomSpacing(10, after: subTitleLabel)
         stackView.addArrangedSubview(imageView)
-        labelStackView.addArrangedSubview(titleLabel)
-        labelStackView.addArrangedSubview(subtitleLabel)
-        stackView.addArrangedSubview(labelStackView)
-        stackView.addArrangedSubview(installButton)
-        
         addSubview(stackView)
-        addSubview(lineView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 8),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            lineView.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale),
-            lineView.leadingAnchor.constraint(equalTo: labelStackView.leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: installButton.trailingAnchor),
-            lineView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
     }
     
@@ -99,11 +70,10 @@ class StandardAppCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(_ app: App, hideBottomLine: Bool) {
+    func configureCell(_ app: App) {
+        headlineLabel.text = app.promotedHeadline?.uppercased()
         titleLabel.text = app.title
-        subtitleLabel.text = app.subtitle
+        subTitleLabel.text = app.subtitle
         imageView.image = app.color
-        installButton.setTitle(app.formattedPrice, for: .normal)
-        lineView.isHidden = hideBottomLine
     }
 }
