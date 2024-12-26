@@ -36,13 +36,13 @@ enum Item: Identifiable {
     ]
     
     static let categories: [Item] = [
-        .category(StoreCategory(name: "Comic")),
-        .category(StoreCategory(name: "Music")),
-        .category(StoreCategory(name: "Social")),
-        .category(StoreCategory(name: "Sports")),
-        .category(StoreCategory(name: "Gaming")),
-        .category(StoreCategory(name: "Festival")),
-        .category(StoreCategory(name: "Food")),
-        .category(StoreCategory(name: "Pop Culture")),
-        .category(StoreCategory(name: "Motor Sports")),    ]
+        .category(StoreCategory(name: "Comic",color:    UIImage(named: "Comic"))),
+        .category(StoreCategory(name: "Music",color:    UIImage(named: "Music"))),
+        .category(StoreCategory(name: "Social",color:    UIImage(named: "Social"))),
+        .category(StoreCategory(name: "Sports",color:    UIImage(named: "Sports"))),
+        .category(StoreCategory(name: "Gaming",color:    UIImage(named: "gaming"))),
+        .category(StoreCategory(name: "Festival",color:    UIImage(named: "Festiv"))),
+        .category(StoreCategory(name: "Food",color:    UIImage(named: "Food"))),
+        .category(StoreCategory(name: "Pop Culture",color:    UIImage(named: "pop"))),
+        .category(StoreCategory(name: "Motor Sports",color:    UIImage(named: "Cars"))),    ]
 }
