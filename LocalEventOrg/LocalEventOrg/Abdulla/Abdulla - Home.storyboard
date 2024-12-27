@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jor-ar-Efx" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1916.7938931297708" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2952" y="-40"/>
         </scene>
         <!--Search-->
         <scene sceneID="QMg-GN-Mi6">
@@ -83,21 +83,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBf-jf-0c0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5098.4732824427483" y="-40.140845070422536"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="SAb-4N-KX9">
-            <objects>
-                <viewController id="6rq-eE-Va5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oPW-dr-E21">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="G3c-bd-gae"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dj1-5b-uky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6338" y="-40"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9nX-s5-UU3">

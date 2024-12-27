@@ -1,7 +1,7 @@
 import UIKit
 
 protocol FilterViewControllerDelegate: AnyObject {
-    func applyFilters(categories: [String], priceRange: ClosedRange<Float>, rating: Int, popularity: String)
+    func applyFilters(categories: [String], priceRange: ClosedRange<Float>, rating: Int)
 }
 
 class FilterViewController: UIViewController {
@@ -12,14 +12,12 @@ class FilterViewController: UIViewController {
     var categoryPicker: UIPickerView!
     var priceSlider: UISlider!
     var ratingSegmentedControl: UISegmentedControl!
-    var popularitySegmentedControl: UISegmentedControl!
 
     // Filter options
     let categories = ["Comic", "Music", "Social", "Sports", "Gaming", "Festival", "Food", "Pop Culture", "Motor Sport"]
     var selectedCategories: [String] = []
     var selectedPriceRange: ClosedRange<Float> = 0...100
     var selectedRating: Int = 3
-    var selectedPopularity: String = "Top"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,16 +102,7 @@ class FilterViewController: UIViewController {
         ratingSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         ratingSegmentedControl.addTarget(self, action: #selector(ratingChanged), for: .valueChanged)
         stackView.addArrangedSubview(ratingSegmentedControl)
-        
-        // Popularity Segmented Control
-        let popularityLabel = createSectionLabel(with: "Select Popularity")
-        stackView.addArrangedSubview(popularityLabel)
-        
-        popularitySegmentedControl = UISegmentedControl(items: ["Top", "New", "Trending"])
-        popularitySegmentedControl.selectedSegmentIndex = 0
-        popularitySegmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        popularitySegmentedControl.addTarget(self, action: #selector(popularityChanged), for: .valueChanged)
-        stackView.addArrangedSubview(popularitySegmentedControl)
+
         
         // Apply Button
         let applyButton = UIButton(type: .system)
@@ -146,7 +135,6 @@ class FilterViewController: UIViewController {
     }
     
     @objc func popularityChanged() {
-        selectedPopularity = ["Top", "New", "Trending"][popularitySegmentedControl.selectedSegmentIndex]
     }
     
     @objc func applyFilters() {
@@ -157,14 +145,12 @@ class FilterViewController: UIViewController {
             print("Category: \(selectedCategory)")
             print("Price Range: \(selectedPriceRange)")
             print("Rating: \(selectedRating)")
-            print("Popularity: \(selectedPopularity)")
             
             // Notify the delegate
             delegate?.applyFilters(
                 categories: [selectedCategory],
                 priceRange: selectedPriceRange,
-                rating: selectedRating,
-                popularity: selectedPopularity
+                rating: selectedRating
             )
             
             // Dismiss the view controller

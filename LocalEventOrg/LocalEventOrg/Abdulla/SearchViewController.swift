@@ -125,12 +125,11 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 }
 
 extension SearchViewController: FilterViewControllerDelegate {
-    func applyFilters(categories: [String], priceRange: ClosedRange<Float>, rating: Int, popularity: String) {
+    func applyFilters(categories: [String], priceRange: ClosedRange<Float>, rating: Int) {
         print("Filters received in SearchViewController:")
         print("Categories: \(categories)")
         print("Price Range: \(priceRange)")
         print("Rating: \(rating)")
-        print("Popularity: \(popularity)")
         
         // Apply the filters to the search results
         filteredResults = searchResults.filter { app in
