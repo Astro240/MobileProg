@@ -23,6 +23,7 @@ struct App: Identifiable {
     let desc: String?
     let eventcategories: [String]
     let location: String
+    let rating : Int?
     let id = UUID()
 }
 

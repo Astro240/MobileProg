@@ -4,6 +4,8 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "EventCell"
     
+    private var isBookmarked = false // State for bookmark button
+    
     private let eventImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -43,6 +45,7 @@ class TableViewCell: UITableViewCell {
     private let bookmarkButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        button.tintColor = .gray // Default color
         return button
     }()
     
@@ -55,6 +58,9 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(datePriceLabel)
         contentView.addSubview(tagsStackView)
         contentView.addSubview(bookmarkButton)
+        
+        // Add action for bookmark button
+        bookmarkButton.addTarget(self, action: #selector(toggleBookmark), for: .touchUpInside)
         
         layoutSubviews()
     }
@@ -83,6 +89,14 @@ class TableViewCell: UITableViewCell {
             tagLabel.clipsToBounds = true
             tagsStackView.addArrangedSubview(tagLabel)
         }
+    }
+    
+    @objc private func toggleBookmark() {
+        isBookmarked.toggle() // Toggle the state
+        let newImageName = isBookmarked ? "bookmark.fill" : "bookmark"
+        let newTintColor = isBookmarked ? UIColor.systemBlue : UIColor.gray
+        bookmarkButton.setImage(UIImage(systemName: newImageName), for: .normal)
+        bookmarkButton.tintColor = newTintColor
     }
     
     override func layoutSubviews() {

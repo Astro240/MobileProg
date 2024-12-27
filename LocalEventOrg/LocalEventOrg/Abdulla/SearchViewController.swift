@@ -64,7 +64,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                        let eventImageURL = eventDetails["Image"] as? String,
                        let categories = eventDetails["Categories"] as? [String],
                        let desc = eventDetails["Description"] as? String,
-                       let location = eventDetails["Location"] as? String {
+                       let location = eventDetails["Location"] as? String,let rating = eventDetails["Rating"] as? Int {
                         
                         self.loadImage(from: eventImageURL) { image in
                             guard let img = image else {
@@ -80,7 +80,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                                     color: img,
                                     desc: desc,
                                     eventcategories: categories,
-                                    location: location
+                                    location: location,
+                                    rating: rating
                                 )
                                 self.searchResults.append(app)
                                 self.filteredResults = self.searchResults // Initialize filtered results
@@ -133,12 +134,12 @@ extension SearchViewController: FilterViewControllerDelegate {
         
         // Apply the filters to the search results
         filteredResults = searchResults.filter { app in
-            guard let price = app.price else {
+            guard let price = app.price, let rating2 = app.rating else {
                 return false // Exclude items with missing price or rating
             }
             let matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
             let matchesPrice = priceRange.contains(Float(price))
-            let matchesRating = rating >= rating
+            let matchesRating = rating2 >= rating
             return matchesCategory && matchesPrice && matchesRating
         }
         

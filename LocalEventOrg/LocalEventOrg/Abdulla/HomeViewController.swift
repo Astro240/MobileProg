@@ -234,7 +234,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                     if let eventDetails = eventData as? [String: Any],
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
-                       let categories = eventDetails["Categories"] as? [String],let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String {
+                       let categories = eventDetails["Categories"] as? [String],let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String, let rating = eventDetails["Rating"] as? Int {
 
                         // Fetch and process image
                         guard let img: UIImage = GetImage(string: eventImageURL) else {
@@ -245,14 +245,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                         for category in categories {
                             // Ensure you're appending to the correct category
                             if Item.categoryEvents.keys.contains(category) {
-                                Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location)))
+                                Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                             }
                         }
 
                         // Add to promoted, popular, and essential apps
-                        Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location)))
-                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location)))
-                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location)))
+                        Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                     }
                 }
                 completion(Item.categoryEvents) // Return the populated category events
