@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if Auth.auth().currentUser != nil {
+            SceneDelegate.showHome()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,7 +51,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+    static func showLogin(){
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+    static func showInterests(){
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InterestsViewController")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+    
+    static func showHome(){
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Alhasan - profile", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LogOutTableViewController: UITableViewController {
 
@@ -15,7 +16,6 @@ class LogOutTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         logOutButton.addTarget(self, action: #selector(showLogOutAlert), for: .touchUpInside)
         
     }
@@ -24,8 +24,15 @@ class LogOutTableViewController: UITableViewController {
         let ConfirmAlert = UIAlertController(title: "Save", message: "Would you like to Logout?", preferredStyle: .alert)
         ConfirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ConfirmAlert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (_) in
-            //Write code to save here
-            print("Changes saved!")
+            
+            do {
+                try Auth.auth().signOut()
+                SceneDelegate.showLogin()
+            } catch let signOutError as NSError {
+              print("Error signing out: %@", signOutError)
+            }
+            
+            print("User Loggedout!")
         }))
         
         self.present(ConfirmAlert, animated: true, completion: nil)

@@ -3,7 +3,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class shadowViewController: UIViewController {
+class SaveInterestsViewController: UIViewController {
     
     @IBOutlet weak var Button1: UIButton!
     @IBOutlet weak var Button2: UIButton!
@@ -15,7 +15,7 @@ class shadowViewController: UIViewController {
     @IBOutlet weak var Button8: UIButton!
     @IBOutlet weak var Button9: UIButton!
     
-    @IBOutlet weak var NextButton: UIButton?
+    @IBOutlet weak var SaveButton: UIButton!
     
     var Button1isActive = false
     var Button2isActive = false
@@ -41,22 +41,22 @@ class shadowViewController: UIViewController {
         gradientLayer.locations = [0.5, 1.1]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        // Apply custom design to buttons
-        Button1.applyDesign()
-        Button2.applyDesign()
-        Button3.applyDesign()
-        Button4.applyDesign()
-        Button5.applyDesign()
-        Button6.applyDesign()
-        Button7.applyDesign()
-        Button8.applyDesign()
-        Button9.applyDesign()
+        // Apply custom design to buttons using applyDesign2
+        Button1.applyDesign2()
+        Button2.applyDesign2()
+        Button3.applyDesign2()
+        Button4.applyDesign2()
+        Button5.applyDesign2()
+        Button6.applyDesign2()
+        Button7.applyDesign2()
+        Button8.applyDesign2()
+        Button9.applyDesign2()
         
         // Fetch current user interests from Firebase
         loadUserInterests()
         
-        // Add target to NextButton for navigation if it exists
-        NextButton?.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        // Add Save Button Action
+        SaveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
     }
     
     // Fetch user interests from Firebase
@@ -106,31 +106,64 @@ class shadowViewController: UIViewController {
         })
     }
 
-    
     // Update the button's visual state
     func updateButtonState(for interestKey: String, isActive: Bool) {
         switch interestKey {
         case "Interest1":
-            isActive ? Button1.altDesign() : Button1.applyDesign()
+            isActive ? Button1.altDesign2() : Button1.applyDesign2()
         case "Interest2":
-            isActive ? Button2.altDesign() : Button2.applyDesign()
+            isActive ? Button2.altDesign2() : Button2.applyDesign2()
         case "Interest3":
-            isActive ? Button3.altDesign() : Button3.applyDesign()
+            isActive ? Button3.altDesign2() : Button3.applyDesign2()
         case "Interest4":
-            isActive ? Button4.altDesign() : Button4.applyDesign()
+            isActive ? Button4.altDesign2() : Button4.applyDesign2()
         case "Interest5":
-            isActive ? Button5.altDesign() : Button5.applyDesign()
+            isActive ? Button5.altDesign2() : Button5.applyDesign2()
         case "Interest6":
-            isActive ? Button6.altDesign() : Button6.applyDesign()
+            isActive ? Button6.altDesign2() : Button6.applyDesign2()
         case "Interest7":
-            isActive ? Button7.altDesign() : Button7.applyDesign()
+            isActive ? Button7.altDesign2() : Button7.applyDesign2()
         case "Interest8":
-            isActive ? Button8.altDesign() : Button8.applyDesign()
+            isActive ? Button8.altDesign2() : Button8.applyDesign2()
         case "Interest9":
-            isActive ? Button9.altDesign() : Button9.applyDesign()
+            isActive ? Button9.altDesign2() : Button9.applyDesign2()
         default:
             break
         }
+    }
+    
+    @objc func saveButtonPressed() {
+        // Prepare a dictionary with the updated interests
+        let updatedInterests: [String: Bool] = [
+            "Interest1": Button1isActive,
+            "Interest2": Button2isActive,
+            "Interest3": Button3isActive,
+            "Interest4": Button4isActive,
+            "Interest5": Button5isActive,
+            "Interest6": Button6isActive,
+            "Interest7": Button7isActive,
+            "Interest8": Button8isActive,
+            "Interest9": Button9isActive
+        ]
+        // Create an alert to confirm saving
+        let saveConfirmAlert = UIAlertController(title: "Save", message: "Would you like to save the changes made?", preferredStyle: .alert)
+        saveConfirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        saveConfirmAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            // Reference to the user’s node in Firebase
+            let ref = Database.database().reference().child("Users").child(self.userID)
+            
+            // Save the updated interest data to Firebase
+            ref.updateChildValues(updatedInterests) { error, _ in
+                if let error = error {
+                    print("Error saving interests: \(error.localizedDescription)")
+                } else {
+                    print("Interests saved successfully!")
+                    // Optionally, you can navigate to another screen or perform other actions here
+                }
+            }
+        }))
+        // Present the alert
+        self.present(saveConfirmAlert, animated: true, completion: nil)
     }
     
     // Button click actions to toggle button states
@@ -146,51 +179,22 @@ class shadowViewController: UIViewController {
 
     func toggleButtonState(button: UIButton, isActive: inout Bool) {
         if isActive {
-            button.applyDesign()
+            button.applyDesign2()
         } else {
-            button.altDesign()
+            button.altDesign2()
         }
         isActive.toggle()
-    }
-    
-    // Button being clicked augh
-    @objc func nextButtonPressed(_ sender: Any) {
-        let updatedInterests: [String: Bool] = [
-            "Interest1": Button1isActive,
-            "Interest2": Button2isActive,
-            "Interest3": Button3isActive,
-            "Interest4": Button4isActive,
-            "Interest5": Button5isActive,
-            "Interest6": Button6isActive,
-            "Interest7": Button7isActive,
-            "Interest8": Button8isActive,
-            "Interest9": Button9isActive
-        ]
-        
-        let ref = Database.database().reference().child("Users").child(self.userID)
-        
-        // Save the updated interest data to Firebase
-        ref.updateChildValues(updatedInterests) { error, _ in
-            if let error = error {
-                print("Error saving interests: \(error.localizedDescription)")
-            } else {
-                print("Interests saved successfully!")
-                // Optionally, you can navigate to another screen or perform other actions here
-            }
-        }
-        // Move to next screeeen
-        SceneDelegate.showHome()
     }
 }
 
 extension UIButton {
-    func applyDesign() {
+    func applyDesign2() {
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowRadius = 10
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
-    func altDesign() {
+    func altDesign2() {
         self.layer.shadowColor = UIColor.cyan.cgColor
         self.layer.shadowRadius = 10
         self.layer.shadowOpacity = 0.5
