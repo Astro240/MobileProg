@@ -1,77 +1,80 @@
 import UIKit
-import FirebaseAuth
-import FirebaseAnalytics
-import FirebaseDatabase
-import Cloudinary
 
+/// A custom UITableViewCell to display each upcoming event.
+/// All layout is done in code, so the prototype cell in Storyboard
+/// should NOT contain any subviews (just the cell and an identifier).
 class ActivityTableViewCell: UITableViewCell {
     
+    // MARK: - UI Components
     
-    @IBOutlet weak var activityImageView: UIImageView!
+    /// An image view to hold the event’s image (programmatically created).
+    private let eventImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill   // fill, cropping edges
+        imageView.layer.cornerRadius = 12
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
- 
-
-    class MyActivityViewController: UITableViewController {
-
-        var activities = [String]()
-
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            self.tableView.register(UINib(nibName: "ActivityTableViewCell", bundle: nil), forCellReuseIdentifier: "ActivityCell")
-
-            // Fetch data from Firebase
-            fetchActivitiesFromFirebase()
-        }
-
-        // MARK: - Firebase
-
-        func fetchActivitiesFromFirebase() {
-            let ref = Database.database().reference()
-            ref.child("activities").observeSingleEvent(of: .value, with: { snapshot in
-                if let activitiesDict = snapshot.value as? [String: Any] {
-                    for (_, value) in activitiesDict {
-                        if let activity = value as? String {
-                            self.activities.append(activity)
-                        }
-                    }
-                    self.tableView.reloadData()
-                }
-            }) { error in
-                print("Error fetching data: \(error.localizedDescription)")
-            }
-        }
-
-        // MARK: - Table view data source
-
-        override func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return activities.count
-        }
-
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityCell", for: indexPath) as! ActivityTableViewCell
-
-            // Configure the cell with an image
-            let imageName = activities[indexPath.row]
-            cell.activityImageView.image = UIImage(named: imageName)
-
-            return cell
-        }
-
-        // MARK: - Table view delegate
-
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            print("Image clicked: \(activities[indexPath.row])")
-            // No further action needed for now
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
+    /// A label to display the event’s name (programmatically created).
+    private let eventTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.numberOfLines = 0  // allow multiple lines if needed
+        return label
+    }()
+    
+    // MARK: - Initializers
+    
+    /// For cells created programmatically.
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
     }
-
     
+    /// For cells loaded from a storyboard or nib (required but not used).
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
     
+    // MARK: - Layout & Configuration
     
+    /// Sets up the cell’s subviews and constraints programmatically.
+    private func setupUI() {
+        contentView.addSubview(eventImageView)
+        contentView.addSubview(eventTitleLabel)
+        
+        // Constrain the eventImageView to be full width, half as tall as the cell’s width
+        NSLayoutConstraint.activate([
+            eventImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            eventImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            eventImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            // Make the image’s height half of the cell’s width
+            eventImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            
+            // Place the label below the image, with some padding
+            eventTitleLabel.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 8),
+            eventTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            eventTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            eventTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        ])
+    }
+    
+    /// Populates the cell with data from a given Event.
+    func configure(with event: Event) {
+        eventTitleLabel.text = event.name
+        
+        // Attempt to load an image from your Assets catalog.
+        // If none is found, default to a placeholder system image.
+        if let image = UIImage(named: event.imageName) {
+            eventImageView.image = image
+        } else {
+            eventImageView.image = UIImage(systemName: "photo")
+        }
+        
+    }
     
 }

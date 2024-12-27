@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570808002D1ED2FD00FFF9A9 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570807FF2D1ED2FD00FFF9A9 /* EventsViewController.swift */; };
+		570808022D1ED34100FFF9A9 /* EventsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570808012D1ED34100FFF9A9 /* EventsDataManager.swift */; };
+		570808042D1ED38300FFF9A9 /* HusainImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570808032D1ED38300FFF9A9 /* HusainImages.xcassets */; };
 		5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796866E2CF47BE000495313 /* AppDelegate.swift */; };
 		579686712CF47BE000495313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686702CF47BE000495313 /* SceneDelegate.swift */; };
 		579686732CF47BE000495313 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686722CF47BE000495313 /* ViewController.swift */; };
@@ -21,8 +24,6 @@
 		57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */; };
 		57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */; };
 		57D9954E2D1C4D1200977804 /* HusainAlj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D9954D2D1C4D1200977804 /* HusainAlj.storyboard */; };
-		57D995502D1C4E7E00977804 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D9954F2D1C4E7E00977804 /* TableViewController.swift */; };
-		57D995522D1C605E00977804 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D995512D1C605E00977804 /* DetailViewController.swift */; };
 		7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */; };
 		7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214FA062D05F3AD00C1A5AA /* Item.swift */; };
 		7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214FA082D05F3AD00C1A5AA /* App.swift */; };
@@ -68,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		570807FF2D1ED2FD00FFF9A9 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		570808012D1ED34100FFF9A9 /* EventsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataManager.swift; sourceTree = "<group>"; };
+		570808032D1ED38300FFF9A9 /* HusainImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HusainImages.xcassets; sourceTree = "<group>"; };
 		5796866B2CF47BE000495313 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796866E2CF47BE000495313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		579686702CF47BE000495313 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +90,6 @@
 		57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageStructs.swift; sourceTree = "<group>"; };
 		57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Home.storyboard"; sourceTree = "<group>"; };
 		57D9954D2D1C4D1200977804 /* HusainAlj.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HusainAlj.storyboard; sourceTree = "<group>"; };
-		57D9954F2D1C4E7E00977804 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		57D995512D1C605E00977804 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7214FA062D05F3AD00C1A5AA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7214FA072D05F3AD00C1A5AA /* StoreCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
@@ -165,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				57D9954B2D1C4CD900977804 /* HusainAlj */,
-				C31B51F32D0F14AA00DD4B82 /* Mohammed */,
 				C31B51EA2D0F129700DD4B82 /* Alhasan */,
 				C31B51E12D0F123500DD4B82 /* HusainAlmu */,
 				C31B51E02D0F122C00DD4B82 /* Hasan */,
@@ -180,6 +181,7 @@
 				72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */,
 				9C187F362D16F1E9008D4C32 /* Cloudinary.swift */,
 				9C187F3B2D17034E008D4C32 /* Database.swift */,
+				C31B51F32D0F14AA00DD4B82 /* Mohammed */,
 			);
 			path = LocalEventOrg;
 			sourceTree = "<group>";
@@ -205,9 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				57D9954D2D1C4D1200977804 /* HusainAlj.storyboard */,
-				57D9954F2D1C4E7E00977804 /* TableViewController.swift */,
-				57D995512D1C605E00977804 /* DetailViewController.swift */,
+				570807FF2D1ED2FD00FFF9A9 /* EventsViewController.swift */,
 				57B265652D1D9DF3009B3FD9 /* ActivityTableViewCell.swift */,
+				570808012D1ED34100FFF9A9 /* EventsDataManager.swift */,
+				570808032D1ED38300FFF9A9 /* HusainImages.xcassets */,
 			);
 			path = HusainAlj;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */,
 				C31B51F52D0F14D400DD4B82 /* Mohammed.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
+				570808042D1ED38300FFF9A9 /* HusainImages.xcassets in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				57D9954E2D1C4D1200977804 /* HusainAlj.storyboard in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
@@ -449,15 +453,16 @@
 			files = (
 				C31B51E92D0F126B00DD4B82 /* ViewControllerBadge.swift in Sources */,
 				9C187F372D16F1E9008D4C32 /* Cloudinary.swift in Sources */,
-				57D995522D1C605E00977804 /* DetailViewController.swift in Sources */,
 				C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */,
 				7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */,
+				570808022D1ED34100FFF9A9 /* EventsDataManager.swift in Sources */,
 				7214FA0B2D05F3AE00C1A5AA /* StoreCategory.swift in Sources */,
 				579686732CF47BE000495313 /* ViewController.swift in Sources */,
 				7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */,
 				C31B51F02D0F148300DD4B82 /* Gradient.swift in Sources */,
 				C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */,
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
+				570808002D1ED2FD00FFF9A9 /* EventsViewController.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
 				9C187F3C2D17034E008D4C32 /* Database.swift in Sources */,
@@ -466,7 +471,6 @@
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
-				57D995502D1C4E7E00977804 /* TableViewController.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
