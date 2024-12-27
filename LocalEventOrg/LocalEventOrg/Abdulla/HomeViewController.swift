@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseDatabaseInternal
 
-class HomeViewController: UIViewController, UICollectionViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBarDelegate {
     
     // MARK: Section Definitions
     enum Section: Hashable {
@@ -28,12 +28,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Events"
-                
+        Item.Search = []
         navigationItem.searchController = searchController
         definesPresentationContext = true
 //        populateEvents { categoryEvents in
 //                    // Handle UI updates after events are populated
 //                }
+        searchController.searchBar.delegate = self // Set delegate
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
@@ -49,7 +50,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     handleItemTap(app)
                 }
             case .standard:
-                let apps = Item.essentialApps + Item.popularApps
+                var apps = Item.essentialApps + Item.popularApps
+                for item in Item.categoryEvents {
+                    apps += item.value
+                }
                 if let app = apps.first(where: { $0.id == itemID })?.app {
                     handleItemTap(app)
                 }
@@ -227,7 +231,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                     if let eventDetails = eventData as? [String: Any],
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
-                       let categories = eventDetails["Categories"] as? [String] {
+                       let categories = eventDetails["Categories"] as? [String],let desc = eventDetails["Description"] as? String {
 
                         // Fetch and process image
                         guard let img: UIImage = GetImage(string: eventImageURL) else {
@@ -238,14 +242,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                         for category in categories {
                             // Ensure you're appending to the correct category
                             if Item.categoryEvents.keys.contains(category) {
-                                Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
+                                Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories)))
                             }
                         }
 
                         // Add to promoted, popular, and essential apps
-                        Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
-                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
-                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img)))
+                        Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories)))
+                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories)))
+                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories)))
                     }
                 }
                 completion(Item.categoryEvents) // Return the populated category events
@@ -259,5 +263,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         })
     }
 
-
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            guard let query = searchBar.text, !query.isEmpty else { return }
+            
+            // Navigate to a new view controller
+            let searchResultsVC = SearchViewController() // Replace with your destination view controller
+            searchResultsVC.searchQuery = query // Pass the search query to the next view controller
+            Item.Search = []
+            navigationController?.pushViewController(searchResultsVC, animated: true)
+        }
 }

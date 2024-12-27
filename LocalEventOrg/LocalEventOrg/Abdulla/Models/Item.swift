@@ -49,6 +49,8 @@ enum Item: Identifiable {
         "Sports": [],
         "Social": []
     ]
+    static var Search: [Item] = [
+    ]
     static let categories: [Item] = [
         .category(StoreCategory(name: "Comic",color:    UIImage(named: "Comic"))),
         .category(StoreCategory(name: "Music",color:    UIImage(named: "Music"))),

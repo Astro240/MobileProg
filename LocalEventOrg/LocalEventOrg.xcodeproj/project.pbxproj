@@ -44,6 +44,8 @@
 		C31B51F02D0F148300DD4B82 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51EF2D0F148300DD4B82 /* Gradient.swift */; };
 		C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B51F12D0F148900DD4B82 /* LogInTableViewController.swift */; };
 		C31B51F52D0F14D400DD4B82 /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */; };
+		C3C03ABC2D1EBC0300A53A44 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */; };
+		C3CABDF82D1EB3F600242EDC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		C31B51EF2D0F148300DD4B82 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		C31B51F12D0F148900DD4B82 /* LogInTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInTableViewController.swift; sourceTree = "<group>"; };
 		C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
+		C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,7 +221,9 @@
 			children = (
 				57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */,
 				7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */,
+				C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */,
 				57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */,
+				C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */,
 				57CDC9892D06EC3500BD3444 /* UIColor+.swift */,
 				7214FA052D05F3AD00C1A5AA /* Models */,
 				C31B51D32D0F0E3200DD4B82 /* Cells */,
@@ -422,6 +428,7 @@
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
+				C3CABDF82D1EB3F600242EDC /* SearchViewController.swift in Sources */,
 				9C187F3C2D17034E008D4C32 /* Database.swift in Sources */,
 				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
@@ -431,6 +438,7 @@
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
 				C31B51D92D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift in Sources */,
+				C3C03ABC2D1EBC0300A53A44 /* TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

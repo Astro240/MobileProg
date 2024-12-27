@@ -19,7 +19,8 @@ struct App: Identifiable {
             return "GET"
         }
     }
-
+    let desc: String?
+    let eventcategories: [String]
     let id = UUID()
 }
 
