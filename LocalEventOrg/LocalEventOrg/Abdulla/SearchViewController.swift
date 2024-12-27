@@ -1,16 +1,21 @@
 import UIKit
 import FirebaseDatabase
 
-class SearchViewController: UITableViewController {
+class SearchViewController: UITableViewController,UISearchBarDelegate {
     
     var searchQuery: String?
     var searchResults: [App] = [] // Store search results
-    
+    var searchController: UISearchController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Search"
-        
+            searchController = UISearchController(searchResultsController: nil)
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.placeholder = "Search for Events"
+            navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         tableView.rowHeight = 150 // Updated row height
         tableView.estimatedRowHeight = 150
@@ -19,6 +24,7 @@ class SearchViewController: UITableViewController {
         if let query = searchQuery {
             populateEvents(query: query)
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,7 +65,7 @@ class SearchViewController: UITableViewController {
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
                        let categories = eventDetails["Categories"] as? [String],
-                       let desc = eventDetails["Description"] as? String {
+                       let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String {
                         
                         // Fetch and process image
                         self.loadImage(from: eventImageURL) { image in
@@ -75,7 +81,8 @@ class SearchViewController: UITableViewController {
                                     price: 3.99,
                                     color: img,
                                     desc: desc,
-                                    eventcategories: categories
+                                    eventcategories: categories,
+                                    location: location
                                 )
                                 
                                 // Append search result

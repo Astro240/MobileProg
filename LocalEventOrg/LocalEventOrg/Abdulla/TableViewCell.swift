@@ -66,7 +66,7 @@ class TableViewCell: UITableViewCell {
     func configure(with event: App) {
         eventImageView.image = event.color
         titleLabel.text = event.title
-        locationLabel.text = event.desc
+        locationLabel.text = event.location
         datePriceLabel.text = "\(event.eventcategories.joined(separator: ", "))"
         configureTags(event.eventcategories)
     }

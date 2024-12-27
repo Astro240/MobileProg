@@ -50,22 +50,22 @@
         <!--Search-->
         <scene sceneID="QMg-GN-Mi6">
             <objects>
-                <tableViewController id="2q9-ry-z9v" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="seR-hf-4O2">
+                <tableViewController id="2q9-ry-z9v" customClass="SearchViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="seR-hf-4O2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="jug-EM-rag">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for Events" id="EMe-OY-Thb">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="2q9-ry-z9v" id="xDo-UT-9la"/>
+                                <outlet property="delegate" destination="2q9-ry-z9v" id="Xnb-Gn-ilj"/>
                             </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="107" id="idT-Yg-jTI">
-                                <rect key="frame" x="0.0" y="94" width="393" height="107"/>
+                                <rect key="frame" x="0.0" y="99.333332061767578" width="393" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="idT-Yg-jTI" id="538-Ro-2NX">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="107"/>
