@@ -21,7 +21,7 @@ class ActivityTableViewCell: UITableViewCell {
     private let eventTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 20) // Slightly larger font
         label.numberOfLines = 0  // allow multiple lines if needed
         return label
     }()
@@ -47,34 +47,30 @@ class ActivityTableViewCell: UITableViewCell {
         contentView.addSubview(eventImageView)
         contentView.addSubview(eventTitleLabel)
         
-        // Constrain the eventImageView to be full width, half as tall as the cell’s width
         NSLayoutConstraint.activate([
-            eventImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            eventImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            eventImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            // Make the image’s height half of the cell’s width
+            eventImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            eventImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            eventImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            // Make the image’s height slightly smaller (50% of the cell’s width)
             eventImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
             
-            // Place the label below the image, with some padding
-            eventTitleLabel.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 8),
+            eventTitleLabel.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 12),
             eventTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             eventTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            eventTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            eventTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
     
     /// Populates the cell with data from a given Event.
     func configure(with event: Event) {
         eventTitleLabel.text = event.name
-        
-        // Attempt to load an image from your Assets catalog.
-        // If none is found, default to a placeholder system image.
+
         if let image = UIImage(named: event.imageName) {
             eventImageView.image = image
+            print("Loaded image: \(event.imageName)")
         } else {
-            eventImageView.image = UIImage(systemName: "photo")
+            eventImageView.image = UIImage(systemName: "photo") // Placeholder
+            print("Image not found: \(event.imageName)")
         }
-        
     }
-    
 }

@@ -16,11 +16,9 @@ class EventsDataManager {
     /// Returns an array of dummy 'Event' objects to display in our app.
     func getUpcomingEvents() -> [Event] {
         return [
-            Event(name: "Rock Concert at Sunset Park", imageName: "concert"),
-            Event(name: "Community Bake-Off", imageName: "bakeoff"),
-            Event(name: "City Charity Marathon", imageName: "marathon"),
-            Event(name: "Summer Night Movie Screening", imageName: "movie"),
-            Event(name: "Farmers' Market Special", imageName: "farmersmarket")
+            Event(name: "ComicCon", imageName: "comic"),
+            Event(name: "Food Festival", imageName: "food"),
+
         ]
     }
 }

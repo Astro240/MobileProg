@@ -19,7 +19,7 @@ class EventsViewController: UIViewController {
         super.viewDidLoad()
         
         // Optional: set the navigation bar title
-        title = "Events"
+        title = "My Activity"
         
         // If you rely on self-sizing cells:
         tableView.estimatedRowHeight = 300
