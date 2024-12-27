@@ -1,58 +1,56 @@
 import UIKit
 import FirebaseDatabase
 
-class SearchViewController: UITableViewController,UISearchBarDelegate {
+class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     var searchQuery: String?
     var searchResults: [App] = [] // Store search results
+    var filteredResults: [App] = [] // Store filtered results
     var searchController: UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Search"
-            searchController = UISearchController(searchResultsController: nil)
-            searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Search for Events"
-            navigationItem.searchController = searchController
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for Events"
+        navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        // Add a filter button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Filter",
+            style: .plain,
+            target: self,
+            action: #selector(showFilterPopup)
+        )
+        
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.rowHeight = 150 // Updated row height
+        tableView.rowHeight = 150
         tableView.estimatedRowHeight = 150
-        tableView.delegate = self  // Set the delegate
         
         if let query = searchQuery {
             populateEvents(query: query)
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.count
+        return filteredResults.count // Display filtered results
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell else {
-            fatalError("Unable to dequeue EventCell")
+            fatalError("Unable to dequeue TableViewCell")
         }
-        cell.configure(with: searchResults[indexPath.row])
+        cell.configure(with: filteredResults[indexPath.row])
         return cell
     }
     
-    // Implement didSelectRowAt to handle cell clicks
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedApp = searchResults[indexPath.row]
-        
-        // You can handle the selected app here
-        // For example, navigate to a new view controller that shows more details
+        let selectedApp = filteredResults[indexPath.row]
         print("Selected app: \(selectedApp.title)")
-        
-        // Example of navigation:
-        // let detailViewController = DetailViewController()
-        // detailViewController.appDetails = selectedApp
-        // navigationController?.pushViewController(detailViewController, animated: true)
-        
-        // Optionally, you can also deselect the row after it's tapped
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -65,9 +63,9 @@ class SearchViewController: UITableViewController,UISearchBarDelegate {
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
                        let categories = eventDetails["Categories"] as? [String],
-                       let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String {
+                       let desc = eventDetails["Description"] as? String,
+                       let location = eventDetails["Location"] as? String {
                         
-                        // Fetch and process image
                         self.loadImage(from: eventImageURL) { image in
                             guard let img = image else {
                                 print("Failed to load image for event: \(eventName)")
@@ -84,11 +82,8 @@ class SearchViewController: UITableViewController,UISearchBarDelegate {
                                     eventcategories: categories,
                                     location: location
                                 )
-                                
-                                // Append search result
                                 self.searchResults.append(app)
-                                
-                                // Reload table view on main thread
+                                self.filteredResults = self.searchResults // Initialize filtered results
                                 DispatchQueue.main.async {
                                     self.tableView.reloadData()
                                 }
@@ -110,7 +105,7 @@ class SearchViewController: UITableViewController,UISearchBarDelegate {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             if let data = data, let image = UIImage(data: data) {
                 completion(image)
             } else {
@@ -118,5 +113,36 @@ class SearchViewController: UITableViewController,UISearchBarDelegate {
                 completion(nil)
             }
         }.resume()
+    }
+    
+    @objc func showFilterPopup() {
+        let filterVC = FilterViewController()
+        filterVC.delegate = self
+        let navController = UINavigationController(rootViewController: filterVC)
+        present(navController, animated: true, completion: nil)
+    }
+}
+
+extension SearchViewController: FilterViewControllerDelegate {
+    func applyFilters(categories: [String], priceRange: ClosedRange<Float>, rating: Int, popularity: String) {
+        print("Filters received in SearchViewController:")
+        print("Categories: \(categories)")
+        print("Price Range: \(priceRange)")
+        print("Rating: \(rating)")
+        print("Popularity: \(popularity)")
+        
+        // Apply the filters to the search results
+        filteredResults = searchResults.filter { app in
+            guard let price = app.price else {
+                return false // Exclude items with missing price or rating
+            }
+            let matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
+            let matchesPrice = priceRange.contains(Float(price))
+            let matchesRating = rating >= rating
+            return matchesCategory && matchesPrice && matchesRating
+        }
+        
+        // Reload the table view with filtered results
+        tableView.reloadData()
     }
 }

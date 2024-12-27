@@ -25,7 +25,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 30
+        stackView.spacing = 20
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         

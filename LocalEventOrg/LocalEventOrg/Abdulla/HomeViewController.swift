@@ -180,6 +180,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         // MARK: Snapshot Definition
          
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
+        snapshot.appendSections([.categories])
+        snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
         snapshot.appendSections([.promoted])
 
         populateEvents { categoryEvents in
@@ -194,8 +196,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
 
             // Append categories section
-            snapshot.appendSections([.categories])
-            snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
+            
 
             // Update the sections and apply the snapshot
             self.sections = snapshot.sectionIdentifiers
@@ -206,6 +207,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
     
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
+        
         snapshot.appendSections([.promoted])
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
