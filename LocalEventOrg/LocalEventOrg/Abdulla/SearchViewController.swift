@@ -13,7 +13,9 @@ class SearchViewController: UITableViewController {
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         tableView.rowHeight = 150 // Updated row height
-            tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 150
+        tableView.delegate = self  // Set the delegate
+        
         if let query = searchQuery {
             populateEvents(query: query)
         }
@@ -29,6 +31,23 @@ class SearchViewController: UITableViewController {
         }
         cell.configure(with: searchResults[indexPath.row])
         return cell
+    }
+    
+    // Implement didSelectRowAt to handle cell clicks
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedApp = searchResults[indexPath.row]
+        
+        // You can handle the selected app here
+        // For example, navigate to a new view controller that shows more details
+        print("Selected app: \(selectedApp.title)")
+        
+        // Example of navigation:
+        // let detailViewController = DetailViewController()
+        // detailViewController.appDetails = selectedApp
+        // navigationController?.pushViewController(detailViewController, animated: true)
+        
+        // Optionally, you can also deselect the row after it's tapped
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func populateEvents(query: String) {
