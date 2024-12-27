@@ -31,9 +31,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                 
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        populateEvents { categoryEvents in
-                    // Handle UI updates after events are populated
-                }
+//        populateEvents { categoryEvents in
+//                    // Handle UI updates after events are populated
+//                }
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
@@ -134,9 +134,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
             guard let item = possibleApps.first(where: { $0.id == itemIdentifier }) else { return }
             cell.configureCell(item.app!)
         }
-        let categoryCellRegistration = UICollectionView.CellRegistration<CategoryCollectionViewCell, Item.ID> { [weak self] cell, indexPath, itemIdentifier in
-            guard let self,
-                  let item = Item.categories.first(where: { $0.id == itemIdentifier }) else { return }
+        let categoryCellRegistration = UICollectionView.CellRegistration<CategoryCollectionViewCell, Item.ID> {  cell, indexPath, itemIdentifier in
+            guard let item = Item.categories.first(where: { $0.id == itemIdentifier }) else { return }
             cell.configureCell(item.category!, hideBottomLine: false)
         }
         dataSource = .init(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier -> UICollectionViewCell? in
@@ -181,7 +180,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
             for (category, items) in Item.categoryEvents {
-                print("Category: \(category)")
                 let popularSection = Section.standard(category)
                 snapshot.appendSections([popularSection]) // Append the section first
                 snapshot.appendItems(items.map(\.id), toSection: popularSection)
@@ -189,13 +187,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
             // After populating, append the promoted apps to the snapshot
             snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
-
-            let popularSection = Section.standard("Popular this week")
-            let essentialSection = Section.standard("Essential picks")
-
-            snapshot.appendSections([popularSection, essentialSection])
-            snapshot.appendItems(Item.popularApps.map(\.id), toSection: popularSection)
-            snapshot.appendItems(Item.essentialApps.map(\.id), toSection: essentialSection)
 
             // Append categories section
             snapshot.appendSections([.categories])
@@ -213,19 +204,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         snapshot.appendSections([.promoted])
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
-        let popularSection = Section.standard("Popular this week")
-        let essentialSection = Section.standard("Essential picks")
-        
-        snapshot.appendSections([popularSection, essentialSection])
-        snapshot.appendItems(Item.popularApps.map(\.id), toSection: popularSection)
-        snapshot.appendItems(Item.essentialApps.map(\.id), toSection: essentialSection)
         
         snapshot.appendSections([.categories])
         snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
             for (category, items) in Item.categoryEvents {
-                print("Category: \(category)")
                 let popularSection = Section.standard(category)
                 snapshot.appendSections([popularSection]) // Append the section first
                 snapshot.appendItems(items.map(\.id), toSection: popularSection)
@@ -250,8 +234,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
                             print("Failed to load image for event: \(eventName)")
                             continue
                         }
-
-                        let appItem: Item = .app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img))
 
                         for category in categories {
                             // Ensure you're appending to the correct category
