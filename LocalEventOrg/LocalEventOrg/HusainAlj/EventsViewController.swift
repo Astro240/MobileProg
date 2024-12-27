@@ -1,44 +1,46 @@
 import UIKit
 
-/// Manages the "Events" page, showing a single section of "Upcoming Events."
-/// Everything is laid out in code, except the bare-minimum TableView in the Storyboard.
+/// Shows two sections in a single table:
+///  - Section 0: "Upcoming Events"
+///  - Section 1: "Past Events"
+///
+/// Uses a single UITableView in the storyboard with prototype cells
+/// that have the reuse identifiers "ActivityCell" and "ActivityCell1".
 class EventsViewController: UIViewController {
     
     // MARK: - Outlets
     
-    /// Make sure to connect this in Storyboard to the TableView you dragged onto the VC.
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     
     private var upcomingEvents: [Event] = []
+    private var pastEvents: [Event] = []
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Optional: set the navigation bar title
+        // Show a custom title
         title = "My Activity"
         
-        // If you rely on self-sizing cells:
+        // Self-sizing cells
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableView.automaticDimension
         
-        // If you removed the prototype cell from storyboard, you must register in code:
-        // tableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: "ActivityCell")
-        
-        // Assign the table's delegate & data source
+        // Connect the table's delegate & data source
         tableView.delegate = self
         tableView.dataSource = self
         
-        // Load data from the manager
+        // Load upcoming & past events from the manager
         upcomingEvents = EventsDataManager.shared.getUpcomingEvents()
+        pastEvents = EventsDataManager.shared.getPastEvents()
         
-        // Reload table to show data
+        // Display them
         tableView.reloadData()
         
-        // (iOS 15+ only) remove default spacing above first section header
+        // (iOS 15+) remove default spacing above the first section
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
@@ -49,47 +51,73 @@ class EventsViewController: UIViewController {
 extension EventsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // Only 1 section for "Upcoming Events"
-        return 1
+        // Now we have 2 sections: 0 for Upcoming, 1 for Past
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return upcomingEvents.count
+        switch section {
+        case 0:
+            return upcomingEvents.count
+        case 1:
+            return pastEvents.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "ActivityCell",
-            for: indexPath
-        ) as? ActivityTableViewCell else {
-            // If cast fails, return a simple cell.
-            return UITableViewCell(style: .default, reuseIdentifier: "FallbackCell")
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "ActivityCell",
+                for: indexPath
+            ) as? ActivityTableViewCell else {
+                return UITableViewCell(style: .default, reuseIdentifier: "FallbackCell")
+            }
+            
+            let event = upcomingEvents[indexPath.row]
+            cell.configure(with: event)
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "ActivityCell1",
+                for: indexPath
+            ) as? ActivityTableViewCell else {
+                return UITableViewCell(style: .default, reuseIdentifier: "FallbackCell")
+            }
+            
+            let event = pastEvents[indexPath.row]
+            cell.configure(with: event)
+            return cell
         }
-        
-        let event = upcomingEvents[indexPath.row]
-        cell.configure(with: event)
-        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension EventsViewController: UITableViewDelegate {
     
-    /// Create a custom header for the single section with a bold, large title.
+    /// Return a custom header view. Different text per section.
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         
-        // Container for the title label
         let headerView = UIView()
         headerView.backgroundColor = .systemBackground
         
-        // Label
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Upcoming Events"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 31.2) // 30% bigger than 24
+        
+        // Section 0 -> "Upcoming Events"
+        // Section 1 -> "Past Events"
+        switch section {
+        case 0:
+            titleLabel.text = "Upcoming Events"
+        case 1:
+            titleLabel.text = "Past Events"
+        default:
+            titleLabel.text = "Other"
+        }
         
         headerView.addSubview(titleLabel)
         
@@ -103,18 +131,31 @@ extension EventsViewController: UITableViewDelegate {
         return headerView
     }
     
-    /// Fixed height for the header
+    /// Fixed height for the header (50 points).
     func tableView(_ tableView: UITableView,
                    heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    
-    /// Handle row selection if needed
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        let event = upcomingEvents[indexPath.row]
-        print("Tapped event: \(event.name)")
-        tableView.deselectRow(at: indexPath, animated: true)
+
+    /// Add a line between sections.
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .lightGray
+        return footerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1 // Height of the line
     }
     
+    /// Optional row selection handling
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            print("Tapped upcoming event: \(upcomingEvents[indexPath.row].name)")
+        } else {
+            print("Tapped past event: \(pastEvents[indexPath.row].name)")
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
