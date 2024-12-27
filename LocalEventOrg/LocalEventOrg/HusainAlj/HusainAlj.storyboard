@@ -8,37 +8,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--My Activity-->
         <scene sceneID="WFr-IU-J50">
             <objects>
-                <tableViewController id="or4-nR-ES8" userLabel="Table View Controller" customClass="TableViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="or4-nR-ES8" customClass="TableViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="9LW-ub-Za2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                              Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wAh-Iq-aey">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <accessibility key="accessibilityConfiguration" label="My Activity"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="74" id="n3u-JN-Fdo">
-                                <rect key="frame" x="0.0" y="50" width="393" height="74"/>
+                                <rect key="frame" x="0.0" y="138" width="393" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n3u-JN-Fdo" id="P2g-iv-5Ae">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaW-0e-dyJ">
-                                            <rect key="frame" x="129" y="12" width="134" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="RVA-Go-H4Z" kind="show" identifier="showDetail" id="Ggw-7v-YMd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="142" id="81E-05-3Zq" customClass="ActivityTableViewCell">
-                                <rect key="frame" x="0.0" y="124" width="393" height="142"/>
+                                <rect key="frame" x="0.0" y="212" width="393" height="142"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="81E-05-3Zq" id="d08-yO-HkX">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="142"/>
@@ -70,7 +69,6 @@
         <!--Detail View Controller-->
         <scene sceneID="vdT-zU-0k1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FBm-m1-teI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="RVA-Go-H4Z" customClass="DetailViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oc-oD-l6g">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -93,6 +91,7 @@
                         <outlet property="activityLabel" destination="Asf-IO-1cn" id="Fg9-sA-OyO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBm-m1-teI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1436" y="-45"/>
         </scene>
