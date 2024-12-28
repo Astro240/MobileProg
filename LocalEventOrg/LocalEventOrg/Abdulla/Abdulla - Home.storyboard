@@ -47,61 +47,6 @@
             </objects>
             <point key="canvasLocation" x="2952" y="-40"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="QMg-GN-Mi6">
-            <objects>
-                <tableViewController id="2q9-ry-z9v" customClass="SearchViewController" customModule="LocalEventOrg" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="seR-hf-4O2">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for Events" id="EMe-OY-Thb">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="2q9-ry-z9v" id="Xnb-Gn-ilj"/>
-                            </connections>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="107" id="idT-Yg-jTI">
-                                <rect key="frame" x="0.0" y="99.333332061767578" width="393" height="107"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="idT-Yg-jTI" id="538-Ro-2NX">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="107"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2q9-ry-z9v" id="KIT-RV-4oT"/>
-                            <outlet property="delegate" destination="2q9-ry-z9v" id="wQI-0n-AA4"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="xo8-Nr-1Dz"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IBf-jf-0c0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5098.4732824427483" y="-40.140845070422536"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="9nX-s5-UU3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fFo-Zp-4dc" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jt0-bV-emG">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2q9-ry-z9v" kind="relationship" relationship="rootViewController" id="pv1-No-d6h"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Er3-xM-SDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4171.7557251908393" y="-40.140845070422536"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

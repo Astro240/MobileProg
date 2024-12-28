@@ -54,6 +54,7 @@
 		E47AA9FC2D2047B800AC654B /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AA9FB2D2047B800AC654B /* Event.storyboard */; };
 		E47AA9FE2D2047C200AC654B /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9FD2D2047C200AC654B /* EventDelegate.swift */; };
 		E47AAA002D2047CC00AC654B /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9FF2D2047CC00AC654B /* TicketsViewController.swift */; };
+		E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */; };
 		E4B989292D200DF900B98EAB /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B989282D200DF900B98EAB /* Shapes.swift */; };
 		E4B9892B2D200E0000B98EAB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9892A2D200E0000B98EAB /* Login.swift */; };
 		E4B9892D2D200E1B00B98EAB /* shadowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */; };
@@ -139,6 +140,7 @@
 		E47AA9FB2D2047B800AC654B /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Event.storyboard; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/Event.storyboard"; sourceTree = "<group>"; };
 		E47AA9FD2D2047C200AC654B /* EventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/EventDelegate.swift"; sourceTree = "<group>"; };
 		E47AA9FF2D2047CC00AC654B /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/TicketsViewController.swift"; sourceTree = "<group>"; };
+		E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Search.storyboard"; sourceTree = "<group>"; };
 		E4B989282D200DF900B98EAB /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		E4B9892A2D200E0000B98EAB /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shadowViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */,
 				C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */,
 				57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */,
+				E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */,
 				C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */,
 				C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */,
 				57CDC9892D06EC3500BD3444 /* UIColor+.swift */,
@@ -475,6 +478,7 @@
 				72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */,
 				E4B989452D20204200B98EAB /* Mohammed.storyboard in Resources */,
 				E47AA9F42D20411500AC654B /* HusainImages.xcassets in Resources */,
+				E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */,
 				E47AA9F62D20411500AC654B /* HusainAlj.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
