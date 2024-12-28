@@ -52,7 +52,7 @@
 		E47AAA272D20583500AC654B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA1E2D20583500AC654B /* EventsViewController.swift */; };
 		E47AAA282D20583500AC654B /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA202D20583500AC654B /* EventDelegate.swift */; };
 		E47AAA292D20583500AC654B /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA1D2D20583500AC654B /* CreateEventViewController.swift */; };
-		E47AAA2B2D205B1A00AC654B /* HusainAlj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA2A2D205B1A00AC654B /* HusainAlj.storyboard */; };
+		E47AAA2F2D20618C00AC654B /* HusainAlj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA2E2D20618C00AC654B /* HusainAlj.storyboard */; };
 		E4B989292D200DF900B98EAB /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B989282D200DF900B98EAB /* Shapes.swift */; };
 		E4B9892B2D200E0000B98EAB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9892A2D200E0000B98EAB /* Login.swift */; };
 		E4B9892D2D200E1B00B98EAB /* shadowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */; };
@@ -138,7 +138,7 @@
 		E47AAA212D20583500AC654B /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		E47AAA222D20583500AC654B /* EventsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataManager.swift; sourceTree = "<group>"; };
 		E47AAA232D20583500AC654B /* HusainImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HusainImages.xcassets; sourceTree = "<group>"; };
-		E47AAA2A2D205B1A00AC654B /* HusainAlj.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HusainAlj.storyboard; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-4/LocalEventOrg/LocalEventOrg/HusainAlj/HusainAlj.storyboard"; sourceTree = "<group>"; };
+		E47AAA2E2D20618C00AC654B /* HusainAlj.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HusainAlj.storyboard; sourceTree = "<group>"; };
 		E4B989282D200DF900B98EAB /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		E4B9892A2D200E0000B98EAB /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shadowViewController.swift; sourceTree = "<group>"; };
@@ -346,9 +346,9 @@
 				E47AAA212D20583500AC654B /* ActivityTableViewCell.swift */,
 				E47AAA1D2D20583500AC654B /* CreateEventViewController.swift */,
 				E47AAA1B2D20583500AC654B /* Event.storyboard */,
-				E47AAA2A2D205B1A00AC654B /* HusainAlj.storyboard */,
 				E47AAA202D20583500AC654B /* EventDelegate.swift */,
 				E47AAA222D20583500AC654B /* EventsDataManager.swift */,
+				E47AAA2E2D20618C00AC654B /* HusainAlj.storyboard */,
 				E47AAA1E2D20583500AC654B /* EventsViewController.swift */,
 				E47AAA232D20583500AC654B /* HusainImages.xcassets */,
 				E47AAA1C2D20583500AC654B /* TicketsViewController.swift */,
@@ -476,7 +476,7 @@
 				72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */,
 				E4B989452D20204200B98EAB /* Mohammed.storyboard in Resources */,
 				E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */,
-				E47AAA2B2D205B1A00AC654B /* HusainAlj.storyboard in Resources */,
+				E47AAA2F2D20618C00AC654B /* HusainAlj.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
