@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 import FirebaseDatabaseInternal
 
 class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBarDelegate {
@@ -22,9 +23,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
     
     var sections = [Section]()
     var searchController: UISearchController!
-
+    var arr : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let id = Auth.auth().currentUser?.uid else{
+            return
+        }
+        populateInterests(id: id) { interests in
+            // This closure will be called when the Firebase query is completed
+            if !interests.isEmpty {
+                self.arr = interests
+                // You can now use the `interests` array (e.g., populate UI or perform further operations)
+            } else {
+                print("No interests found for the user.")
+            }
+        }
         searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Events"
@@ -32,9 +45,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-//        populateEvents { categoryEvents in
-//                    // Handle UI updates after events are populated
-//                }
         searchController.searchBar.delegate = self // Set delegate
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
@@ -241,7 +251,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                     if let eventDetails = eventData as? [String: Any],
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
-                       let categories = eventDetails["Categories"] as? [String],let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String, let rating = eventDetails["Rating"] as? Int {
+                       let categories = eventDetails["Categories"] as? [String],let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String, let rating = eventDetails["Rating"] as? Int, let eventCat = categories.first {
 
                         // Fetch and process image
                         guard let img: UIImage = GetImage(string: eventImageURL) else {
@@ -256,8 +266,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                             }
                         }
 
-                        // Add to promoted, popular, and essential apps
-                        Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                        if self.arr.contains(eventCat){
+                            Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                            if let index = self.arr.firstIndex(of: eventCat) {
+                                    self.arr.remove(at: index)
+                                }
+                        }
                         Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                         Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                     }
