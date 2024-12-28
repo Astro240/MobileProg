@@ -45,16 +45,16 @@
 		C3C03ABC2D1EBC0300A53A44 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */; };
 		C3C03ABE2D1EF78800A53A44 /* FilteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */; };
 		C3CABDF82D1EB3F600242EDC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */; };
-		E47AA9F42D20411500AC654B /* HusainImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47AA9EF2D20411500AC654B /* HusainImages.xcassets */; };
-		E47AA9F52D20411500AC654B /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9F02D20411500AC654B /* ActivityTableViewCell.swift */; };
-		E47AA9F62D20411500AC654B /* HusainAlj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AA9F12D20411500AC654B /* HusainAlj.storyboard */; };
-		E47AA9F72D20411500AC654B /* EventsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9F22D20411500AC654B /* EventsDataManager.swift */; };
-		E47AA9F82D20411500AC654B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9F32D20411500AC654B /* EventsViewController.swift */; };
-		E47AA9FA2D2047AF00AC654B /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9F92D2047AF00AC654B /* CreateEventViewController.swift */; };
-		E47AA9FC2D2047B800AC654B /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AA9FB2D2047B800AC654B /* Event.storyboard */; };
-		E47AA9FE2D2047C200AC654B /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9FD2D2047C200AC654B /* EventDelegate.swift */; };
-		E47AAA002D2047CC00AC654B /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AA9FF2D2047CC00AC654B /* TicketsViewController.swift */; };
 		E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */; };
+		E47AAA112D2057E700AC654B /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA072D2057E700AC654B /* ActivityTableViewCell.swift */; };
+		E47AAA122D2057E700AC654B /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA082D2057E700AC654B /* CreateEventViewController.swift */; };
+		E47AAA132D2057E700AC654B /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA092D2057E700AC654B /* Event.storyboard */; };
+		E47AAA142D2057E700AC654B /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA0A2D2057E700AC654B /* EventDelegate.swift */; };
+		E47AAA152D2057E700AC654B /* EventsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA0B2D2057E700AC654B /* EventsDataManager.swift */; };
+		E47AAA162D2057E700AC654B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA0C2D2057E700AC654B /* EventsViewController.swift */; };
+		E47AAA172D2057E700AC654B /* HusainAlj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA0D2D2057E700AC654B /* HusainAlj.storyboard */; };
+		E47AAA182D2057E700AC654B /* HusainImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA0E2D2057E700AC654B /* HusainImages.xcassets */; };
+		E47AAA192D2057E700AC654B /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA0F2D2057E700AC654B /* TicketsViewController.swift */; };
 		E4B989292D200DF900B98EAB /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B989282D200DF900B98EAB /* Shapes.swift */; };
 		E4B9892B2D200E0000B98EAB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9892A2D200E0000B98EAB /* Login.swift */; };
 		E4B9892D2D200E1B00B98EAB /* shadowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */; };
@@ -131,16 +131,16 @@
 		C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteViewController.swift; sourceTree = "<group>"; };
 		C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		E47AA9EF2D20411500AC654B /* HusainImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = HusainImages.xcassets; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei/LocalEventOrg/LocalEventOrg/HusainAlj/HusainImages.xcassets"; sourceTree = "<group>"; };
-		E47AA9F02D20411500AC654B /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityTableViewCell.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei/LocalEventOrg/LocalEventOrg/HusainAlj/ActivityTableViewCell.swift"; sourceTree = "<group>"; };
-		E47AA9F12D20411500AC654B /* HusainAlj.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HusainAlj.storyboard; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei/LocalEventOrg/LocalEventOrg/HusainAlj/HusainAlj.storyboard"; sourceTree = "<group>"; };
-		E47AA9F22D20411500AC654B /* EventsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsDataManager.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei/LocalEventOrg/LocalEventOrg/HusainAlj/EventsDataManager.swift"; sourceTree = "<group>"; };
-		E47AA9F32D20411500AC654B /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei/LocalEventOrg/LocalEventOrg/HusainAlj/EventsViewController.swift"; sourceTree = "<group>"; };
-		E47AA9F92D2047AF00AC654B /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/CreateEventViewController.swift"; sourceTree = "<group>"; };
-		E47AA9FB2D2047B800AC654B /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Event.storyboard; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/Event.storyboard"; sourceTree = "<group>"; };
-		E47AA9FD2D2047C200AC654B /* EventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/EventDelegate.swift"; sourceTree = "<group>"; };
-		E47AA9FF2D2047CC00AC654B /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = "../../../../../Downloads/MobileProg-branch-husainAljemrei-2/LocalEventOrg/LocalEventOrg/HusainAlj/TicketsViewController.swift"; sourceTree = "<group>"; };
 		E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Search.storyboard"; sourceTree = "<group>"; };
+		E47AAA072D2057E700AC654B /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		E47AAA082D2057E700AC654B /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		E47AAA092D2057E700AC654B /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		E47AAA0A2D2057E700AC654B /* EventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDelegate.swift; sourceTree = "<group>"; };
+		E47AAA0B2D2057E700AC654B /* EventsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsDataManager.swift; sourceTree = "<group>"; };
+		E47AAA0C2D2057E700AC654B /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		E47AAA0D2D2057E700AC654B /* HusainAlj.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HusainAlj.storyboard; sourceTree = "<group>"; };
+		E47AAA0E2D2057E700AC654B /* HusainImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HusainImages.xcassets; sourceTree = "<group>"; };
+		E47AAA0F2D2057E700AC654B /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		E4B989282D200DF900B98EAB /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		E4B9892A2D200E0000B98EAB /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shadowViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +193,7 @@
 		579686622CF47BE000495313 = {
 			isa = PBXGroup;
 			children = (
+				E47AAA102D2057E700AC654B /* HusainAlj */,
 				5796866D2CF47BE000495313 /* LocalEventOrg */,
 				579686842CF47BE300495313 /* LocalEventOrgTests */,
 				5796868E2CF47BE300495313 /* LocalEventOrgUITests */,
@@ -205,7 +206,6 @@
 		5796866D2CF47BE000495313 /* LocalEventOrg */ = {
 			isa = PBXGroup;
 			children = (
-				E4B9894E2D2021ED00B98EAB /* HusainAljemrei */,
 				C31B51F32D0F14AA00DD4B82 /* Mohammed */,
 				C31B51EA2D0F129700DD4B82 /* Alhasan */,
 				C31B51E12D0F123500DD4B82 /* HusainAlmu */,
@@ -342,20 +342,21 @@
 			path = Mohammed;
 			sourceTree = "<group>";
 		};
-		E4B9894E2D2021ED00B98EAB /* HusainAljemrei */ = {
+		E47AAA102D2057E700AC654B /* HusainAlj */ = {
 			isa = PBXGroup;
 			children = (
-				E47AA9F92D2047AF00AC654B /* CreateEventViewController.swift */,
-				E47AA9F02D20411500AC654B /* ActivityTableViewCell.swift */,
-				E47AA9FB2D2047B800AC654B /* Event.storyboard */,
-				E47AA9FD2D2047C200AC654B /* EventDelegate.swift */,
-				E47AA9F22D20411500AC654B /* EventsDataManager.swift */,
-				E47AA9FF2D2047CC00AC654B /* TicketsViewController.swift */,
-				E47AA9F32D20411500AC654B /* EventsViewController.swift */,
-				E47AA9F12D20411500AC654B /* HusainAlj.storyboard */,
-				E47AA9EF2D20411500AC654B /* HusainImages.xcassets */,
+				E47AAA072D2057E700AC654B /* ActivityTableViewCell.swift */,
+				E47AAA082D2057E700AC654B /* CreateEventViewController.swift */,
+				E47AAA092D2057E700AC654B /* Event.storyboard */,
+				E47AAA0A2D2057E700AC654B /* EventDelegate.swift */,
+				E47AAA0B2D2057E700AC654B /* EventsDataManager.swift */,
+				E47AAA0C2D2057E700AC654B /* EventsViewController.swift */,
+				E47AAA0D2D2057E700AC654B /* HusainAlj.storyboard */,
+				E47AAA0E2D2057E700AC654B /* HusainImages.xcassets */,
+				E47AAA0F2D2057E700AC654B /* TicketsViewController.swift */,
 			);
-			path = HusainAljemrei;
+			name = HusainAlj;
+			path = "../../../Downloads/MobileProg-branch-husainAljemrei-3/LocalEventOrg/LocalEventOrg/HusainAlj";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,20 +473,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E47AAA172D2057E700AC654B /* HusainAlj.storyboard in Resources */,
 				C31B51E72D0F125E00DD4B82 /* Hussain-Almu.storyboard in Resources */,
 				E4B989392D200E4200B98EAB /* Alhasan - profile.storyboard in Resources */,
 				C31B51EC2D0F13B200DD4B82 /* Hasan.storyboard in Resources */,
 				72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */,
 				E4B989452D20204200B98EAB /* Mohammed.storyboard in Resources */,
-				E47AA9F42D20411500AC654B /* HusainImages.xcassets in Resources */,
+				E47AAA132D2057E700AC654B /* Event.storyboard in Resources */,
 				E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */,
-				E47AA9F62D20411500AC654B /* HusainAlj.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
 				C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */,
-				E47AA9FC2D2047B800AC654B /* Event.storyboard in Resources */,
+				E47AAA182D2057E700AC654B /* HusainImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,33 +512,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				C31B51E92D0F126B00DD4B82 /* ViewControllerBadge.swift in Sources */,
-				E47AAA002D2047CC00AC654B /* TicketsViewController.swift in Sources */,
+				E47AAA192D2057E700AC654B /* TicketsViewController.swift in Sources */,
 				E4B9893F2D20124300B98EAB /* SaveInterestsViewController.swift in Sources */,
+				E47AAA152D2057E700AC654B /* EventsDataManager.swift in Sources */,
 				9C187F372D16F1E9008D4C32 /* Cloudinary.swift in Sources */,
 				C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */,
 				E4B989372D200E3E00B98EAB /* DropDownViewController.swift in Sources */,
 				7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */,
 				7214FA0B2D05F3AE00C1A5AA /* StoreCategory.swift in Sources */,
-				E47AA9FE2D2047C200AC654B /* EventDelegate.swift in Sources */,
+				E47AAA122D2057E700AC654B /* CreateEventViewController.swift in Sources */,
 				E4B989312D200E2700B98EAB /* LoginViewController.swift in Sources */,
 				579686732CF47BE000495313 /* ViewController.swift in Sources */,
 				E4B989492D20205900B98EAB /* CalendarHelper.swift in Sources */,
 				E4B9893D2D200F8C00B98EAB /* Gradient.swift in Sources */,
-				E47AA9FA2D2047AF00AC654B /* CreateEventViewController.swift in Sources */,
-				E47AA9F82D20411500AC654B /* EventsViewController.swift in Sources */,
 				E4B989412D20124700B98EAB /* SaveAlertViewController.swift in Sources */,
 				7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */,
 				C3C03ABE2D1EF78800A53A44 /* FilteViewController.swift in Sources */,
 				C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */,
 				E4B989352D200E3800B98EAB /* LogOutTableViewController.swift in Sources */,
+				E47AAA142D2057E700AC654B /* EventDelegate.swift in Sources */,
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
 				C3CABDF82D1EB3F600242EDC /* SearchViewController.swift in Sources */,
 				E4B9892D2D200E1B00B98EAB /* shadowViewController.swift in Sources */,
 				9C187F3C2D17034E008D4C32 /* Database.swift in Sources */,
-				E47AA9F52D20411500AC654B /* ActivityTableViewCell.swift in Sources */,
-				E47AA9F72D20411500AC654B /* EventsDataManager.swift in Sources */,
+				E47AAA112D2057E700AC654B /* ActivityTableViewCell.swift in Sources */,
 				E4B9892B2D200E0000B98EAB /* Login.swift in Sources */,
 				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
 				E4B9894B2D20205B00B98EAB /* ViewControllerCalendar.swift in Sources */,
@@ -545,6 +545,7 @@
 				E4B989292D200DF900B98EAB /* Shapes.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
 				E4B989332D200E2C00B98EAB /* MainUserPageViewController.swift in Sources */,
+				E47AAA162D2057E700AC654B /* EventsViewController.swift in Sources */,
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 				E4B9892F2D200E2100B98EAB /* SignupViewController.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
