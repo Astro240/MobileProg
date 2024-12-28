@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         if Auth.auth().currentUser != nil {
-                    SceneDelegate.showHome()
+                    SceneDelegate.showEvHome()
                 }
     }
     static func showLogin(){
@@ -41,6 +41,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBar")
+            sceneDelegate.window?.rootViewController = vc
+            sceneDelegate.window?.makeKeyAndVisible()
+        }
+        static func showEvHome(){
+            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "EvOrgTab")
             sceneDelegate.window?.rootViewController = vc
             sceneDelegate.window?.makeKeyAndVisible()
         }

@@ -245,6 +245,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
 
     func populateEvents(completion: @escaping ([String: [Item]]) -> Void) {
         let ref = Database.database().reference()
+        let lenNow = self.arr.count
         ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
             if let eventsDict = snapshot.value as? [String: Any] {
                 for (_, eventData) in eventsDict {
@@ -265,12 +266,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                                 Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                             }
                         }
-
+                        
                         if self.arr.contains(eventCat){
                             Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
-                            if let index = self.arr.firstIndex(of: eventCat) {
+                            if(lenNow < 2 && Item.promotedApps.count >= 3){
+                                if let index = self.arr.firstIndex(of: eventCat) {
                                     self.arr.remove(at: index)
                                 }
+                            }else if lenNow >= 2{
+                                if let index = self.arr.firstIndex(of: eventCat) {
+                                    self.arr.remove(at: index)
+                                }
+                            }
                         }
                         Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                         Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))

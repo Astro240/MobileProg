@@ -45,7 +45,7 @@ class SectionHeaderView: UICollectionReusableView {
         ])
         
         stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(seeAllButton)
+//        stackView.addArrangedSubview(seeAllButton)
     }
     
     required init?(coder: NSCoder) {
