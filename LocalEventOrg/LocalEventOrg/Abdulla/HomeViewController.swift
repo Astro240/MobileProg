@@ -69,7 +69,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         print(app.title)
     }
     func handleCategoryTap(_ category: StoreCategory) {
-        print(category.name)
+        guard let query = category.name, !query.isEmpty else {
+            return }
+        
+        // Navigate to a new view controller
+        let searchResultsVC = SearchViewController() // Replace with your destination view controller
+        searchResultsVC.searchQuery = query // Pass the search query to the next view controller
+        Item.Search = []
+        navigationController?.pushViewController(searchResultsVC, animated: true)
     }
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in

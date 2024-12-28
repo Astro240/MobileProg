@@ -60,5 +60,5 @@ enum Item: Identifiable {
         .category(StoreCategory(name: "Festival",color:    UIImage(named: "Festiv"))),
         .category(StoreCategory(name: "Food",color:    UIImage(named: "Food"))),
         .category(StoreCategory(name: "Pop Culture",color:    UIImage(named: "pop"))),
-        .category(StoreCategory(name: "Motor Sports",color:    UIImage(named: "Cars"))),    ]
+        .category(StoreCategory(name: "Motor Sport",color:    UIImage(named: "Cars")))    ]
 }

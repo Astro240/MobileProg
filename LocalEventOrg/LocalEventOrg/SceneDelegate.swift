@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -17,8 +17,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if Auth.auth().currentUser != nil {
+                    SceneDelegate.showHome()
+                }
     }
-
+    static func showLogin(){
+            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+            let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            sceneDelegate.window?.rootViewController = vc
+            sceneDelegate.window?.makeKeyAndVisible()
+        }
+        static func showInterests(){
+            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+            let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "InterestsViewController")
+            sceneDelegate.window?.rootViewController = vc
+            sceneDelegate.window?.makeKeyAndVisible()
+        }
+        
+        static func showHome(){
+            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBar")
+            sceneDelegate.window?.rootViewController = vc
+            sceneDelegate.window?.makeKeyAndVisible()
+        }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
