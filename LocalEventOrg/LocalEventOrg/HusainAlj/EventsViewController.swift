@@ -106,7 +106,7 @@ extension EventsViewController: UITableViewDelegate {
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 31.2) // 30% bigger than 24
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 31.2) // Keep bold for headers
         
         // Section 0 -> "Upcoming Events"
         // Section 1 -> "Past Events"
