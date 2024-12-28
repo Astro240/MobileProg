@@ -26,6 +26,8 @@
 		72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */; };
 		72AA37B52D13031A00B73B10 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 72AA37B42D13031A00B73B10 /* FirebaseAnalytics */; };
 		72AA37B82D13094F00B73B10 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 72AA37B72D13094F00B73B10 /* FirebaseAuth */; };
+		7F1E36032D2039F900823A1E /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E36022D2039F600823A1E /* AdminHomeViewController.swift */; };
+		7F94029A2D1EF1E000D5CE19 /* AdminFeatures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9402992D1EF1E000D5CE19 /* AdminFeatures.storyboard */; };
 		7FF35F932D1C69E200783714 /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35F922D1C69DA00783714 /* ViewControllerCalendar.swift */; };
 		7FF35F952D1C6FAF00783714 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35F942D1C6FAB00783714 /* CalendarHelper.swift */; };
 		7FF35F992D1D186200783714 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF35F982D1D184100783714 /* CalendarCell.swift */; };
@@ -86,6 +88,8 @@
 		7214FA072D05F3AD00C1A5AA /* StoreCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
 		7214FA082D05F3AD00C1A5AA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7F1E36022D2039F600823A1E /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		7F9402992D1EF1E000D5CE19 /* AdminFeatures.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminFeatures.storyboard; sourceTree = "<group>"; };
 		7FF35F922D1C69DA00783714 /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 		7FF35F942D1C6FAB00783714 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		7FF35F982D1D184100783714 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		C31B51F32D0F14AA00DD4B82 /* Mohammed */ = {
 			isa = PBXGroup;
 			children = (
+				7F1E36022D2039F600823A1E /* AdminHomeViewController.swift */,
+				7F9402992D1EF1E000D5CE19 /* AdminFeatures.storyboard */,
 				7FF35F982D1D184100783714 /* CalendarCell.swift */,
 				C31B51F42D0F14D400DD4B82 /* Mohammed.storyboard */,
 				7FF35F922D1C69DA00783714 /* ViewControllerCalendar.swift */,
@@ -403,6 +409,7 @@
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
+				7F94029A2D1EF1E000D5CE19 /* AdminFeatures.storyboard in Resources */,
 				C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +453,7 @@
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
 				7FF35F992D1D186200783714 /* CalendarCell.swift in Sources */,
+				7F1E36032D2039F900823A1E /* AdminHomeViewController.swift in Sources */,
 				7FF35F932D1C69E200783714 /* ViewControllerCalendar.swift in Sources */,
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
