@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         if Auth.auth().currentUser != nil {
-                    SceneDelegate.showEvHome()
+                    SceneDelegate.showHome()
                 }
     }
     static func showLogin(){
