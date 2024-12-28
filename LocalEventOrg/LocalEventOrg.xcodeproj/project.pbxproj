@@ -10,8 +10,12 @@
 		570808002D1ED2FD00FFF9A9 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570807FF2D1ED2FD00FFF9A9 /* EventsViewController.swift */; };
 		570808022D1ED34100FFF9A9 /* EventsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570808012D1ED34100FFF9A9 /* EventsDataManager.swift */; };
 		570808042D1ED38300FFF9A9 /* HusainImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570808032D1ED38300FFF9A9 /* HusainImages.xcassets */; };
+		571A560A2D20108800DD780F /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571A56092D20108800DD780F /* Event.storyboard */; };
+		571A560C2D2014E100DD780F /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A560B2D2014E100DD780F /* EventDelegate.swift */; };
+		571A560E2D20156700DD780F /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A560D2D20156700DD780F /* TicketsViewController.swift */; };
+		571A56102D20177600DD780F /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A560F2D20177600DD780F /* CreateEventViewController.swift */; };
+		571A56142D203E6A00DD780F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A56132D203E6900DD780F /* SceneDelegate.swift */; };
 		5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796866E2CF47BE000495313 /* AppDelegate.swift */; };
-		579686712CF47BE000495313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686702CF47BE000495313 /* SceneDelegate.swift */; };
 		579686732CF47BE000495313 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579686722CF47BE000495313 /* ViewController.swift */; };
 		579686762CF47BE000495313 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579686742CF47BE000495313 /* Main.storyboard */; };
 		579686782CF47BE200495313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579686772CF47BE200495313 /* Assets.xcassets */; };
@@ -72,9 +76,13 @@
 		570807FF2D1ED2FD00FFF9A9 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		570808012D1ED34100FFF9A9 /* EventsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDataManager.swift; sourceTree = "<group>"; };
 		570808032D1ED38300FFF9A9 /* HusainImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HusainImages.xcassets; sourceTree = "<group>"; };
+		571A56092D20108800DD780F /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		571A560B2D2014E100DD780F /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDelegate.swift; sourceTree = "<group>"; };
+		571A560D2D20156700DD780F /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
+		571A560F2D20177600DD780F /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		571A56132D203E6900DD780F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5796866B2CF47BE000495313 /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796866E2CF47BE000495313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		579686702CF47BE000495313 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		579686722CF47BE000495313 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		579686752CF47BE000495313 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		579686772CF47BE200495313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,7 +180,7 @@
 				C31B51E02D0F122C00DD4B82 /* Hasan */,
 				C31B51DF2D0F11BD00DD4B82 /* Abdulla */,
 				5796866E2CF47BE000495313 /* AppDelegate.swift */,
-				579686702CF47BE000495313 /* SceneDelegate.swift */,
+				571A56132D203E6900DD780F /* SceneDelegate.swift */,
 				579686722CF47BE000495313 /* ViewController.swift */,
 				579686742CF47BE000495313 /* Main.storyboard */,
 				579686772CF47BE200495313 /* Assets.xcassets */,
@@ -211,6 +219,10 @@
 				57B265652D1D9DF3009B3FD9 /* ActivityTableViewCell.swift */,
 				570808012D1ED34100FFF9A9 /* EventsDataManager.swift */,
 				570808032D1ED38300FFF9A9 /* HusainImages.xcassets */,
+				571A56092D20108800DD780F /* Event.storyboard */,
+				571A560F2D20177600DD780F /* CreateEventViewController.swift */,
+				571A560D2D20156700DD780F /* TicketsViewController.swift */,
+				571A560B2D2014E100DD780F /* EventDelegate.swift */,
 			);
 			path = HusainAlj;
 			sourceTree = "<group>";
@@ -421,6 +433,7 @@
 				72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */,
 				C31B51F52D0F14D400DD4B82 /* Mohammed.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
+				571A560A2D20108800DD780F /* Event.storyboard in Resources */,
 				570808042D1ED38300FFF9A9 /* HusainImages.xcassets in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				57D9954E2D1C4D1200977804 /* HusainAlj.storyboard in Resources */,
@@ -462,7 +475,9 @@
 				C31B51F02D0F148300DD4B82 /* Gradient.swift in Sources */,
 				C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */,
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
+				571A56142D203E6A00DD780F /* SceneDelegate.swift in Sources */,
 				570808002D1ED2FD00FFF9A9 /* EventsViewController.swift in Sources */,
+				571A560E2D20156700DD780F /* TicketsViewController.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
 				9C187F3C2D17034E008D4C32 /* Database.swift in Sources */,
@@ -470,11 +485,12 @@
 				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
-				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
+				571A560C2D2014E100DD780F /* EventDelegate.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
 				C31B51D92D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift in Sources */,
+				571A56102D20177600DD780F /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
