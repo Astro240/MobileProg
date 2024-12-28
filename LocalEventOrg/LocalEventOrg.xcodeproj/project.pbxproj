@@ -45,6 +45,13 @@
 		C3C03ABC2D1EBC0300A53A44 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */; };
 		C3C03ABE2D1EF78800A53A44 /* FilteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */; };
 		C3CABDF82D1EB3F600242EDC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */; };
+		E4473A6B2D206B4500BB0D2F /* SaveInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A6A2D206B4500BB0D2F /* SaveInterestsViewController.swift */; };
+		E4473A6D2D206B5700BB0D2F /* SaveAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A6C2D206B5700BB0D2F /* SaveAlertViewController.swift */; };
+		E4473A6F2D206B6D00BB0D2F /* SaveAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A6E2D206B6D00BB0D2F /* SaveAccountTableViewController.swift */; };
+		E4473A712D206BB800BB0D2F /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4473A702D206BB800BB0D2F /* Mohammed.storyboard */; };
+		E4473A732D206BBF00BB0D2F /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A722D206BBF00BB0D2F /* CalendarHelper.swift */; };
+		E4473A752D206BC400BB0D2F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A742D206BC400BB0D2F /* CalendarCell.swift */; };
+		E4473A772D206CE800BB0D2F /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4473A762D206CE800BB0D2F /* Event.storyboard */; };
 		E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */; };
 		E47AAA242D20583500AC654B /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA1C2D20583500AC654B /* TicketsViewController.swift */; };
 		E47AAA252D20583500AC654B /* EventsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AAA222D20583500AC654B /* EventsDataManager.swift */; };
@@ -64,13 +71,7 @@
 		E4B989392D200E4200B98EAB /* Alhasan - profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4B989382D200E4200B98EAB /* Alhasan - profile.storyboard */; };
 		E4B9893B2D200F6E00B98EAB /* Gradientimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9893A2D200F6E00B98EAB /* Gradientimage.swift */; };
 		E4B9893D2D200F8C00B98EAB /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9893C2D200F8C00B98EAB /* Gradient.swift */; };
-		E4B9893F2D20124300B98EAB /* SaveInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9893E2D20124300B98EAB /* SaveInterestsViewController.swift */; };
-		E4B989412D20124700B98EAB /* SaveAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B989402D20124700B98EAB /* SaveAlertViewController.swift */; };
-		E4B989432D20124C00B98EAB /* SaveAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B989422D20124C00B98EAB /* SaveAccountTableViewController.swift */; };
-		E4B989452D20204200B98EAB /* Mohammed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4B989442D20204200B98EAB /* Mohammed.storyboard */; };
-		E4B989492D20205900B98EAB /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B989482D20205900B98EAB /* CalendarHelper.swift */; };
 		E4B9894B2D20205B00B98EAB /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9894A2D20205B00B98EAB /* ViewControllerCalendar.swift */; };
-		E4B9894D2D20206B00B98EAB /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9894C2D20206B00B98EAB /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,8 +130,14 @@
 		C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteViewController.swift; sourceTree = "<group>"; };
 		C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E4473A6A2D206B4500BB0D2F /* SaveInterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveInterestsViewController.swift; sourceTree = "<group>"; };
+		E4473A6C2D206B5700BB0D2F /* SaveAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAlertViewController.swift; sourceTree = "<group>"; };
+		E4473A6E2D206B6D00BB0D2F /* SaveAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAccountTableViewController.swift; sourceTree = "<group>"; };
+		E4473A702D206BB800BB0D2F /* Mohammed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mohammed.storyboard; sourceTree = "<group>"; };
+		E4473A722D206BBF00BB0D2F /* CalendarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		E4473A742D206BC400BB0D2F /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		E4473A762D206CE800BB0D2F /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		E47AAA052D20503400AC654B /* Abdulla - Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Search.storyboard"; sourceTree = "<group>"; };
-		E47AAA1B2D20583500AC654B /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		E47AAA1C2D20583500AC654B /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		E47AAA1D2D20583500AC654B /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		E47AAA1E2D20583500AC654B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -150,13 +157,7 @@
 		E4B989382D200E4200B98EAB /* Alhasan - profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Alhasan - profile.storyboard"; sourceTree = "<group>"; };
 		E4B9893A2D200F6E00B98EAB /* Gradientimage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradientimage.swift; sourceTree = "<group>"; };
 		E4B9893C2D200F8C00B98EAB /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		E4B9893E2D20124300B98EAB /* SaveInterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveInterestsViewController.swift; path = "../../../../../Downloads/MobileProg-branch-alhasan/LocalEventOrg/LocalEventOrg/SaveInterestsViewController.swift"; sourceTree = "<group>"; };
-		E4B989402D20124700B98EAB /* SaveAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveAlertViewController.swift; path = "../../../../../Downloads/MobileProg-branch-alhasan/LocalEventOrg/LocalEventOrg/SaveAlertViewController.swift"; sourceTree = "<group>"; };
-		E4B989422D20124C00B98EAB /* SaveAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveAccountTableViewController.swift; path = "../../../../../Downloads/MobileProg-branch-alhasan/LocalEventOrg/LocalEventOrg/SaveAccountTableViewController.swift"; sourceTree = "<group>"; };
-		E4B989442D20204200B98EAB /* Mohammed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Mohammed.storyboard; path = "../../../../../Downloads/MobileProg-Branch-Mohammed/LocalEventOrg/LocalEventOrg/Mohammed/Mohammed.storyboard"; sourceTree = "<group>"; };
-		E4B989482D20205900B98EAB /* CalendarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarHelper.swift; path = "../../../../../Downloads/MobileProg-Branch-Mohammed/LocalEventOrg/LocalEventOrg/Mohammed/CalendarHelper.swift"; sourceTree = "<group>"; };
 		E4B9894A2D20205B00B98EAB /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
-		E4B9894C2D20206B00B98EAB /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarCell.swift; path = "../../../../../Downloads/MobileProg-Branch-Mohammed/LocalEventOrg/LocalEventOrg/Mohammed/CalendarCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,11 +311,11 @@
 			isa = PBXGroup;
 			children = (
 				E4B9892C2D200E1B00B98EAB /* shadowViewController.swift */,
-				E4B9893E2D20124300B98EAB /* SaveInterestsViewController.swift */,
 				E4B9892A2D200E0000B98EAB /* Login.swift */,
+				E4473A6A2D206B4500BB0D2F /* SaveInterestsViewController.swift */,
+				E4473A6E2D206B6D00BB0D2F /* SaveAccountTableViewController.swift */,
+				E4473A6C2D206B5700BB0D2F /* SaveAlertViewController.swift */,
 				E4B989282D200DF900B98EAB /* Shapes.swift */,
-				E4B989402D20124700B98EAB /* SaveAlertViewController.swift */,
-				E4B989422D20124C00B98EAB /* SaveAccountTableViewController.swift */,
 				E4B989382D200E4200B98EAB /* Alhasan - profile.storyboard */,
 				E4B989342D200E3800B98EAB /* LogOutTableViewController.swift */,
 				E4B9892E2D200E2100B98EAB /* SignupViewController.swift */,
@@ -332,9 +333,9 @@
 		C31B51F32D0F14AA00DD4B82 /* Mohammed */ = {
 			isa = PBXGroup;
 			children = (
-				E4B989442D20204200B98EAB /* Mohammed.storyboard */,
-				E4B9894C2D20206B00B98EAB /* CalendarCell.swift */,
-				E4B989482D20205900B98EAB /* CalendarHelper.swift */,
+				E4473A742D206BC400BB0D2F /* CalendarCell.swift */,
+				E4473A722D206BBF00BB0D2F /* CalendarHelper.swift */,
+				E4473A702D206BB800BB0D2F /* Mohammed.storyboard */,
 				E4B9894A2D20205B00B98EAB /* ViewControllerCalendar.swift */,
 			);
 			path = Mohammed;
@@ -345,7 +346,7 @@
 			children = (
 				E47AAA212D20583500AC654B /* ActivityTableViewCell.swift */,
 				E47AAA1D2D20583500AC654B /* CreateEventViewController.swift */,
-				E47AAA1B2D20583500AC654B /* Event.storyboard */,
+				E4473A762D206CE800BB0D2F /* Event.storyboard */,
 				E47AAA202D20583500AC654B /* EventDelegate.swift */,
 				E47AAA222D20583500AC654B /* EventsDataManager.swift */,
 				E47AAA2E2D20618C00AC654B /* HusainAlj.storyboard */,
@@ -474,14 +475,15 @@
 				E4B989392D200E4200B98EAB /* Alhasan - profile.storyboard in Resources */,
 				C31B51EC2D0F13B200DD4B82 /* Hasan.storyboard in Resources */,
 				72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */,
-				E4B989452D20204200B98EAB /* Mohammed.storyboard in Resources */,
 				E47AAA062D20503400AC654B /* Abdulla - Search.storyboard in Resources */,
 				E47AAA2F2D20618C00AC654B /* HusainAlj.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
+				E4473A712D206BB800BB0D2F /* Mohammed.storyboard in Resources */,
 				C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */,
+				E4473A772D206CE800BB0D2F /* Event.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,17 +510,15 @@
 			files = (
 				E47AAA252D20583500AC654B /* EventsDataManager.swift in Sources */,
 				C31B51E92D0F126B00DD4B82 /* ViewControllerBadge.swift in Sources */,
-				E4B9893F2D20124300B98EAB /* SaveInterestsViewController.swift in Sources */,
 				9C187F372D16F1E9008D4C32 /* Cloudinary.swift in Sources */,
 				C31B51F22D0F148900DD4B82 /* LogInTableViewController.swift in Sources */,
+				E4473A752D206BC400BB0D2F /* CalendarCell.swift in Sources */,
 				E4B989372D200E3E00B98EAB /* DropDownViewController.swift in Sources */,
 				7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */,
 				7214FA0B2D05F3AE00C1A5AA /* StoreCategory.swift in Sources */,
 				E4B989312D200E2700B98EAB /* LoginViewController.swift in Sources */,
 				579686732CF47BE000495313 /* ViewController.swift in Sources */,
-				E4B989492D20205900B98EAB /* CalendarHelper.swift in Sources */,
 				E4B9893D2D200F8C00B98EAB /* Gradient.swift in Sources */,
-				E4B989412D20124700B98EAB /* SaveAlertViewController.swift in Sources */,
 				7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */,
 				C3C03ABE2D1EF78800A53A44 /* FilteViewController.swift in Sources */,
 				E47AAA272D20583500AC654B /* EventsViewController.swift in Sources */,
@@ -533,9 +533,12 @@
 				9C187F3C2D17034E008D4C32 /* Database.swift in Sources */,
 				E47AAA292D20583500AC654B /* CreateEventViewController.swift in Sources */,
 				E4B9892B2D200E0000B98EAB /* Login.swift in Sources */,
+				E4473A6F2D206B6D00BB0D2F /* SaveAccountTableViewController.swift in Sources */,
+				E4473A6D2D206B5700BB0D2F /* SaveAlertViewController.swift in Sources */,
 				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
 				E4B9894B2D20205B00B98EAB /* ViewControllerCalendar.swift in Sources */,
 				E47AAA242D20583500AC654B /* TicketsViewController.swift in Sources */,
+				E4473A732D206BBF00BB0D2F /* CalendarHelper.swift in Sources */,
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
 				E4B989292D200DF900B98EAB /* Shapes.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
@@ -543,13 +546,12 @@
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 				E47AAA262D20583500AC654B /* ActivityTableViewCell.swift in Sources */,
 				E4B9892F2D200E2100B98EAB /* SignupViewController.swift in Sources */,
+				E4473A6B2D206B4500BB0D2F /* SaveInterestsViewController.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
 				57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */,
 				C31B51DD2D0F0EC200DD4B82 /* LineView.swift in Sources */,
 				C31B51D92D0F0E3200DD4B82 /* StandardAppCollectionViewCell.swift in Sources */,
 				C3C03ABC2D1EBC0300A53A44 /* TableViewCell.swift in Sources */,
-				E4B989432D20124C00B98EAB /* SaveAccountTableViewController.swift in Sources */,
-				E4B9894D2D20206B00B98EAB /* CalendarCell.swift in Sources */,
 				E4B9893B2D200F6E00B98EAB /* Gradientimage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

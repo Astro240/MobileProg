@@ -270,16 +270,6 @@
             </objects>
             <point key="canvasLocation" x="3379.3893129770991" y="2263.3802816901411"/>
         </scene>
-        <!--Event-->
-        <scene sceneID="K4R-ib-TkA">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Event" id="dPI-kE-qb9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="c4S-zG-eL3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2J1-Gr-2ON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1926.7175572519084" y="2352.816901408451"/>
-        </scene>
         <!--Calendar-->
         <scene sceneID="Skd-Mc-H6b">
             <objects>
@@ -330,12 +320,22 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="dPI-kE-qb9" kind="relationship" relationship="rootViewController" id="WTU-Su-H7D"/>
+                        <segue destination="tdW-Uz-TPD" kind="relationship" relationship="rootViewController" id="1FM-vL-ag8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iq1-kn-zWV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="692" y="2353"/>
+        </scene>
+        <!--Event-->
+        <scene sceneID="UAz-O2-aOM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Event" id="tdW-Uz-TPD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dvT-Lj-khU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eXj-3o-fLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1218" y="2353"/>
         </scene>
     </scenes>
     <resources>
