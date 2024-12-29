@@ -15,7 +15,6 @@ class EventViewController: UIViewController {
 
         view.backgroundColor = .white
         
-        
         // Header Image
         let headerImageView = UIImageView()
         headerImageView.image = App?.color
@@ -127,6 +126,7 @@ class EventViewController: UIViewController {
         bookingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         bookingButton.layer.cornerRadius = 8
         bookingButton.translatesAutoresizingMaskIntoConstraints = false
+        bookingButton.addTarget(self, action: #selector(openBookingView), for: .touchUpInside)
         view.addSubview(bookingButton)
 
         // Auto Layout Constraints
@@ -178,5 +178,11 @@ class EventViewController: UIViewController {
             bookingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             bookingButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+
+    @objc func openBookingView() {
+        let bookingVC = BookingViewController() // Replace with storyboard instantiation if necessary
+        bookingVC.App = App
+        navigationController?.pushViewController(bookingVC, animated: true)
     }
 }

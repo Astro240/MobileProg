@@ -52,6 +52,13 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         let selectedApp = filteredResults[indexPath.row]
         print("Selected app: \(selectedApp.title)")
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let eventViewController = EventViewController()
+        eventViewController.App = selectedApp // Pass the App object to the EventViewController
+
+        navigationController?.pushViewController(eventViewController, animated: true)
+        
+        
     }
     
     func populateEvents(query: String) {

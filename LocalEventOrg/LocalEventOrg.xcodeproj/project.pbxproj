@@ -21,6 +21,7 @@
 		57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */; };
 		66D026862D21411100B30285 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D026852D21411100B30285 /* EventViewController.swift */; };
 		66D026882D215ABC00B30285 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D026872D215ABC00B30285 /* BookingViewController.swift */; };
+		66D0268A2D21650600B30285 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D026892D21650600B30285 /* Booking.storyboard */; };
 		7214F9EF2D05F2D000C1A5AA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */; };
 		7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214FA062D05F3AD00C1A5AA /* Item.swift */; };
 		7214FA0A2D05F3AE00C1A5AA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214FA082D05F3AD00C1A5AA /* App.swift */; };
@@ -109,6 +110,7 @@
 		57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Home.storyboard"; sourceTree = "<group>"; };
 		66D026852D21411100B30285 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		66D026872D215ABC00B30285 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		66D026892D21650600B30285 /* Booking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		7214F9EE2D05F2D000C1A5AA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7214FA062D05F3AD00C1A5AA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7214FA072D05F3AD00C1A5AA /* StoreCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCategory.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				C31B51EB2D0F13B200DD4B82 /* Hasan.storyboard */,
 				66D026852D21411100B30285 /* EventViewController.swift */,
 				66D026872D215ABC00B30285 /* BookingViewController.swift */,
+				66D026892D21650600B30285 /* Booking.storyboard */,
 			);
 			path = Hasan;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				E47AAA2F2D20618C00AC654B /* HusainAlj.storyboard in Resources */,
 				5796867B2CF47BE200495313 /* LaunchScreen.storyboard in Resources */,
 				579686782CF47BE200495313 /* Assets.xcassets in Resources */,
+				66D0268A2D21650600B30285 /* Booking.storyboard in Resources */,
 				579686762CF47BE000495313 /* Main.storyboard in Resources */,
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
 				E4473A712D206BB800BB0D2F /* Mohammed.storyboard in Resources */,
