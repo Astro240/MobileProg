@@ -75,9 +75,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             }
         }
     func handleItemTap(_ app: App) {
-        // Present a detailed view of the app
+        let eventViewController = EventViewController()
+        eventViewController.App = app // Pass the App object to the EventViewController
+
+        navigationController?.pushViewController(eventViewController, animated: true)
         print(app.title)
     }
+
     func handleCategoryTap(_ category: StoreCategory) {
         guard let query = category.name, !query.isEmpty else {
             return }
