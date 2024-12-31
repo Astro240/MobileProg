@@ -75,9 +75,20 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                        let eventImageURL = eventDetails["Image"] as? String,
                        let categories = eventDetails["Categories"] as? [String],
                        let desc = eventDetails["Description"] as? String,
-                       let location = eventDetails["Location"] as? String,
+                       let location = eventDetails["Location"] as? String, let date = eventDetails["Date"] as? String,
                        let rating = eventDetails["Rating"] as? Int {
-                        
+
+                        // Process tickets
+                        var tickets: [String: Double] = [:]
+                        if let ticketsData = eventDetails["Tickets"] as? [String: [String: Any]] {
+                            for (_, ticketInfo) in ticketsData {
+                                if let ticketName = ticketInfo["Name"] as? String,
+                                   let ticketPrice = ticketInfo["Price"] as? Double {
+                                    tickets[ticketName] = ticketPrice
+                                }
+                            }
+                        }
+
                         self.loadImage(from: eventImageURL) { image in
                             guard let img = image else {
                                 print("Failed to load image for event: \(eventName)")
@@ -88,8 +99,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                                     promotedHeadline: "",
                                     title: eventName,
                                     subtitle: "",
-                                    price: 3.99,
+                                    price: tickets, // Replacing price with tickets
                                     color: img,
+                                    date: date,
                                     desc: desc,
                                     eventcategories: categories,
                                     location: location,
@@ -111,6 +123,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             print("Error fetching data: \(error.localizedDescription)")
         })
     }
+
     
     // Load image asynchronously from a URL
     private func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
@@ -170,7 +183,7 @@ extension SearchViewController: FilterViewControllerDelegate {
         
         // Apply the filters to the search results
         filteredResults = searchResults.filter { app in
-            guard let price = app.price, let rating2 = app.rating else {
+            guard let rating2 = app.rating else {
                 return false // Exclude items with missing price or rating
             }
             
@@ -181,9 +194,9 @@ extension SearchViewController: FilterViewControllerDelegate {
                 matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
             }
             
-            let matchesPrice = priceRange.contains(Float(price))
+//            let matchesPrice = priceRange.contains(Float(price))
             let matchesRating = rating2 >= rating
-            return matchesCategory && matchesPrice && matchesRating
+            return matchesCategory && matchesRating
         }
         
         // Reload the table view with filtered results

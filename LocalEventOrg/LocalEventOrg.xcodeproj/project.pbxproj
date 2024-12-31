@@ -19,6 +19,7 @@
 		57CDC98A2D06EC3500BD3444 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC9892D06EC3500BD3444 /* UIColor+.swift */; };
 		57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */; };
 		57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */; };
+		66811A7C2D2401A200D8A115 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66811A7B2D2401A200D8A115 /* SummaryViewController.swift */; };
 		66D026862D21411100B30285 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D026852D21411100B30285 /* EventViewController.swift */; };
 		66D026882D215ABC00B30285 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D026872D215ABC00B30285 /* BookingViewController.swift */; };
 		66D0268A2D21650600B30285 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D026892D21650600B30285 /* Booking.storyboard */; };
@@ -108,6 +109,7 @@
 		57CDC9892D06EC3500BD3444 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		57CDC98B2D06ECF400BD3444 /* HomePageStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageStructs.swift; sourceTree = "<group>"; };
 		57D339772D01A57D00429D94 /* Abdulla - Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Abdulla - Home.storyboard"; sourceTree = "<group>"; };
+		66811A7B2D2401A200D8A115 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		66D026852D21411100B30285 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		66D026872D215ABC00B30285 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		66D026892D21650600B30285 /* Booking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				66D026852D21411100B30285 /* EventViewController.swift */,
 				66D026872D215ABC00B30285 /* BookingViewController.swift */,
 				66D026892D21650600B30285 /* Booking.storyboard */,
+				66811A7B2D2401A200D8A115 /* SummaryViewController.swift */,
 			);
 			path = Hasan;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
 				E4B989292D200DF900B98EAB /* Shapes.swift in Sources */,
 				C31B51D72D0F0E3200DD4B82 /* PromotedAppCollectionViewCell.swift in Sources */,
+				66811A7C2D2401A200D8A115 /* SummaryViewController.swift in Sources */,
 				E4B989332D200E2C00B98EAB /* MainUserPageViewController.swift in Sources */,
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 				E47AAA262D20583500AC654B /* ActivityTableViewCell.swift in Sources */,

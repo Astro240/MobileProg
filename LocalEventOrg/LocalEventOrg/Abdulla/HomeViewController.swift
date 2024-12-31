@@ -260,46 +260,61 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                     if let eventDetails = eventData as? [String: Any],
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
-                       let categories = eventDetails["Categories"] as? [String],let desc = eventDetails["Description"] as? String, let location = eventDetails["Location"] as? String, let rating = eventDetails["Rating"] as? Int, let eventCat = categories.first {
+                       let categories = eventDetails["Categories"] as? [String],
+                       let desc = eventDetails["Description"] as? String,
+                       let location = eventDetails["Location"] as? String,
+                       let rating = eventDetails["Rating"] as? Int,let date = eventDetails["Date"] as? String,
+                       let eventCat = categories.first {
+
+                        // Process tickets
+                        var tickets: [String: Double] = [:]
+                        if let ticketsData = eventDetails["Tickets"] as? [String: [String: Any]] {
+                            for (_, ticketInfo) in ticketsData {
+                                if let ticketName = ticketInfo["Name"] as? String,
+                                   let ticketPrice = ticketInfo["Price"] as? Double {
+                                    tickets[ticketName] = ticketPrice
+                                }
+                            }
+                        }
 
                         // Fetch and process image
                         guard let img: UIImage = GetImage(string: eventImageURL) else {
                             print("Failed to load image for event: \(eventName)")
                             continue
                         }
-                        
-                        if self.arr.contains(eventCat){
-                            Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
-                            if(lenNow < 2 && Item.promotedApps.count >= 3){
+
+                        if self.arr.contains(eventCat) {
+                            Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date,desc: desc, eventcategories: categories, location: location, rating: rating)))
+                            if lenNow < 2 && Item.promotedApps.count >= 3 {
                                 if let index = self.arr.firstIndex(of: eventCat) {
                                     self.arr.remove(at: index)
                                 }
-                            }else if lenNow >= 2{
+                            } else if lenNow >= 2 {
                                 if let index = self.arr.firstIndex(of: eventCat) {
                                     self.arr.remove(at: index)
                                 }
                             }
-                        }else{
-                            // Ensure you're appending to the correct category
+                        } else {
                             if Item.categoryEvents.keys.contains(eventCat) {
-                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating)))
                             }
                         }
-                        
-                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
-                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+
+                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating)))
+                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating)))
                     }
                 }
-                completion(Item.categoryEvents) // Return the populated category events
+                completion(Item.categoryEvents)
             } else {
                 print("No data found")
-                completion(Item.categoryEvents) // Return empty events if no data found
+                completion(Item.categoryEvents)
             }
         }, withCancel: { error in
             print("Error fetching data: \(error.localizedDescription)")
-            completion(Item.categoryEvents) // Return empty events on error
+            completion(Item.categoryEvents)
         })
     }
+
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             guard let query = searchBar.text, !query.isEmpty else { return }

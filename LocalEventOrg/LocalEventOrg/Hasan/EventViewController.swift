@@ -37,7 +37,7 @@ class EventViewController: UIViewController {
 
         // Event Date
         let dateLabel = UILabel()
-        dateLabel.text = "April 26th and 27th"
+        dateLabel.text = App?.date
         dateLabel.font = UIFont.systemFont(ofSize: 16)
         dateLabel.textColor = .gray
         dateLabel.textAlignment = .center
@@ -120,9 +120,14 @@ class EventViewController: UIViewController {
 
         // Booking Button
         let bookingButton = UIButton()
-        bookingButton.setTitle("From 10.000 BD | Book Now", for: .normal)
+        if let ticketPrices = App?.price as? [String: Double],
+           let lowestPrice = ticketPrices.values.min() {
+            bookingButton.setTitle("From \(lowestPrice) BD | Book Now", for: .normal)
+        } else {
+            bookingButton.setTitle("Book Now", for: .normal)
+        }
         bookingButton.setTitleColor(.white, for: .normal)
-        bookingButton.backgroundColor = .systemGreen
+        bookingButton.backgroundColor = .systemBlue // Updated to blue
         bookingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         bookingButton.layer.cornerRadius = 8
         bookingButton.translatesAutoresizingMaskIntoConstraints = false

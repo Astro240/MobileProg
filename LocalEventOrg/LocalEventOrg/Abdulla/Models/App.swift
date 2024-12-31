@@ -7,19 +7,10 @@ struct App: Identifiable {
     
     let title: String
     let subtitle: String
-    let price: Double?
+    let price: [String:Double]
     let color: UIImage?
-
-    var formattedPrice: String {
-        if let price = price {
-            guard let localCurrencyCode = Locale.autoupdatingCurrent.currency?.identifier else {
-                return String(price)
-            }
-            return price.formatted(.currency(code: localCurrencyCode))
-        } else {
-            return "GET"
-        }
-    }
+    let date: String?
+   
     let desc: String?
     let eventcategories: [String]
     let location: String
