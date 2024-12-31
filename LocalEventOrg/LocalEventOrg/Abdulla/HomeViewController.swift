@@ -264,12 +264,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                             continue
                         }
 
-                        for category in categories {
                             // Ensure you're appending to the correct category
-                            if Item.categoryEvents.keys.contains(category) {
-                                Item.categoryEvents[category]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                            if Item.categoryEvents.keys.contains(eventCat) {
+                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                             }
-                        }
+                        
                         
                         if self.arr.contains(eventCat){
                             Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
