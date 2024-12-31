@@ -208,9 +208,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
             for (category, items) in Item.categoryEvents {
-                let popularSection = Section.standard(category)
-                snapshot.appendSections([popularSection]) // Append the section first
-                snapshot.appendItems(items.map(\.id), toSection: popularSection)
+                if !items.isEmpty{
+                    let popularSection = Section.standard(category)
+                    snapshot.appendSections([popularSection]) // Append the section first
+                    snapshot.appendItems(items.map(\.id), toSection: popularSection)
+                }
             }
 
             // After populating, append the promoted apps to the snapshot
@@ -238,9 +240,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
             for (category, items) in Item.categoryEvents {
-                let popularSection = Section.standard(category)
-                snapshot.appendSections([popularSection]) // Append the section first
-                snapshot.appendItems(items.map(\.id), toSection: popularSection)
+                if !items.isEmpty{
+                    let popularSection = Section.standard(category)
+                    snapshot.appendSections([popularSection]) // Append the section first
+                    snapshot.appendItems(items.map(\.id), toSection: popularSection)
+                }
             }
         }
         sections = snapshot.sectionIdentifiers
