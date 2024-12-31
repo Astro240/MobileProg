@@ -3,11 +3,11 @@ import FirebaseDatabase
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
     
-    var searchQuery: String?
+    var searchQuery: String? // For search query passed from the home page (optional)
     var searchResults: [App] = [] // Store search results
     var filteredResults: [App] = [] // Store filtered results
     var searchController: UISearchController!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -16,6 +16,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Events"
+        searchController.searchBar.delegate = self // Set the delegate to self to handle search events
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
@@ -31,15 +32,18 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         tableView.rowHeight = 150
         tableView.estimatedRowHeight = 150
         
+        // If there's a query passed to this page, populate events immediately
         if let query = searchQuery {
             populateEvents(query: query)
         }
     }
     
+    // Handle the number of rows in the table view (display filtered results)
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredResults.count // Display filtered results
+        return filteredResults.count
     }
     
+    // Handle how each cell is displayed in the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell else {
             fatalError("Unable to dequeue TableViewCell")
@@ -48,6 +52,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
+    // Handle selection of a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedApp = filteredResults[indexPath.row]
         print("Selected app: \(selectedApp.title)")
@@ -57,10 +62,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         eventViewController.App = selectedApp // Pass the App object to the EventViewController
 
         navigationController?.pushViewController(eventViewController, animated: true)
-        
-        
     }
     
+    // Fetch events from Firebase and filter based on search query
     func populateEvents(query: String) {
         let ref = Database.database().reference()
         ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
@@ -71,7 +75,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                        let eventImageURL = eventDetails["Image"] as? String,
                        let categories = eventDetails["Categories"] as? [String],
                        let desc = eventDetails["Description"] as? String,
-                       let location = eventDetails["Location"] as? String,let rating = eventDetails["Rating"] as? Int {
+                       let location = eventDetails["Location"] as? String,
+                       let rating = eventDetails["Rating"] as? Int {
                         
                         self.loadImage(from: eventImageURL) { image in
                             guard let img = image else {
@@ -107,6 +112,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         })
     }
     
+    // Load image asynchronously from a URL
     private func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(nil)
@@ -123,6 +129,29 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         }.resume()
     }
     
+    // Handle search bar text changes (live filtering)
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    }
+    
+    // Handle search bar submit (search button pressed)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text, !query.isEmpty else { return }
+        self.searchResults = []
+        // Perform the search when the user submits the search
+        populateEvents(query: query)
+        
+        // Dismiss the keyboard after search
+        searchBar.resignFirstResponder()
+    }
+    
+    // Handle search bar cancel button
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // When the search is canceled, reset the filtered results
+        filteredResults = searchResults
+        tableView.reloadData()
+    }
+    
+    // Show filter popup when the filter button is tapped
     @objc func showFilterPopup() {
         let filterVC = FilterViewController()
         filterVC.delegate = self
@@ -132,6 +161,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 }
 
 extension SearchViewController: FilterViewControllerDelegate {
+    // Apply filters from the filter view controller
     func applyFilters(categories: [String], priceRange: ClosedRange<Float>, rating: Int) {
         print("Filters received in SearchViewController:")
         print("Categories: \(categories)")
@@ -143,12 +173,14 @@ extension SearchViewController: FilterViewControllerDelegate {
             guard let price = app.price, let rating2 = app.rating else {
                 return false // Exclude items with missing price or rating
             }
+            
             var matchesCategory = false
-            if categories.contains("All"){
+            if categories.contains("All") {
                 matchesCategory = true
-            }else{
-                var matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
+            } else {
+                matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
             }
+            
             let matchesPrice = priceRange.contains(Float(price))
             let matchesRating = rating2 >= rating
             return matchesCategory && matchesPrice && matchesRating
