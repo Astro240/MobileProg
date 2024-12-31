@@ -143,7 +143,12 @@ extension SearchViewController: FilterViewControllerDelegate {
             guard let price = app.price, let rating2 = app.rating else {
                 return false // Exclude items with missing price or rating
             }
-            let matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
+            var matchesCategory = false
+            if categories.contains("All"){
+                matchesCategory = true
+            }else{
+                var matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
+            }
             let matchesPrice = priceRange.contains(Float(price))
             let matchesRating = rating2 >= rating
             return matchesCategory && matchesPrice && matchesRating

@@ -263,12 +263,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                             print("Failed to load image for event: \(eventName)")
                             continue
                         }
-
-                            // Ensure you're appending to the correct category
-                            if Item.categoryEvents.keys.contains(eventCat) {
-                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
-                            }
-                        
                         
                         if self.arr.contains(eventCat){
                             Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
@@ -281,7 +275,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                                     self.arr.remove(at: index)
                                 }
                             }
+                        }else{
+                            // Ensure you're appending to the correct category
+                            if Item.categoryEvents.keys.contains(eventCat) {
+                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
+                            }
                         }
+                        
                         Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                         Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: 3.99, color: img,desc:desc,eventcategories: categories,location: location,rating: rating)))
                     }

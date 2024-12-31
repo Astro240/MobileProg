@@ -14,7 +14,7 @@ class FilterViewController: UIViewController {
     var ratingSegmentedControl: UISegmentedControl!
 
     // Filter options
-    let categories = ["Comic", "Music", "Social", "Sports", "Gaming", "Festival", "Food", "Pop Culture", "Motor Sport"]
+    let categories = ["All","Comic", "Music", "Social", "Sports", "Gaming", "Festival", "Food", "Pop Culture", "Motor Sport"]
     var selectedCategories: [String] = []
     var selectedPriceRange: ClosedRange<Float> = 0...100
     var selectedRating: Int = 3
