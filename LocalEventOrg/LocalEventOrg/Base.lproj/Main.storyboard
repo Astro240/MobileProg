@@ -100,7 +100,7 @@
         <scene sceneID="kqw-0p-1Ml">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H6p-Np-jzd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" selectedImage="calendar" catalog="system" id="9Ka-kB-ziU"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" selectedImage="calendar" id="9Ka-kB-ziU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JXs-qt-zhE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -137,7 +137,7 @@
         <scene sceneID="v5f-b2-OxN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4M-Z9-BhB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.crop.circle" catalog="system" id="AaU-ye-dWj"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" selectedImage="person.crop.circle" id="AaU-ye-dWj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bGG-l5-UKm">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -156,7 +156,7 @@
         <scene sceneID="koo-iV-5wp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVW-Df-Omt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Activity" selectedImage="book" catalog="system" id="wTh-xv-fOV"/>
+                    <tabBarItem key="tabBarItem" title="My Activity" image="book" catalog="system" selectedImage="book" id="wTh-xv-fOV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kTj-Hf-iXI">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -226,7 +226,7 @@
         <scene sceneID="3h3-Kj-Wnt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oOg-7V-cFt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="house" catalog="system" id="6pc-ZE-L4O"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house" id="6pc-ZE-L4O"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fto-Ri-pJn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -255,7 +255,7 @@
         <scene sceneID="4Za-2S-1Ed">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y8r-vw-2sP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Activity" selectedImage="book" catalog="system" id="x5q-US-ImE"/>
+                    <tabBarItem key="tabBarItem" title="My Activity" image="book" catalog="system" selectedImage="book" id="x5q-US-ImE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hGM-Ry-waE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -293,7 +293,7 @@
         <scene sceneID="Ehb-UT-vDv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tps-56-Z0a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.crop.circle" catalog="system" id="Chg-2X-HTc"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" selectedImage="person.crop.circle" id="Chg-2X-HTc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jk4-g7-UxV">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -308,11 +308,11 @@
             </objects>
             <point key="canvasLocation" x="1932" y="1254"/>
         </scene>
-        <!--Item-->
+        <!--Add Event-->
         <scene sceneID="Zao-lc-Wzv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q6r-UC-23l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UWt-Jz-WbO"/>
+                    <tabBarItem key="tabBarItem" title="Add Event" image="plus.app" catalog="system" selectedImage="plus.app" id="UWt-Jz-WbO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="obi-H7-nBi">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -343,5 +343,6 @@
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
     </resources>
 </document>
