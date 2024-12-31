@@ -34,14 +34,12 @@ class SaveInterestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup the gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.white.cgColor, UIColor.systemCyan.cgColor]
         gradientLayer.locations = [0.5, 1.1]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        // Apply custom design to buttons using applyDesign2
         Button1.applyDesign2()
         Button2.applyDesign2()
         Button3.applyDesign2()
@@ -52,21 +50,17 @@ class SaveInterestsViewController: UIViewController {
         Button8.applyDesign2()
         Button9.applyDesign2()
         
-        // Fetch current user interests from Firebase
         loadUserInterests()
         
-        // Add Save Button Action
         SaveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
     }
     
-    // Fetch user interests from Firebase
     func loadUserInterests() {
         let ref = Database.database().reference().child("Users").child(userID)
         
         ref.observeSingleEvent(of: .value, with: { snapshot in
             guard let userDict = snapshot.value as? [String: Any] else { return }
             
-            // Update the button states based on the values in Firebase
             if let interest1 = userDict["Interest1"] as? Bool {
                 self.Button1isActive = interest1
                 self.updateButtonState(for: "Interest1", isActive: interest1)
@@ -106,7 +100,6 @@ class SaveInterestsViewController: UIViewController {
         })
     }
 
-    // Update the button's visual state
     func updateButtonState(for interestKey: String, isActive: Bool) {
         switch interestKey {
         case "Interest1":
@@ -133,7 +126,6 @@ class SaveInterestsViewController: UIViewController {
     }
     
     @objc func saveButtonPressed() {
-        // Prepare a dictionary with the updated interests
         let updatedInterests: [String: Bool] = [
             "Interest1": Button1isActive,
             "Interest2": Button2isActive,
@@ -145,28 +137,30 @@ class SaveInterestsViewController: UIViewController {
             "Interest8": Button8isActive,
             "Interest9": Button9isActive
         ]
-        // Create an alert to confirm saving
+        
+        if updatedInterests.values.allSatisfy({ !$0 }) {
+            let alert = UIAlertController(title: "No Interests Selected", message: "Please select at least one interest.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         let saveConfirmAlert = UIAlertController(title: "Save", message: "Would you like to save the changes made?", preferredStyle: .alert)
         saveConfirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         saveConfirmAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
-            // Reference to the user’s node in Firebase
             let ref = Database.database().reference().child("Users").child(self.userID)
             
-            // Save the updated interest data to Firebase
             ref.updateChildValues(updatedInterests) { error, _ in
                 if let error = error {
                     print("Error saving interests: \(error.localizedDescription)")
                 } else {
                     print("Interests saved successfully!")
-                    // Optionally, you can navigate to another screen or perform other actions here
                 }
             }
         }))
-        // Present the alert
         self.present(saveConfirmAlert, animated: true, completion: nil)
     }
     
-    // Button click actions to toggle button states
     @IBAction func Button1Click(_ sender: Any) { toggleButtonState(button: Button1, isActive: &Button1isActive) }
     @IBAction func Button2Click(_ sender: Any) { toggleButtonState(button: Button2, isActive: &Button2isActive) }
     @IBAction func Button3Click(_ sender: Any) { toggleButtonState(button: Button3, isActive: &Button3isActive) }
@@ -201,3 +195,4 @@ extension UIButton {
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 }
+

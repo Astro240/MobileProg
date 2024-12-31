@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Huc-Rb-c32">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Huc-Rb-c32">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -63,18 +63,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-gg-34i">
-                                <rect key="frame" x="126" y="694" width="141" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SignUp">
-                                    <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="HlC-he-sui" kind="presentation" modalPresentationStyle="fullScreen" id="txj-ws-gnH"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="4WA-iw-W38">
                                 <rect key="frame" x="160" y="96" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,6 +73,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-gg-34i">
+                                <rect key="frame" x="117" y="694" width="141" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="SignUp">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="HlC-he-sui" kind="presentation" modalPresentationStyle="fullScreen" id="txj-ws-gnH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PqH-XR-YgT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -92,8 +92,14 @@
                     <navigationItem key="navigationItem" id="QXQ-B3-sXb"/>
                     <connections>
                         <outlet property="Email" destination="Ok6-Um-6EL" id="w3H-fq-Zap"/>
+                        <outlet property="donthaveaccount" destination="LIH-va-p1a" id="lSO-fI-uhs"/>
+                        <outlet property="emailtitle" destination="nLM-3X-4sJ" id="RGB-8h-pRX"/>
                         <outlet property="logInButton" destination="7mI-Bi-PtZ" id="CSN-VK-biA"/>
+                        <outlet property="logintitle" destination="Hq1-rA-2ae" id="gAw-ih-ZA6"/>
+                        <outlet property="logo" destination="4WA-iw-W38" id="qFF-29-ufm"/>
                         <outlet property="password" destination="2SM-dX-ZQH" id="nJP-lw-LSr"/>
+                        <outlet property="passwordtitle" destination="VED-S0-qdB" id="M33-Vq-uWD"/>
+                        <outlet property="signup" destination="w6V-gg-34i" id="ale-K3-uUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ik-bO-KXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,13 +268,24 @@
                     <connections>
                         <outlet property="Email" destination="F3g-Uj-2aR" id="X4V-YQ-AP7"/>
                         <outlet property="Gender" destination="ikX-bZ-J0N" id="dc7-t1-x0e"/>
+                        <outlet property="alreadyhaveaccount" destination="LNr-iA-sCt" id="7e6-IF-e7f"/>
                         <outlet property="confirmPassword" destination="bXI-6t-lnt" id="tLG-MR-Bwz"/>
+                        <outlet property="cpasswordtitle" destination="X8S-QO-n9o" id="KjP-O9-Rh9"/>
                         <outlet property="dateOfBirth" destination="O9A-Hl-lXz" id="EYZ-Yn-aE9"/>
+                        <outlet property="datetitle" destination="Qq6-2y-s2Z" id="7WX-xz-mjf"/>
+                        <outlet property="emailtitle" destination="KK3-Xd-yUI" id="qM0-q9-ttf"/>
                         <outlet property="firstName" destination="6sm-l9-8bM" id="vFp-ry-GGY"/>
+                        <outlet property="fnametitle" destination="yz6-4p-8Fj" id="G40-XE-mLO"/>
+                        <outlet property="gendertitle" destination="UH1-Am-bij" id="0ep-91-Rsk"/>
                         <outlet property="lastName" destination="fcQ-mL-tTy" id="Hko-Hj-iKP"/>
+                        <outlet property="lnametitle" destination="cUS-T9-HOZ" id="nxd-5e-ibs"/>
+                        <outlet property="logo" destination="bEZ-20-l5J" id="o9H-ko-CDi"/>
                         <outlet property="password" destination="9TN-mX-9Na" id="Tn2-9R-HJb"/>
+                        <outlet property="passwordtitle" destination="M5L-Dk-AOg" id="J9Q-oU-csI"/>
                         <outlet property="signUpButton" destination="FQA-PW-9WK" id="xQ4-aF-qdg"/>
+                        <outlet property="signuptitle" destination="mgf-xV-YM5" id="0Sh-sA-T2c"/>
                         <outlet property="userName" destination="WSB-BH-wGw" id="1E1-i6-lB7"/>
+                        <outlet property="usernametitle" destination="Nna-VA-4qv" id="Dnz-Yt-mMY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4D-Ji-crB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

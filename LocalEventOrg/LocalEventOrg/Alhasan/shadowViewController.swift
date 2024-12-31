@@ -34,14 +34,12 @@ class shadowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup the gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.white.cgColor, UIColor.systemCyan.cgColor]
         gradientLayer.locations = [0.5, 1.1]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        // Apply custom design to buttons
         Button1.applyDesign()
         Button2.applyDesign()
         Button3.applyDesign()
@@ -52,21 +50,17 @@ class shadowViewController: UIViewController {
         Button8.applyDesign()
         Button9.applyDesign()
         
-        // Fetch current user interests from Firebase
         loadUserInterests()
         
-        // Add target to NextButton for navigation if it exists
         NextButton?.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
     }
     
-    // Fetch user interests from Firebase
     func loadUserInterests() {
         let ref = Database.database().reference().child("Users").child(userID)
         
         ref.observeSingleEvent(of: .value, with: { snapshot in
             guard let userDict = snapshot.value as? [String: Any] else { return }
             
-            // Update the button states based on the values in Firebase
             if let interest1 = userDict["Interest1"] as? Bool {
                 self.Button1isActive = interest1
                 self.updateButtonState(for: "Interest1", isActive: interest1)
@@ -105,9 +99,7 @@ class shadowViewController: UIViewController {
             }
         })
     }
-
     
-    // Update the button's visual state
     func updateButtonState(for interestKey: String, isActive: Bool) {
         switch interestKey {
         case "Interest1":
@@ -133,7 +125,6 @@ class shadowViewController: UIViewController {
         }
     }
     
-    // Button click actions to toggle button states
     @IBAction func Button1Click(_ sender: Any) { toggleButtonState(button: Button1, isActive: &Button1isActive) }
     @IBAction func Button2Click(_ sender: Any) { toggleButtonState(button: Button2, isActive: &Button2isActive) }
     @IBAction func Button3Click(_ sender: Any) { toggleButtonState(button: Button3, isActive: &Button3isActive) }
@@ -153,7 +144,6 @@ class shadowViewController: UIViewController {
         isActive.toggle()
     }
     
-    // Button being clicked augh
     @objc func nextButtonPressed(_ sender: Any) {
         let updatedInterests: [String: Bool] = [
             "Interest1": Button1isActive,
@@ -167,18 +157,23 @@ class shadowViewController: UIViewController {
             "Interest9": Button9isActive
         ]
         
+        if !updatedInterests.values.contains(true) {
+            let alert = UIAlertController(title: "Selection Error", message: "Select at least one interest", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+
         let ref = Database.database().reference().child("Users").child(self.userID)
         
-        // Save the updated interest data to Firebase
         ref.updateChildValues(updatedInterests) { error, _ in
             if let error = error {
                 print("Error saving interests: \(error.localizedDescription)")
             } else {
                 print("Interests saved successfully!")
-                // Optionally, you can navigate to another screen or perform other actions here
             }
         }
-        // Move to next screeeen
+        
         SceneDelegate.showHome()
     }
 }
