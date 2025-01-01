@@ -90,11 +90,31 @@ class SummaryViewController: UIViewController {
         stackView.addArrangedSubview(totalLabel)
 
         // Pay Now Button
-        let payNowButton = UIButton()
+        let payNowButton = UIButton(type: .system)
         payNowButton.setTitle("Pay Now", for: .normal)
         payNowButton.setTitleColor(.white, for: .normal)
-        payNowButton.backgroundColor = .systemBlue
-        payNowButton.layer.cornerRadius = 8
+        payNowButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+
+        // Apply rounded corners
+        payNowButton.layer.cornerRadius = 25
+        payNowButton.clipsToBounds = true
+
+        // Add gradient background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemBlue.cgColor, UIColor.systemTeal.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 50)
+        gradientLayer.cornerRadius = 25
+        payNowButton.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Add shadow
+        payNowButton.layer.shadowColor = UIColor.black.cgColor
+        payNowButton.layer.shadowOpacity = 0.3
+        payNowButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        payNowButton.layer.shadowRadius = 5
+
+        payNowButton.addTarget(self, action: #selector(payNowButtonTapped), for: .touchUpInside)
         payNowButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(payNowButton)
 
@@ -121,5 +141,10 @@ class SummaryViewController: UIViewController {
             payNowButton.heightAnchor.constraint(equalToConstant: 50),
             payNowButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
+    }
+
+    @objc func payNowButtonTapped() {
+        // Handle the Pay Now button tap
+        print("Pay Now button tapped!")
     }
 }

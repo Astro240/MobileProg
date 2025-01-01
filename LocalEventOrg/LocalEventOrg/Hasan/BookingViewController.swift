@@ -58,23 +58,41 @@ class BookingViewController: UIViewController {
 
         // Dynamically Populate Tickets from App
         for (ticketType, ticketPrice) in app.price {
-                let ticketView = createTicketView(
-                    type: ticketType,
-                    price: "\(ticketPrice) BHD",
-                    description: "\(ticketType) ticket"
-                )
-                ticketStackView.addArrangedSubview(ticketView)
-            }
-        
+            let ticketView = createTicketView(
+                type: ticketType,
+                price: "\(ticketPrice) BHD",
+                description: "\(ticketType) ticket"
+            )
+            ticketStackView.addArrangedSubview(ticketView)
+        }
 
-        // Booking Button
-        let bookingButton = UIButton()
+        // Booking Button with Gradient Design
+        let bookingButton = UIButton(type: .system)
         bookingButton.setTitle("Proceed to Payment", for: .normal)
         bookingButton.setTitleColor(.white, for: .normal)
-        bookingButton.backgroundColor = .systemBlue
-        bookingButton.layer.cornerRadius = 8
-        bookingButton.translatesAutoresizingMaskIntoConstraints = false
+        bookingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+
+        // Apply rounded corners
+        bookingButton.layer.cornerRadius = 25
+        bookingButton.clipsToBounds = true
+
+        // Add gradient background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemBlue.cgColor, UIColor.systemTeal.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 50)
+        gradientLayer.cornerRadius = 25
+        bookingButton.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Add shadow
+        bookingButton.layer.shadowColor = UIColor.black.cgColor
+        bookingButton.layer.shadowOpacity = 0.3
+        bookingButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        bookingButton.layer.shadowRadius = 5
+
         bookingButton.addTarget(self, action: #selector(proceedToPayment), for: .touchUpInside)
+        bookingButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bookingButton)
 
         // Auto Layout Constraints

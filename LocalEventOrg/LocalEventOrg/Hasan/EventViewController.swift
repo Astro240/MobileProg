@@ -14,7 +14,7 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        
+
         // Header Image
         let headerImageView = UIImageView()
         headerImageView.image = App?.color
@@ -55,10 +55,11 @@ class EventViewController: UIViewController {
         for tag in tags {
             let tagButton = UIButton()
             tagButton.setTitle(tag, for: .normal)
-            tagButton.setTitleColor(.white, for: .normal)
-            tagButton.backgroundColor = .systemBlue
-            tagButton.layer.cornerRadius = 8
-            tagButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            styleButton(tagButton)
+
+            // Increase roundness for category buttons
+            tagButton.layer.cornerRadius = 16 // Larger corner radius for rounded appearance
+
             tagStackView.addArrangedSubview(tagButton)
         }
         view.addSubview(tagStackView)
@@ -74,7 +75,7 @@ class EventViewController: UIViewController {
         // Venue Location
         let venueLabel = UILabel()
         if let loc = App?.location {
-            venueLabel.text = "📍 " + loc
+            venueLabel.text = "\u{1F4CD} " + loc
         }
         venueLabel.font = UIFont.boldSystemFont(ofSize: 16)
         venueLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -83,40 +84,9 @@ class EventViewController: UIViewController {
         // Directions Button
         let directionsButton = UIButton()
         directionsButton.setTitle("Get Directions", for: .normal)
-        directionsButton.setTitleColor(.white, for: .normal)
-        directionsButton.backgroundColor = .systemBlue
-        directionsButton.layer.cornerRadius = 8
+        styleButton(directionsButton)
         directionsButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(directionsButton)
-
-        // Rating and Reviews Stack View
-        let ratingAndReviewsStackView = UIStackView()
-        ratingAndReviewsStackView.axis = .horizontal
-        ratingAndReviewsStackView.alignment = .center
-        ratingAndReviewsStackView.distribution = .equalSpacing
-        ratingAndReviewsStackView.spacing = 8
-        ratingAndReviewsStackView.translatesAutoresizingMaskIntoConstraints = false
-
-        let ratingStackView = UIStackView()
-        ratingStackView.axis = .horizontal
-        ratingStackView.alignment = .center
-        ratingStackView.spacing = 4
-        ratingStackView.translatesAutoresizingMaskIntoConstraints = false
-
-        for _ in 0..<5 {
-            let starImageView = UIImageView(image: UIImage(systemName: "star.fill"))
-            starImageView.tintColor = .systemYellow
-            ratingStackView.addArrangedSubview(starImageView)
-        }
-
-        let reviewsButton = UIButton()
-        reviewsButton.setTitle("Reviews →", for: .normal)
-        reviewsButton.setTitleColor(.systemBlue, for: .normal)
-        reviewsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-
-        ratingAndReviewsStackView.addArrangedSubview(ratingStackView)
-        ratingAndReviewsStackView.addArrangedSubview(reviewsButton)
-        view.addSubview(ratingAndReviewsStackView)
 
         // Booking Button
         let bookingButton = UIButton()
@@ -126,12 +96,9 @@ class EventViewController: UIViewController {
         } else {
             bookingButton.setTitle("Book Now", for: .normal)
         }
-        bookingButton.setTitleColor(.white, for: .normal)
-        bookingButton.backgroundColor = .systemBlue // Updated to blue
-        bookingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        bookingButton.layer.cornerRadius = 8
-        bookingButton.translatesAutoresizingMaskIntoConstraints = false
+        styleButton(bookingButton)
         bookingButton.addTarget(self, action: #selector(openBookingView), for: .touchUpInside)
+        bookingButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bookingButton)
 
         // Auto Layout Constraints
@@ -170,12 +137,7 @@ class EventViewController: UIViewController {
             directionsButton.topAnchor.constraint(equalTo: venueLabel.bottomAnchor, constant: 16),
             directionsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             directionsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            directionsButton.heightAnchor.constraint(equalToConstant: 44),
-
-            // Rating and Reviews Stack View Constraints
-            ratingAndReviewsStackView.topAnchor.constraint(equalTo: directionsButton.bottomAnchor, constant: 24),
-            ratingAndReviewsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            ratingAndReviewsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            directionsButton.heightAnchor.constraint(equalToConstant: 50),
 
             // Booking Button Constraints
             bookingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
@@ -183,6 +145,28 @@ class EventViewController: UIViewController {
             bookingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             bookingButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+
+    func styleButton(_ button: UIButton) {
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.layer.cornerRadius = 25
+        button.clipsToBounds = true
+
+        // Gradient Layer
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemBlue.cgColor, UIColor.systemTeal.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.cornerRadius = 25
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 50)
+        button.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Shadow
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 5
     }
 
     @objc func openBookingView() {
