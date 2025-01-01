@@ -44,54 +44,79 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    //--------------------------------------------------------------------------------
+    
+    //creates the calendar grid
     func setMonthView() {
         totalSquares.removeAll()
+        // Clears any existing data in the totalSquares array to prepare for new calculations.
         
         let calendarHelper = CalendarHelper()
+        // Creates an instance of CalendarHelper to assist with calendar-related computations.
+        
         let daysInMonth = calendarHelper.daysInMonth(date: selectedDate)
+        // Determines the number of days in the currently selected month.
+        
         let firstDayOfMonth = calendarHelper.firstOfMonth(date: selectedDate)
+        // Calculates the first day of the selected month.
+        
         let startingSpaces = calendarHelper.weekDay(date: firstDayOfMonth)
+        // Determines the weekday of the first day of the month (e.g., Sunday, Monday).
         
         for count in 1...42 {
+            // Loops through 42 cells (6 rows x 7 columns) to fill the calendar grid.
             if count <= startingSpaces || count - startingSpaces > daysInMonth {
                 totalSquares.append("")
+                // Adds an empty string for spaces before the first day or after the last day of the month.
             } else {
                 totalSquares.append(String(count - startingSpaces))
+                // Adds the day number for valid dates in the month.
             }
         }
         
         monthLabel.text = "\(calendarHelper.monthString(date: selectedDate)) \(calendarHelper.yearString(date: selectedDate))"
+        // Updates the label to display the current month and year.
+        
         collectionView.reloadData()
+        // Refreshes the collection view to display the updated calendar grid.
     }
+    
+    //--------------------------------------------------------------------------------
     
     func filterEvents(for selectedDate: Date) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy" // Match the format of your event dates in the database
+        dateFormatter.dateFormat = "dd/MM/yyyy" // Ensures the date format matches the event dates in the database.
         
         let selectedDateString = dateFormatter.string(from: selectedDate)
-        print("Filtering events for: \(selectedDateString)")
+        print("Filtering events for: \(selectedDateString)") // Logs the date being filtered for debugging purposes.
         
         filteredEvents = events.filter { event in
             if let eventDate = event["Date"] as? String {
-                // Split the date range if present
+                // Safely unwraps the "Date" field from the event dictionary as a String.
+                
                 let dateComponents = eventDate.split(separator: "–").map { $0.trimmingCharacters(in: .whitespaces) }
+                // Splits the date string into components, trimming whitespace. Handles ranges like "01/01/2023 – 02/01/2023".
                 
                 if dateComponents.count == 1 {
                     return dateComponents[0] == selectedDateString
+                    // If the event has a single date, checks if it matches the selected date.
                 } else if dateComponents.count == 2 {
-                    // Date range match
+                    // If the event has a date range, checks if the selected date falls within the range.
                     if let startDate = dateFormatter.date(from: dateComponents[0]),
                        let endDate = dateFormatter.date(from: dateComponents[1]) {
                         return selectedDate >= startDate && selectedDate <= endDate
+                        // Returns true if the selected date is within the range.
                     }
                 }
             }
-            return false
+            return false // Returns false if the date doesn't match or is invalid.
         }
         
         print("Filtered events: \(filteredEvents)")
         tableView.reloadData() // Reload the table view
     }
+    
+    //--------------------------------------------------------------------------------
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return totalSquares.count
@@ -134,6 +159,8 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
+    //--------------------------------------------------------------------------------
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         collectionView.reloadData()
@@ -149,6 +176,8 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    //--------------------------------------------------------------------------------
+    
     func isCurrentDate(day: Int) -> Bool {
         let calendar = Calendar.current
         let today = calendar.component(.day, from: Date())
@@ -161,28 +190,37 @@ class ViewControllerCalendar: UIViewController, UICollectionViewDelegate, UIColl
         return day == today && currentMonth == selectedMonth && currentYear == selectedYear
     }
     
+    //check if event is occuring in specific date
     func hasEvent(on date: Date) -> Bool {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy" // Match the event date format
+        dateFormatter.dateFormat = "dd/MM/yyyy" // Ensures the date format matches the event date format in the data
         
         let dateString = dateFormatter.string(from: date)
+        // Converts the given date into a formatted string for comparison with event dates
         
         return events.contains { event in
             if let eventDate = event["Date"] as? String {
+                // Retrieves the "Date" field from the event dictionary as a String
+                
                 let dateComponents = eventDate.split(separator: "–").map { $0.trimmingCharacters(in: .whitespaces) }
+                // Splits the date into components if it contains a range, trimming any extra whitespace
                 
                 if dateComponents.count == 1 {
                     return dateComponents[0] == dateString
+                    // If the event has a single date, checks if it matches the given date
                 } else if dateComponents.count == 2 {
                     if let startDate = dateFormatter.date(from: dateComponents[0]),
                        let endDate = dateFormatter.date(from: dateComponents[1]) {
                         return date >= startDate && date <= endDate
+                        // If the event has a date range, checks if the given date falls within the range
                     }
                 }
             }
-            return false
+            return false // Returns false if no match is found or the data is invalid
         }
     }
+    
+    //--------------------------------------------------------------------------------
     
     @IBAction func nextMonth(_ sender: Any) {
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
