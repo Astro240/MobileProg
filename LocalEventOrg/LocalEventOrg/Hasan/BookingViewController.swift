@@ -56,8 +56,11 @@ class BookingViewController: UIViewController {
         ticketStackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(ticketStackView)
 
-        // Dynamically Populate Tickets from App
-        for (ticketType, ticketPrice) in app.price {
+        // Sort tickets by price (ascending)
+        let sortedTickets = app.price.sorted { $0.value < $1.value }
+
+        // Dynamically Populate Tickets from Sorted List
+        for (ticketType, ticketPrice) in sortedTickets {
             let ticketView = createTicketView(
                 type: ticketType,
                 price: "\(ticketPrice) BHD",

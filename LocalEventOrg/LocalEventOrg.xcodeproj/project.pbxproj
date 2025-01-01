@@ -49,6 +49,8 @@
 		C3C03ABC2D1EBC0300A53A44 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */; };
 		C3C03ABE2D1EF78800A53A44 /* FilteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */; };
 		C3CABDF82D1EB3F600242EDC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */; };
+		DDB819E32D255C0B00797480 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB819E22D255C0B00797480 /* ReviewViewController.swift */; };
+		DDB819E52D2571E600797480 /* BookingConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB819E42D2571E600797480 /* BookingConfirmationViewController.swift */; };
 		E4473A6B2D206B4500BB0D2F /* SaveInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A6A2D206B4500BB0D2F /* SaveInterestsViewController.swift */; };
 		E4473A6D2D206B5700BB0D2F /* SaveAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A6C2D206B5700BB0D2F /* SaveAlertViewController.swift */; };
 		E4473A6F2D206B6D00BB0D2F /* SaveAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4473A6E2D206B6D00BB0D2F /* SaveAccountTableViewController.swift */; };
@@ -138,6 +140,8 @@
 		C3C03ABB2D1EBC0300A53A44 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C3C03ABD2D1EF78800A53A44 /* FilteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteViewController.swift; sourceTree = "<group>"; };
 		C3CABDF72D1EB3F600242EDC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DDB819E22D255C0B00797480 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		DDB819E42D2571E600797480 /* BookingConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConfirmationViewController.swift; sourceTree = "<group>"; };
 		E4473A6A2D206B4500BB0D2F /* SaveInterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveInterestsViewController.swift; sourceTree = "<group>"; };
 		E4473A6C2D206B5700BB0D2F /* SaveAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAlertViewController.swift; sourceTree = "<group>"; };
 		E4473A6E2D206B6D00BB0D2F /* SaveAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveAccountTableViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				66D026872D215ABC00B30285 /* BookingViewController.swift */,
 				66D026892D21650600B30285 /* Booking.storyboard */,
 				66811A7B2D2401A200D8A115 /* SummaryViewController.swift */,
+				DDB819E22D255C0B00797480 /* ReviewViewController.swift */,
+				DDB819E42D2571E600797480 /* BookingConfirmationViewController.swift */,
 			);
 			path = Hasan;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				C3C03ABE2D1EF78800A53A44 /* FilteViewController.swift in Sources */,
 				E47AAA272D20583500AC654B /* EventsViewController.swift in Sources */,
 				C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */,
+				DDB819E32D255C0B00797480 /* ReviewViewController.swift in Sources */,
 				E4B989352D200E3800B98EAB /* LogOutTableViewController.swift in Sources */,
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
@@ -561,6 +568,7 @@
 				579686712CF47BE000495313 /* SceneDelegate.swift in Sources */,
 				E47AAA262D20583500AC654B /* ActivityTableViewCell.swift in Sources */,
 				E4B9892F2D200E2100B98EAB /* SignupViewController.swift in Sources */,
+				DDB819E52D2571E600797480 /* BookingConfirmationViewController.swift in Sources */,
 				66D026882D215ABC00B30285 /* BookingViewController.swift in Sources */,
 				E4473A6B2D206B4500BB0D2F /* SaveInterestsViewController.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
