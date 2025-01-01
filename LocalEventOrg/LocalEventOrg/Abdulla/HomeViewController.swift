@@ -278,7 +278,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UISearchBa
 
             ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
                 if let eventsDict = snapshot.value as? [String: Any] {
-                    for (_, eventData) in eventsDict {
+                    for (eventId, eventData) in eventsDict {
                         if let eventDetails = eventData as? [String: Any],
                            let eventName = eventDetails["Name"] as? String,
                            let eventImageURL = eventDetails["Image"] as? String,
@@ -310,7 +310,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UISearchBa
                             }
                             
                             if self.arr.contains(eventCat) {
-                                Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
+                                Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm,eventID: eventId)))
                                 
                                 if lenNow < 2 && Item.promotedApps.count >= 3 {
                                     if let index = self.arr.firstIndex(of: eventCat) {
@@ -323,12 +323,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UISearchBa
                                 }
                             } else {
                                 if Item.categoryEvents.keys.contains(eventCat) {
-                                    Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
+                                    Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm,eventID: eventId)))
                                 }
                             }
 
-                            Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
-                            Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
+                            Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm,eventID: eventId)))
+                            Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm,eventID: eventId)))
                         }
                     }
                     completion(Item.categoryEvents)

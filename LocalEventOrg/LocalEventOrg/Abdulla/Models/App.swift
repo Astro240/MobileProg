@@ -17,5 +17,6 @@ struct App: Identifiable {
     let rating : Int?
     let id = UUID()
     let leastPrice : Double?
+    let eventID : String?
 }
 

@@ -69,7 +69,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         let ref = Database.database().reference()
         ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
             if let eventsDict = snapshot.value as? [String: Any] {
-                for (_, eventData) in eventsDict {
+                for (eventid, eventData) in eventsDict {
                     if let eventDetails = eventData as? [String: Any],
                        let eventName = eventDetails["Name"] as? String,
                        let eventImageURL = eventDetails["Image"] as? String,
@@ -109,7 +109,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                                     eventcategories: categories,
                                     location: location,
                                     rating: rating,
-                                    leastPrice: minAmm
+                                    leastPrice: minAmm,
+                                    eventID: eventid
                                 )
                                 self.searchResults.append(app)
                                 self.filteredResults = self.searchResults // Initialize filtered results

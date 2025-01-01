@@ -14,8 +14,8 @@ class EventsViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var upcomingEvents: [Event] = []
-    private var pastEvents: [Event] = []
+    private var upcomingEvents: [Item] = []
+    private var pastEvents: [Item] = []
     
     // MARK: - Lifecycle
     
@@ -34,15 +34,28 @@ class EventsViewController: UIViewController {
         tableView.dataSource = self
         
         // Load upcoming & past events from the manager
-        upcomingEvents = EventsDataManager.shared.getUpcomingEvents()
-        pastEvents = EventsDataManager.shared.getPastEvents()
-        
-        // Display them
-        tableView.reloadData()
+        loadEvents()
         
         // (iOS 15+) remove default spacing above the first section
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
+        }
+    }
+    
+    // Load events asynchronously and reload table after data is fetched
+    func loadEvents() {
+        // Fetch upcoming events
+        EventsDataManager.shared.getUpcomingEvents { events in
+            self.upcomingEvents = events
+            print("Upcoming Events:", events)
+            self.tableView.reloadData() // Reload table once data is loaded
+        }
+
+        // Fetch past events
+        EventsDataManager.shared.getPastEvents { events in
+            self.pastEvents = events
+            print("Past Events:", events)
+            self.tableView.reloadData() // Reload table once data is loaded
         }
     }
 }
@@ -152,9 +165,9 @@ extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            print("Tapped upcoming event: \(upcomingEvents[indexPath.row].name)")
+            print("Tapped upcoming event: \(upcomingEvents[indexPath.row].app?.title ?? "idk")")
         } else {
-            print("Tapped past event: \(pastEvents[indexPath.row].name)")
+            print("Tapped past event: \(pastEvents[indexPath.row].app?.title ?? "idk")")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

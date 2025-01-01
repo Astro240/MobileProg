@@ -59,9 +59,9 @@ class ActivityTableViewCell: UITableViewCell {
     
     // MARK: - Configure Cell
     
-    func configure(with event: Event) {
-        eventTitleLabel.text = event.name
-        if let image = UIImage(named: event.imageName) {
+    func configure(with event: Item) {
+        eventTitleLabel.text = event.app?.title
+        if let image = event.app?.color {
             eventImageView.image = image
         } else {
             // Fallback if the named image doesn't exist
