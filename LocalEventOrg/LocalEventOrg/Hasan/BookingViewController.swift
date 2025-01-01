@@ -57,8 +57,7 @@ class BookingViewController: UIViewController {
         contentView.addSubview(ticketStackView)
 
         // Dynamically Populate Tickets from App
-        if let tickets = app.price as? [String: Double] {
-            for (ticketType, ticketPrice) in tickets {
+        for (ticketType, ticketPrice) in app.price {
                 let ticketView = createTicketView(
                     type: ticketType,
                     price: "\(ticketPrice) BHD",
@@ -66,7 +65,7 @@ class BookingViewController: UIViewController {
                 )
                 ticketStackView.addArrangedSubview(ticketView)
             }
-        }
+        
 
         // Booking Button
         let bookingButton = UIButton()

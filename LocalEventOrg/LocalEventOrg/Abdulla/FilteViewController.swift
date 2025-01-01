@@ -14,7 +14,7 @@ class FilterViewController: UIViewController {
     var ratingSegmentedControl: UISegmentedControl!
 
     // Filter options
-    let categories = ["All","Comic", "Music", "Social", "Sports", "Gaming", "Festival", "Food", "Pop Culture", "Motor Sport"]
+    let categories = ["All", "Comic", "Music", "Social", "Sports", "Gaming", "Festival", "Food", "Pop Culture", "Motor Sport"]
     var selectedCategories: [String] = []
     var selectedPriceRange: ClosedRange<Float> = 0...100
     var selectedRating: Int = 3
@@ -102,8 +102,12 @@ class FilterViewController: UIViewController {
         ratingSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         ratingSegmentedControl.addTarget(self, action: #selector(ratingChanged), for: .valueChanged)
         stackView.addArrangedSubview(ratingSegmentedControl)
-
         
+        // Buttons
+        setupButtons(stackView: stackView)
+    }
+    
+    private func setupButtons(stackView: UIStackView) {
         // Apply Button
         let applyButton = UIButton(type: .system)
         applyButton.setTitle("Apply Filters", for: .normal)
@@ -113,6 +117,16 @@ class FilterViewController: UIViewController {
         applyButton.layer.cornerRadius = 8
         applyButton.addTarget(self, action: #selector(applyFilters), for: .touchUpInside)
         stackView.addArrangedSubview(applyButton)
+
+        // Reset Button
+        let resetButton = UIButton(type: .system)
+        resetButton.setTitle("Reset Filters", for: .normal)
+        resetButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        resetButton.backgroundColor = UIColor.systemGray
+        resetButton.setTitleColor(.white, for: .normal)
+        resetButton.layer.cornerRadius = 8
+        resetButton.addTarget(self, action: #selector(resetFilters), for: .touchUpInside)
+        stackView.addArrangedSubview(resetButton)
     }
 
     private func createSectionLabel(with text: String) -> UILabel {
@@ -134,27 +148,42 @@ class FilterViewController: UIViewController {
         selectedRating = ratingSegmentedControl.selectedSegmentIndex + 1
     }
     
-    @objc func popularityChanged() {
+    @objc func resetFilters() {
+        // Reset all filter values to default
+        selectedCategories = []
+        selectedPriceRange = 0...100
+        selectedRating = 3
+        
+        // Reset UI components
+        categoryPicker.selectRow(0, inComponent: 0, animated: true)
+        priceSlider.value = 50
+        if let priceValueLabel = view.viewWithTag(1001) as? UILabel {
+            priceValueLabel.text = "Up to: $50"
+        }
+        ratingSegmentedControl.selectedSegmentIndex = 2
+        
+        // Log reset action
+        print("Filters reset to default values.")
     }
     
     @objc func applyFilters() {
         let selectedCategory = categories[categoryPicker.selectedRow(inComponent: 0)]
-            
-            // Log the filters
-            print("Selected Filters:")
-            print("Category: \(selectedCategory)")
-            print("Price Range: \(selectedPriceRange)")
-            print("Rating: \(selectedRating)")
-            
-            // Notify the delegate
-            delegate?.applyFilters(
-                categories: [selectedCategory],
-                priceRange: selectedPriceRange,
-                rating: selectedRating
-            )
-            
-            // Dismiss the view controller
-            dismiss(animated: true, completion: nil)
+        
+        // Log the filters
+        print("Selected Filters:")
+        print("Category: \(selectedCategory)")
+        print("Price Range: \(selectedPriceRange)")
+        print("Rating: \(selectedRating)")
+        
+        // Notify the delegate
+        delegate?.applyFilters(
+            categories: [selectedCategory],
+            priceRange: selectedPriceRange,
+            rating: selectedRating
+        )
+        
+        // Dismiss the view controller
+        dismiss(animated: true, completion: nil)
     }
 }
 

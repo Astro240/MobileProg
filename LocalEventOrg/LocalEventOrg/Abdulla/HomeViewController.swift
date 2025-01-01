@@ -267,7 +267,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                        let location = eventDetails["Location"] as? String,
                        let rating = eventDetails["Rating"] as? Int,let date = eventDetails["Date"] as? String,
                        let eventCat = categories.first {
-
+                        var minAmm = 100.0
                         // Process tickets
                         var tickets: [String: Double] = [:]
                         if let ticketsData = eventDetails["Tickets"] as? [String: [String: Any]] {
@@ -275,6 +275,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                                 if let ticketName = ticketInfo["Name"] as? String,
                                    let ticketPrice = ticketInfo["Price"] as? Double {
                                     tickets[ticketName] = ticketPrice
+                                    if (ticketPrice <= minAmm){
+                                        minAmm = ticketPrice
+                                    }
                                 }
                             }
                         }
@@ -286,7 +289,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                         }
 
                         if self.arr.contains(eventCat) {
-                            Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date,desc: desc, eventcategories: categories, location: location, rating: rating)))
+                            Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date,desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
                             if lenNow < 2 && Item.promotedApps.count >= 3 {
                                 if let index = self.arr.firstIndex(of: eventCat) {
                                     self.arr.remove(at: index)
@@ -298,12 +301,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                             }
                         } else {
                             if Item.categoryEvents.keys.contains(eventCat) {
-                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating)))
+                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
                             }
                         }
 
-                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating)))
-                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating)))
+                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
+                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
                     }
                 }
                 completion(Item.categoryEvents)

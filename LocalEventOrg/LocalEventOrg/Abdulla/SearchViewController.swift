@@ -77,7 +77,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                        let desc = eventDetails["Description"] as? String,
                        let location = eventDetails["Location"] as? String, let date = eventDetails["Date"] as? String,
                        let rating = eventDetails["Rating"] as? Int {
-
+                        var minAmm = 100.0
                         // Process tickets
                         var tickets: [String: Double] = [:]
                         if let ticketsData = eventDetails["Tickets"] as? [String: [String: Any]] {
@@ -85,6 +85,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                                 if let ticketName = ticketInfo["Name"] as? String,
                                    let ticketPrice = ticketInfo["Price"] as? Double {
                                     tickets[ticketName] = ticketPrice
+                                    if(ticketPrice <= minAmm){
+                                        minAmm = ticketPrice
+                                    }
                                 }
                             }
                         }
@@ -105,7 +108,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                                     desc: desc,
                                     eventcategories: categories,
                                     location: location,
-                                    rating: rating
+                                    rating: rating,
+                                    leastPrice: minAmm
                                 )
                                 self.searchResults.append(app)
                                 self.filteredResults = self.searchResults // Initialize filtered results
@@ -183,7 +187,7 @@ extension SearchViewController: FilterViewControllerDelegate {
         
         // Apply the filters to the search results
         filteredResults = searchResults.filter { app in
-            guard let rating2 = app.rating else {
+            guard let rating2 = app.rating, let price = app.leastPrice else {
                 return false // Exclude items with missing price or rating
             }
             
@@ -194,9 +198,9 @@ extension SearchViewController: FilterViewControllerDelegate {
                 matchesCategory = categories.isEmpty || app.eventcategories.contains(where: categories.contains)
             }
             
-//            let matchesPrice = priceRange.contains(Float(price))
+            let matchesPrice = priceRange.contains(Float(price))
             let matchesRating = rating2 >= rating
-            return matchesCategory && matchesRating
+            return matchesCategory && matchesRating && matchesPrice
         }
         
         // Reload the table view with filtered results
