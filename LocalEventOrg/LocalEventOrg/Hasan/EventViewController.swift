@@ -259,6 +259,7 @@ class EventViewController: UIViewController {
 
    @objc func openReviewsPage() {
      let reviewsVC = ReviewsViewController()
+       reviewsVC.eventID = App?.eventID
        navigationController?.pushViewController(reviewsVC, animated: true)
    }
 }

@@ -7,6 +7,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class BookingViewController: UIViewController {
     var App: App? // Injected App object from EventViewController
@@ -19,7 +20,7 @@ class BookingViewController: UIViewController {
 
     func setupUI() {
         guard let app = App else { return }
-        
+
         view.backgroundColor = .white
 
         // Header Image
@@ -228,9 +229,29 @@ class BookingViewController: UIViewController {
     }
 
     @objc private func proceedToPayment() {
+        guard let app = App else {
+            print("App is nil, cannot proceed to payment")
+            return
+        }
+
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("User is not logged in")
+            return
+        }
+
+        guard let eventID = app.eventID else {
+            print("Event ID is missing")
+            return
+        }
+
         let summaryViewController = SummaryViewController()
         summaryViewController.App = App
         summaryViewController.selectedTickets = selectedTickets
+
+        // Pass userID and eventID to the SummaryViewController
+        summaryViewController.userID = userID
+        summaryViewController.eventID = eventID
+
         navigationController?.pushViewController(summaryViewController, animated: true)
     }
 }

@@ -166,9 +166,28 @@ extension EventsViewController: UITableViewDelegate {
                    didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             print("Tapped upcoming event: \(upcomingEvents[indexPath.row].app?.title ?? "idk")")
+            let confirmationVC = BookingConfirmationViewController()
+            confirmationVC.App = upcomingEvents[indexPath.row].app
+            //confirmationVC.selectedTickets = self.selectedTickets
+           
+
+            if let navigationController = self.navigationController {
+                navigationController.pushViewController(confirmationVC, animated: true)
+            } else {
+                self.present(confirmationVC, animated: true, completion: nil)
+            }
         } else {
             print("Tapped past event: \(pastEvents[indexPath.row].app?.title ?? "idk")")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    // MARK: - Lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Reload events every time the tab is shown
+        loadEvents()
+    }
+
 }

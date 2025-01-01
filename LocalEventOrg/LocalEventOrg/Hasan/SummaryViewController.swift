@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SummaryViewController: UIViewController {
     var App: App? // Injected App object from BookingViewController
     var selectedTickets: [String: Int] = [:]
+    var userID: String? // Injected UserID
+    var eventID: String? // Injected EventID
     private var paymentOverlayView: UIView?
     private var cardNumberField: UITextField!
     private var nameField: UITextField!
@@ -287,6 +290,11 @@ class SummaryViewController: UIViewController {
         // If all validations pass, proceed with the payment
         let alert = UIAlertController(title: "Payment Successful", message: "Your payment was processed successfully.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            // Save booking data to Firebase
+            if let confirmedEventID = self.eventID, let confirmedUserID = self.userID {
+                self.addBookingWithUUID(eventID: confirmedEventID, userID: confirmedUserID)
+            }
+
             // Navigate to the confirmation screen or dismiss the overlay
             self.closePaymentOverlay()
 
@@ -294,6 +302,9 @@ class SummaryViewController: UIViewController {
             let confirmationVC = BookingConfirmationViewController()
             confirmationVC.App = self.App
             confirmationVC.selectedTickets = self.selectedTickets
+            confirmationVC.userID = self.userID // Pass UserID
+            confirmationVC.eventID = self.eventID // Pass EventID
+
             if let navigationController = self.navigationController {
                 navigationController.pushViewController(confirmationVC, animated: true)
             } else {
@@ -301,6 +312,29 @@ class SummaryViewController: UIViewController {
             }
         }))
         present(alert, animated: true, completion: nil)
+    }
+
+    private func addBookingWithUUID(eventID: String, userID: String) {
+        // Reference to the Firebase Realtime Database
+        let databaseRef = Database.database().reference()
+
+        // Generate a unique UUID for the booking
+        let bookingUUID = UUID().uuidString
+
+        // Booking data
+        let bookingData: [String: Any] = [
+            "EventID": eventID,
+            "UserID": userID
+        ]
+
+        // Save booking data under the Booking node with UUID
+        databaseRef.child("Booking").child(bookingUUID).setValue(bookingData) { error, _ in
+            if let error = error {
+                print("Error saving booking: \(error.localizedDescription)")
+            } else {
+                print("Booking successfully added with UUID: \(bookingUUID)")
+            }
+        }
     }
 
     private func createTextField(placeholder: String) -> UITextField {
@@ -329,7 +363,7 @@ class SummaryViewController: UIViewController {
 
     private func isValidExpiryDate(_ expiryDate: String) -> Bool {
         let trimmed = expiryDate.trimmingCharacters(in: .whitespacesAndNewlines)
-        let regex = #"^(0[1-9]|1[0-2])\/\d{4}$"#
+        let regex = #"^(0[1-9]|1[0-2])/\d{4}$"#
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: trimmed)
     }
 

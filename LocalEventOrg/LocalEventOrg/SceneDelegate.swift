@@ -1,84 +1,109 @@
-//
-//  SceneDelegate.swift
-//  LocalEventOrg
-//
-//  Created by BP-36-201-06 on 25/11/2024.
-//
-
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        
-        if Auth.auth().currentUser != nil {
-                    SceneDelegate.showHome()
+
+        // Check if the user is already authenticated
+        if let currentUser = Auth.auth().currentUser {
+            let ref = Database.database().reference()
+            ref.child("Users").child(currentUser.uid).observeSingleEvent(of: .value) { snapshot in
+                guard let userData = snapshot.value as? [String: Any],
+                      let roleName = userData["Role"] as? String else {
+                    print("Error: Unable to fetch user role")
+                    SceneDelegate.showLogin() // Show login if unable to determine role
+                    return
                 }
+                
+                // Navigate based on Role
+                switch roleName {
+                case "User":
+                    print("Logged in successfully as User!")
+                    SceneDelegate.showHome()
+                case "Organizer":
+                    print("Logged in successfully as Organizer!")
+                    SceneDelegate.showEvHome()
+                case "Administrator":
+                    print("Logged in successfully as Administrator!")
+                    SceneDelegate.showAdminHome()
+                default:
+                    print("Error: Unknown role")
+                    SceneDelegate.showLogin()
+                }
+            } withCancel: { error in
+                print("Database error: \(error.localizedDescription)")
+                SceneDelegate.showLogin() // Fall back to login on error
+            }
+        } else {
+            // No user is logged in, show the login screen
+            SceneDelegate.showLogin()
+        }
     }
-    static func showLogin(){
-            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
-            let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            sceneDelegate.window?.rootViewController = vc
-            sceneDelegate.window?.makeKeyAndVisible()
-        }
-        static func showInterests(){
-            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
-            let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "InterestsViewController")
-            sceneDelegate.window?.rootViewController = vc
-            sceneDelegate.window?.makeKeyAndVisible()
-        }
-        
-        static func showHome(){
-            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBar")
-            sceneDelegate.window?.rootViewController = vc
-            sceneDelegate.window?.makeKeyAndVisible()
-        }
-        static func showEvHome(){
-            let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "EvOrgTab")
-            sceneDelegate.window?.rootViewController = vc
-            sceneDelegate.window?.makeKeyAndVisible()
-        }
+
+    // Static method to show login screen
+    static func showLogin() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+
+    // Static method to show interests screen
+    static func showInterests() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Alhasan - Login", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InterestsViewController")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+
+    // Static method to show home screen for users
+    static func showHome() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBar")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+
+    // Static method to show home screen for event organizers
+    static func showEvHome() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "EvOrgTab")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+    static func showAdminHome() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "adminTab")
+        sceneDelegate.window?.rootViewController = vc
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        // Clean up resources as needed when the scene disconnects
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        // Restart paused tasks
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
+        // Pause ongoing tasks
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        // Restore state as the app enters the foreground
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
+        // Save state as the app enters the background
     }
-
-
 }
-

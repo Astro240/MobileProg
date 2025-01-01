@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ReviewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,17 +20,19 @@ class ReviewsViewController: UIViewController, UITableViewDelegate, UITableViewD
     private let tableView = UITableView()
     
     // Data
-    private var reviews: [(name: String, text: String, rating: Int)] = []
+    private var reviews: [(text: String, rating: Int)] = []
     private var currentRating = 0
+    private let db = Database.database().reference()
+    var eventID: String! // Event ID for filtering reviews
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         title = "Reviews"
         setupUI()
         setupConstraints()
         configureTableView()
+        fetchReviews()
     }
     
     private func setupUI() {
@@ -146,9 +149,28 @@ class ReviewsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc private func submitReview() {
-        guard !reviewTextView.text.isEmpty else { return }
-        reviews.append((name: "User", text: reviewTextView.text, rating: currentRating))
-        tableView.reloadData()
+        guard let eventID = eventID, !reviewTextView.text.isEmpty else {
+            print("Event ID or review text is missing.")
+            return
+        }
+        
+        let newReviewID = UUID().uuidString
+        let newReview: [String: Any] = [
+            "EventID": eventID,
+            "review": reviewTextView.text ?? "",
+            "reviewID": newReviewID,
+            "starCount": currentRating
+        ]
+        
+        db.child("Reviews").child(newReviewID).setValue(newReview) { [weak self] error, _ in
+            if let error = error {
+                print("Error adding review: \(error)")
+            } else {
+                print("Review added successfully")
+                self?.fetchReviews()
+            }
+        }
+        
         reviewTextView.text = ""
         currentRating = 0
         for button in starButtons {
@@ -156,7 +178,28 @@ class ReviewsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    // TableView DataSource
+    private func fetchReviews() {
+        guard let eventID = eventID else { return }
+        
+        db.child("Reviews").observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let value = snapshot.value as? [String: [String: Any]] else { return }
+            
+            self?.reviews = value.values.compactMap { data in
+                guard let fetchedEventID = data["EventID"] as? String,
+                      fetchedEventID == eventID,
+                      let text = data["review"] as? String,
+                      let rating = data["starCount"] as? Int else {
+                    return nil
+                }
+                return (text: text, rating: rating)
+            }
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviews.count
     }
@@ -164,7 +207,7 @@ class ReviewsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)
         let review = reviews[indexPath.row]
-        cell.textLabel?.text = "\(review.name): \(review.text) - \(String(repeating: "★", count: review.rating))"
+        cell.textLabel?.text = "\(review.text) - \(String(repeating: "★", count: review.rating))"
         cell.textLabel?.numberOfLines = 0
         return cell
     }

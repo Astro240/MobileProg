@@ -8,8 +8,10 @@
 import UIKit
 
 class BookingConfirmationViewController: UIViewController {
-    var App: App? // Injected App object from BookingViewController
-    var selectedTickets: [String: Int] = [:]
+    var App: App? // Injected App object
+    var selectedTickets: [String: Int] = [:] // Injected ticket details
+    var userID: String? // Injected user ID
+    var eventID: String? // Injected event ID
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,9 @@ class BookingConfirmationViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
+        
+
+           
 
         // Summary Label
         let summaryLabel = UILabel()
@@ -52,7 +57,7 @@ class BookingConfirmationViewController: UIViewController {
         summaryLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(summaryLabel)
 
-        // Stack View for Details
+        // Stack View for Ticket Details
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -74,7 +79,7 @@ class BookingConfirmationViewController: UIViewController {
             detailLine.textColor = .black
 
             let priceLabel = UILabel()
-            priceLabel.text = String(format: "%.3f", totalPrice)
+            priceLabel.text = String(format: "%.3f BHD", totalPrice)
             priceLabel.font = UIFont.systemFont(ofSize: 16)
             priceLabel.textColor = .black
 
@@ -86,7 +91,7 @@ class BookingConfirmationViewController: UIViewController {
 
         // Subtotal Label
         let subtotalLabel = UILabel()
-        subtotalLabel.text = String(format: "Total: %.3f BHD", subtotal)
+        subtotalLabel.text = String(format: "Total Paid: %.3f BHD", subtotal)
         subtotalLabel.font = UIFont.boldSystemFont(ofSize: 16)
         stackView.addArrangedSubview(subtotalLabel)
 
@@ -117,7 +122,7 @@ class BookingConfirmationViewController: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
 
-            summaryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            summaryLabel.topAnchor.constraint(equalTo: (userID != nil && eventID != nil ? titleLabel.bottomAnchor : summaryLabel.bottomAnchor), constant: 20),
             summaryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
 
             stackView.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: 10),
@@ -132,6 +137,19 @@ class BookingConfirmationViewController: UIViewController {
     }
 
     @objc func doneButtonTapped() {
-        self.dismiss(animated: true, completion: nil)
+        if let navigationController = navigationController {
+            // If this view controller is part of a navigation stack
+            navigationController.popToRootViewController(animated: true)
+        } else {
+            // Replace the root view controller
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let window = windowScene.windows.first else { return }
+
+            let homeViewController = HomeViewController() // Replace with actual home view controller setup
+            window.rootViewController = UINavigationController(rootViewController: homeViewController)
+            window.makeKeyAndVisible()
+        }
     }
+
+
 }

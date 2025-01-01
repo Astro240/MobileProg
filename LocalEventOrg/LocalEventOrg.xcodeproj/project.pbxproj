@@ -30,6 +30,9 @@
 		72AA37B22D12FFDA00B73B10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */; };
 		9C187F372D16F1E9008D4C32 /* Cloudinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C187F362D16F1E9008D4C32 /* Cloudinary.swift */; };
 		9C187F3C2D17034E008D4C32 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C187F3B2D17034E008D4C32 /* Database.swift */; };
+		9C5BEAB32D25D67F00D1B896 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5BEAB22D25D67F00D1B896 /* AdminHomeViewController.swift */; };
+		9C5BEAB72D25D6CA00D1B896 /* ViewControllerCalendar 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5BEAB62D25D6CA00D1B896 /* ViewControllerCalendar 2.swift */; };
+		9C5BEABB2D25D75E00D1B896 /* AdminFeatures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C5BEABA2D25D75E00D1B896 /* AdminFeatures.storyboard */; };
 		C311E6302D1D5C8300D5FE4E /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = C311E62F2D1D5C8300D5FE4E /* Cloudinary */; };
 		C311E6322D1D5CE100D5FE4E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C311E6312D1D5CE100D5FE4E /* FirebaseAnalytics */; };
 		C311E6342D1D5CE100D5FE4E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C311E6332D1D5CE100D5FE4E /* FirebaseAuth */; };
@@ -77,7 +80,6 @@
 		E4B989392D200E4200B98EAB /* Alhasan - profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4B989382D200E4200B98EAB /* Alhasan - profile.storyboard */; };
 		E4B9893B2D200F6E00B98EAB /* Gradientimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9893A2D200F6E00B98EAB /* Gradientimage.swift */; };
 		E4B9893D2D200F8C00B98EAB /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9893C2D200F8C00B98EAB /* Gradient.swift */; };
-		E4B9894B2D20205B00B98EAB /* ViewControllerCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B9894A2D20205B00B98EAB /* ViewControllerCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,9 @@
 		72AA37B12D12FFD900B73B10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C187F362D16F1E9008D4C32 /* Cloudinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudinary.swift; sourceTree = "<group>"; };
 		9C187F3B2D17034E008D4C32 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		9C5BEAB22D25D67F00D1B896 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		9C5BEAB62D25D6CA00D1B896 /* ViewControllerCalendar 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerCalendar 2.swift"; sourceTree = "<group>"; };
+		9C5BEABA2D25D75E00D1B896 /* AdminFeatures.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminFeatures.storyboard; sourceTree = "<group>"; };
 		C311E6372D1D87B800D5FE4E /* LocalEventOrg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalEventOrg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C311E6382D1D905700D5FE4E /* LocalEventOrgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C311E6392D1D905700D5FE4E /* LocalEventOrgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalEventOrgUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +174,6 @@
 		E4B989382D200E4200B98EAB /* Alhasan - profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Alhasan - profile.storyboard"; sourceTree = "<group>"; };
 		E4B9893A2D200F6E00B98EAB /* Gradientimage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradientimage.swift; sourceTree = "<group>"; };
 		E4B9893C2D200F8C00B98EAB /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		E4B9894A2D20205B00B98EAB /* ViewControllerCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCalendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,10 +355,12 @@
 		C31B51F32D0F14AA00DD4B82 /* Mohammed */ = {
 			isa = PBXGroup;
 			children = (
+				9C5BEAB62D25D6CA00D1B896 /* ViewControllerCalendar 2.swift */,
+				9C5BEABA2D25D75E00D1B896 /* AdminFeatures.storyboard */,
+				9C5BEAB22D25D67F00D1B896 /* AdminHomeViewController.swift */,
 				E4473A742D206BC400BB0D2F /* CalendarCell.swift */,
 				E4473A722D206BBF00BB0D2F /* CalendarHelper.swift */,
 				E4473A702D206BB800BB0D2F /* Mohammed.storyboard */,
-				E4B9894A2D20205B00B98EAB /* ViewControllerCalendar.swift */,
 			);
 			path = Mohammed;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 				57D339782D01A57D00429D94 /* Abdulla - Home.storyboard in Resources */,
 				E4473A712D206BB800BB0D2F /* Mohammed.storyboard in Resources */,
 				C31B51EE2D0F147700DD4B82 /* Alhasan - Login.storyboard in Resources */,
+				9C5BEABB2D25D75E00D1B896 /* AdminFeatures.storyboard in Resources */,
 				E4473A772D206CE800BB0D2F /* Event.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +552,7 @@
 				C31B51D82D0F0E3200DD4B82 /* CategoryCollectionViewCell.swift in Sources */,
 				DDB819E32D255C0B00797480 /* ReviewViewController.swift in Sources */,
 				E4B989352D200E3800B98EAB /* LogOutTableViewController.swift in Sources */,
+				9C5BEAB72D25D6CA00D1B896 /* ViewControllerCalendar 2.swift in Sources */,
 				57CDC98C2D06ECF400BD3444 /* HomePageStructs.swift in Sources */,
 				C31B51DE2D0F0EC200DD4B82 /* SectionHeaderView.swift in Sources */,
 				5796866F2CF47BE000495313 /* AppDelegate.swift in Sources */,
@@ -557,7 +565,6 @@
 				E4473A6F2D206B6D00BB0D2F /* SaveAccountTableViewController.swift in Sources */,
 				E4473A6D2D206B5700BB0D2F /* SaveAlertViewController.swift in Sources */,
 				C31B51E52D0F125100DD4B82 /* BadgeCollectionViewCell.swift in Sources */,
-				E4B9894B2D20205B00B98EAB /* ViewControllerCalendar.swift in Sources */,
 				E47AAA242D20583500AC654B /* TicketsViewController.swift in Sources */,
 				E4473A732D206BBF00BB0D2F /* CalendarHelper.swift in Sources */,
 				C31B51E32D0F124900DD4B82 /* Badge.swift in Sources */,
@@ -569,6 +576,7 @@
 				E47AAA262D20583500AC654B /* ActivityTableViewCell.swift in Sources */,
 				E4B9892F2D200E2100B98EAB /* SignupViewController.swift in Sources */,
 				DDB819E52D2571E600797480 /* BookingConfirmationViewController.swift in Sources */,
+				9C5BEAB32D25D67F00D1B896 /* AdminHomeViewController.swift in Sources */,
 				66D026882D215ABC00B30285 /* BookingViewController.swift in Sources */,
 				E4473A6B2D206B4500BB0D2F /* SaveInterestsViewController.swift in Sources */,
 				7214FA092D05F3AE00C1A5AA /* Item.swift in Sources */,
