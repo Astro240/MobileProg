@@ -27,7 +27,6 @@ func populateInterests(id: String, completion: @escaping ([String]) -> Void) {
         if snapshot.exists() {
             // User exists, proceed with your logic (e.g., populating interests)
             let userData = snapshot.value as? [String: Any]
-            
             if let interest1 = userData?["Interest1"] as? Int, interest1 == 1 {
                 arr.append("Comic")
             }
@@ -59,7 +58,6 @@ func populateInterests(id: String, completion: @escaping ([String]) -> Void) {
             // User doesn't exist in the database
             print("User does not exist with id: \(id)")
         }
-        
         // Call the completion handler once the data is fetched
         completion(arr)
         

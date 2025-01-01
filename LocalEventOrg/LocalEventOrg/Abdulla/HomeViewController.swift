@@ -2,7 +2,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabaseInternal
 
-class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBarDelegate {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UISearchBarDelegate {
     
     // MARK: Section Definitions
     enum Section: Hashable {
@@ -23,21 +23,24 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
     
     var sections = [Section]()
     var searchController: UISearchController!
-    var arr : [String] = []
+    var arr: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let id = Auth.auth().currentUser?.uid else{
+        
+        guard let id = Auth.auth().currentUser?.uid else {
             return
         }
+        
         populateInterests(id: id) { interests in
             // This closure will be called when the Firebase query is completed
             if !interests.isEmpty {
                 self.arr = interests
-                // You can now use the `interests` array (e.g., populate UI or perform further operations)
             } else {
                 print("No interests found for the user.")
             }
         }
+        
         searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Events"
@@ -46,36 +49,38 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         searchController.searchBar.delegate = self // Set delegate
+        
         // MARK: Collection View Setup
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
         collectionView.delegate = self
         setupBottomButton()
-
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let section = sections[indexPath.section]
-            let itemID = dataSource.itemIdentifier(for: indexPath)
-            
-            switch section {
-            case .promoted:
-                if let app = Item.promotedApps.first(where: { $0.id == itemID })?.app {
-                    handleItemTap(app)
-                }
-            case .standard:
-                var apps = Item.essentialApps + Item.popularApps
-                for item in Item.categoryEvents {
-                    apps += item.value
-                }
-                if let app = apps.first(where: { $0.id == itemID })?.app {
-                    handleItemTap(app)
-                }
-            case .categories:
-                if let category = Item.categories.first(where: { $0.id == itemID })?.category {
-                    handleCategoryTap(category)
-                }
+        let section = sections[indexPath.section]
+        let itemID = dataSource.itemIdentifier(for: indexPath)
+        
+        switch section {
+        case .promoted:
+            if let app = Item.promotedApps.first(where: { $0.id == itemID })?.app {
+                handleItemTap(app)
+            }
+        case .standard:
+            var apps = Item.essentialApps + Item.popularApps
+            for item in Item.categoryEvents {
+                apps += item.value
+            }
+            if let app = apps.first(where: { $0.id == itemID })?.app {
+                handleItemTap(app)
+            }
+        case .categories:
+            if let category = Item.categories.first(where: { $0.id == itemID })?.category {
+                handleCategoryTap(category)
             }
         }
+    }
+    
     func handleItemTap(_ app: App) {
         let eventViewController = EventViewController()
         eventViewController.App = app // Pass the App object to the EventViewController
@@ -86,7 +91,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
 
     func handleCategoryTap(_ category: StoreCategory) {
         guard let query = category.name, !query.isEmpty else {
-            return }
+            return
+        }
         
         // Navigate to a new view controller
         let searchResultsVC = SearchViewController() // Replace with your destination view controller
@@ -94,6 +100,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         Item.Search = []
         navigationController?.pushViewController(searchResultsVC, animated: true)
     }
+    
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             
@@ -140,14 +147,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
                 section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 20, trailing: 16)
                 
                 return section
-
-
             }
         }
         return layout
     }
 
-    
     func configureDataSource() {
         // MARK: Data Source Initialization
         let promotedAppCellRegistration = UICollectionView.CellRegistration<PromotedAppCollectionViewCell, Item.ID> { cell, indexPath, itemIdentifier in
@@ -166,6 +170,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             guard let item = Item.categories.first(where: { $0.id == itemIdentifier }) else { return }
             cell.configureCell(item.category!, hideBottomLine: false)
         }
+        
         dataSource = .init(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier -> UICollectionViewCell? in
             let section = self.sections[indexPath.section]
             switch section {
@@ -193,6 +198,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             }
             headerView.setTitle(sectionName)
         }
+        
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath -> UICollectionReusableView? in
             guard self != nil else { return nil }
             if kind == SupplementaryViewKind.header {
@@ -200,8 +206,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             }
             return nil
         }
+        
         // MARK: Snapshot Definition
-         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item.ID>()
         snapshot.appendSections([.categories])
         snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
@@ -210,7 +216,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
             for (category, items) in Item.categoryEvents {
-                if !items.isEmpty{
+                if !items.isEmpty {
                     let popularSection = Section.standard(category)
                     snapshot.appendSections([popularSection]) // Append the section first
                     snapshot.appendItems(items.map(\.id), toSection: popularSection)
@@ -220,13 +226,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             // After populating, append the promoted apps to the snapshot
             snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
 
-            // Append categories section
-            
-
             // Update the sections and apply the snapshot
             self.sections = snapshot.sectionIdentifiers
             self.dataSource.apply(snapshot)
         }
+        
         self.updateSnapshot() // Update the collection view
     }
     
@@ -236,100 +240,119 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         snapshot.appendSections([.promoted])
         snapshot.appendItems(Item.promotedApps.map(\.id), toSection: .promoted)
         
-        
         snapshot.appendSections([.categories])
         snapshot.appendItems(Item.categories.map(\.id), toSection: .categories)
+        
         populateEvents { categoryEvents in
             // Loop through the category events and append them to the snapshot
             for (category, items) in Item.categoryEvents {
-                if !items.isEmpty{
+                if !items.isEmpty {
                     let popularSection = Section.standard(category)
                     snapshot.appendSections([popularSection]) // Append the section first
                     snapshot.appendItems(items.map(\.id), toSection: popularSection)
                 }
             }
         }
+        
         sections = snapshot.sectionIdentifiers
         dataSource.apply(snapshot)
     }
 
     func populateEvents(completion: @escaping ([String: [Item]]) -> Void) {
         let ref = Database.database().reference()
-        let lenNow = self.arr.count
-        ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
-            if let eventsDict = snapshot.value as? [String: Any] {
-                for (_, eventData) in eventsDict {
-                    if let eventDetails = eventData as? [String: Any],
-                       let eventName = eventDetails["Name"] as? String,
-                       let eventImageURL = eventDetails["Image"] as? String,
-                       let categories = eventDetails["Categories"] as? [String],
-                       let desc = eventDetails["Description"] as? String,
-                       let location = eventDetails["Location"] as? String,
-                       let rating = eventDetails["Rating"] as? Int,let date = eventDetails["Date"] as? String,
-                       let eventCat = categories.first {
-                        var minAmm = 100.0
-                        // Process tickets
-                        var tickets: [String: Double] = [:]
-                        if let ticketsData = eventDetails["Tickets"] as? [String: [String: Any]] {
-                            for (_, ticketInfo) in ticketsData {
-                                if let ticketName = ticketInfo["Name"] as? String,
-                                   let ticketPrice = ticketInfo["Price"] as? Double {
-                                    tickets[ticketName] = ticketPrice
-                                    if (ticketPrice <= minAmm){
-                                        minAmm = ticketPrice
+        guard let id = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        populateInterests(id: id) { interests in
+            if !interests.isEmpty {
+                self.arr = interests
+                print("Interests updated: \(self.arr)")
+            } else {
+                print("No interests found for the user.")
+            }
+
+            // Now that self.arr is populated, you can check its length
+            let lenNow = self.arr.count
+            print("Number of interests: \(lenNow)")
+
+            ref.child("Events").observeSingleEvent(of: .value, with: { snapshot in
+                if let eventsDict = snapshot.value as? [String: Any] {
+                    for (_, eventData) in eventsDict {
+                        if let eventDetails = eventData as? [String: Any],
+                           let eventName = eventDetails["Name"] as? String,
+                           let eventImageURL = eventDetails["Image"] as? String,
+                           let categories = eventDetails["Categories"] as? [String],
+                           let desc = eventDetails["Description"] as? String,
+                           let location = eventDetails["Location"] as? String,
+                           let rating = eventDetails["Rating"] as? Int, let date = eventDetails["Date"] as? String,
+                           let eventCat = categories.first {
+                            
+                            var minAmm = 100.0
+                            // Process tickets
+                            var tickets: [String: Double] = [:]
+                            if let ticketsData = eventDetails["Tickets"] as? [String: [String: Any]] {
+                                for (_, ticketInfo) in ticketsData {
+                                    if let ticketName = ticketInfo["Name"] as? String,
+                                       let ticketPrice = ticketInfo["Price"] as? Double {
+                                        tickets[ticketName] = ticketPrice
+                                        if (ticketPrice <= minAmm) {
+                                            minAmm = ticketPrice
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        // Fetch and process image
-                        guard let img: UIImage = GetImage(string: eventImageURL) else {
-                            print("Failed to load image for event: \(eventName)")
-                            continue
-                        }
-
-                        if self.arr.contains(eventCat) {
-                            Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date,desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
-                            if lenNow < 2 && Item.promotedApps.count >= 3 {
-                                if let index = self.arr.firstIndex(of: eventCat) {
-                                    self.arr.remove(at: index)
+                            // Fetch and process image
+                            guard let img: UIImage = GetImage(string: eventImageURL) else {
+                                print("Failed to load image for event: \(eventName)")
+                                continue
+                            }
+                            
+                            if self.arr.contains(eventCat) {
+                                Item.promotedApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
+                                
+                                if lenNow < 2 && Item.promotedApps.count >= 3 {
+                                    if let index = self.arr.firstIndex(of: eventCat) {
+                                        self.arr.remove(at: index)
+                                    }
+                                } else if lenNow >= 2 {
+                                    if let index = self.arr.firstIndex(of: eventCat) {
+                                        self.arr.remove(at: index)
+                                    }
                                 }
-                            } else if lenNow >= 2 {
-                                if let index = self.arr.firstIndex(of: eventCat) {
-                                    self.arr.remove(at: index)
+                            } else {
+                                if Item.categoryEvents.keys.contains(eventCat) {
+                                    Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
                                 }
                             }
-                        } else {
-                            if Item.categoryEvents.keys.contains(eventCat) {
-                                Item.categoryEvents[eventCat]?.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
-                            }
-                        }
 
-                        Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
-                        Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img,date: date, desc: desc, eventcategories: categories, location: location, rating: rating,leastPrice: minAmm)))
+                            Item.popularApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
+                            Item.essentialApps.append(.app(App(promotedHeadline: "", title: eventName, subtitle: "", price: tickets, color: img, date: date, desc: desc, eventcategories: categories, location: location, rating: rating, leastPrice: minAmm)))
+                        }
                     }
+                    completion(Item.categoryEvents)
+                } else {
+                    print("No data found")
+                    completion(Item.categoryEvents)
                 }
+            }, withCancel: { error in
+                print("Error fetching data: \(error.localizedDescription)")
                 completion(Item.categoryEvents)
-            } else {
-                print("No data found")
-                completion(Item.categoryEvents)
-            }
-        }, withCancel: { error in
-            print("Error fetching data: \(error.localizedDescription)")
-            completion(Item.categoryEvents)
-        })
+            })
+        }
     }
 
-
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            guard let query = searchBar.text, !query.isEmpty else { return }
-            
-            // Navigate to a new view controller
-            let searchResultsVC = SearchViewController() // Replace with your destination view controller
-            searchResultsVC.searchQuery = query // Pass the search query to the next view controller
-            Item.Search = []
-            navigationController?.pushViewController(searchResultsVC, animated: true)
-        }
+        guard let query = searchBar.text, !query.isEmpty else { return }
+        
+        // Navigate to a new view controller
+        let searchResultsVC = SearchViewController() // Replace with your destination view controller
+        searchResultsVC.searchQuery = query // Pass the search query to the next view controller
+        Item.Search = []
+        navigationController?.pushViewController(searchResultsVC, animated: true)
+    }
+    
     func setupBottomButton() {
         let bottomButton = UIButton(type: .system) // Create a UIButton
         bottomButton.setTitle("Feeling Adventurous?", for: .normal) // Set the button title
@@ -368,15 +391,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             bottomButton.heightAnchor.constraint(equalToConstant: 50) // Set button height
         ])
     }
+
     @objc func bottomButtonTapped() {
         guard !Item.popularApps.isEmpty else {
-                print("No apps available in Item.popularApps")
-                return
-            }
+            print("No apps available in Item.popularApps")
+            return
+        }
 
-            // Generate a random index
-            let randomIndex = Int.random(in: 0..<Item.popularApps.count)
-            // Retrieve the item at the random index
+        // Generate a random index
+        let randomIndex = Int.random(in: 0..<Item.popularApps.count)
+        // Retrieve the item at the random index
         let randomApp = Item.popularApps[randomIndex]
 
         let eventViewController = EventViewController()
