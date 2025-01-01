@@ -50,6 +50,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
         collectionView.delegate = self
+        setupBottomButton()
+
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let section = sections[indexPath.section]
@@ -325,4 +327,58 @@ class HomeViewController: UIViewController, UICollectionViewDelegate,UISearchBar
             Item.Search = []
             navigationController?.pushViewController(searchResultsVC, animated: true)
         }
+    func setupBottomButton() {
+        let bottomButton = UIButton(type: .system) // Create a UIButton
+        bottomButton.setTitle("Feeling Adventurous?", for: .normal) // Set the button title
+        bottomButton.setTitleColor(.white, for: .normal) // Set the title color
+        bottomButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18) // Set bold font style
+
+        // Apply rounded corners
+        bottomButton.layer.cornerRadius = 25
+        bottomButton.clipsToBounds = true
+
+        // Add gradient background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemBlue.cgColor, UIColor.systemTeal.cgColor] // Gradient colors
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 50)
+        gradientLayer.cornerRadius = 25
+        bottomButton.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Add shadow
+        bottomButton.layer.shadowColor = UIColor.black.cgColor
+        bottomButton.layer.shadowOpacity = 0.3
+        bottomButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        bottomButton.layer.shadowRadius = 5
+
+        bottomButton.addTarget(self, action: #selector(bottomButtonTapped), for: .touchUpInside) // Add action for tap
+
+        bottomButton.translatesAutoresizingMaskIntoConstraints = false // Use Auto Layout
+        view.addSubview(bottomButton)
+
+        // Set constraints
+        NSLayoutConstraint.activate([
+            bottomButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16), // Add padding from the left
+            bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16), // Add padding from the right
+            bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16), // Add padding from the bottom
+            bottomButton.heightAnchor.constraint(equalToConstant: 50) // Set button height
+        ])
+    }
+    @objc func bottomButtonTapped() {
+        guard !Item.popularApps.isEmpty else {
+                print("No apps available in Item.popularApps")
+                return
+            }
+
+            // Generate a random index
+            let randomIndex = Int.random(in: 0..<Item.popularApps.count)
+            // Retrieve the item at the random index
+        let randomApp = Item.popularApps[randomIndex]
+
+        let eventViewController = EventViewController()
+        eventViewController.App = randomApp.app // Pass the App object to the EventViewController
+
+        navigationController?.pushViewController(eventViewController, animated: true)
+    }
 }
